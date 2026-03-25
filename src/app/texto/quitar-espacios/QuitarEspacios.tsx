@@ -16,7 +16,23 @@ export default function QuitarEspacios() {
         onChange={(e) => setText(e.target.value)}
       />
       <div>
-        <p className="text-sm text-gray-500 mb-1">Resultado:</p>
+        <div className="flex items-center justify-between mb-1">
+          <p className="text-sm text-gray-500">Resultado:</p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => navigator.clipboard.writeText(result)}
+              className="px-3 py-1.5 text-sm border rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              Copiar
+            </button>
+            <button
+              onClick={() => setText("")}
+              className="px-3 py-1.5 text-sm border rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              Limpiar
+            </button>
+          </div>
+        </div>
         <div className="w-full border rounded-lg p-3 min-h-12 bg-gray-50 text-gray-800 whitespace-pre-wrap break-words">
           {result}
         </div>

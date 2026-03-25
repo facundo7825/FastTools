@@ -13,9 +13,25 @@ export default function ContadorCaracteres() {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <p className="text-gray-700">
-        Caracteres: <span className="font-bold">{text.length}</span>
-      </p>
+      <div className="flex items-center justify-between">
+        <p className="text-gray-700">
+          Caracteres: <span className="font-bold">{text.length}</span>
+        </p>
+        <div className="flex gap-2">
+          <button
+            onClick={() => navigator.clipboard.writeText(text)}
+            className="px-3 py-1.5 text-sm border rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            Copiar
+          </button>
+          <button
+            onClick={() => setText("")}
+            className="px-3 py-1.5 text-sm border rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            Limpiar
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
