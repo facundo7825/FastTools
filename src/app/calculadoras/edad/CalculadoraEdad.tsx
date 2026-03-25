@@ -34,11 +34,14 @@ export default function CalculadoraEdad() {
         onChange={(e) => setBirthdate(e.target.value)}
       />
       {result !== null && (
-        <p className="text-gray-700">
-          Tienes <span className="font-bold">{result.years} años</span>,{" "}
-          <span className="font-bold">{result.months} meses</span> y{" "}
-          <span className="font-bold">{result.days} días</span>
-        </p>
+        <div>
+          <p className="text-sm font-medium text-gray-500 mb-2">Resultado:</p>
+          <div className="border rounded-xl p-4 bg-gray-50 text-gray-800 text-sm leading-relaxed">
+            Tienes <span className="font-bold">{result.years} años</span>,{" "}
+            <span className="font-bold">{result.months} meses</span> y{" "}
+            <span className="font-bold">{result.days} días</span>
+          </div>
+        </div>
       )}
     </div>
   );

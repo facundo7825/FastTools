@@ -36,11 +36,11 @@ export default function ReglaDeTres() {
           value={c}
           onChange={(e) => setC(e.target.value)}
         />
-        <div className="border rounded-lg p-3 w-full bg-gray-50 text-gray-800 font-bold text-center">
+        <div className="border rounded-xl p-3 w-full bg-gray-50 text-gray-800 font-bold text-center text-lg">
           {result !== null ? result : "X"}
         </div>
       </div>
-      <p className="text-sm text-gray-500">Si A es a B, entonces C es a X.</p>
+      <p className="text-sm text-gray-500 mt-1">Si A es a B, entonces C es a X.</p>
     </div>
   );
 }

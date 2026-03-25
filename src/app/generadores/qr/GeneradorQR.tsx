@@ -16,8 +16,11 @@ export default function GeneradorQR() {
         onChange={(e) => setText(e.target.value)}
       />
       {text && (
-        <div className="flex justify-center p-4 border rounded-lg bg-white w-fit">
-          <QRCodeSVG value={text} size={200} />
+        <div>
+          <p className="text-sm font-medium text-gray-500 mb-2">Resultado:</p>
+          <div className="flex justify-center p-6 border rounded-xl bg-gray-50 w-fit">
+            <QRCodeSVG value={text} size={200} />
+          </div>
         </div>
       )}
     </div>

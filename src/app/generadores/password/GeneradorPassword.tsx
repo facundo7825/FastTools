@@ -74,8 +74,8 @@ export default function GeneradorPassword() {
 
       {password && (
         <div>
-          <p className="text-sm text-gray-500 mb-1">Contraseña:</p>
-          <div className="w-full border rounded-lg p-3 bg-gray-50 font-mono text-gray-800 break-all">
+          <p className="text-sm font-medium text-gray-500 mb-2">Resultado:</p>
+          <div className="w-full border rounded-xl p-4 bg-gray-50 font-mono text-gray-800 text-sm leading-relaxed break-all">
             {password}
           </div>
         </div>

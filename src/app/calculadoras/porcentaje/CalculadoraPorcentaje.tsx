@@ -30,11 +30,14 @@ export default function CalculadoraPorcentaje() {
         />
       </div>
       {result !== null && (
-        <p className="text-gray-700">
-          El <span className="font-bold">{percent}%</span> de{" "}
-          <span className="font-bold">{value}</span> es{" "}
-          <span className="font-bold">{result}</span>
-        </p>
+        <div>
+          <p className="text-sm font-medium text-gray-500 mb-2">Resultado:</p>
+          <div className="border rounded-xl p-4 bg-gray-50 text-gray-800 text-sm leading-relaxed">
+            El <span className="font-bold">{percent}%</span> de{" "}
+            <span className="font-bold">{value}</span> es{" "}
+            <span className="font-bold text-lg">{result}</span>
+          </div>
+        </div>
       )}
     </div>
   );

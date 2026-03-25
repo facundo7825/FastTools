@@ -33,7 +33,7 @@ export default function CapitalizarTexto() {
             </button>
           </div>
         </div>
-        <div className="w-full border rounded-lg p-3 min-h-12 bg-gray-50 text-gray-800 whitespace-pre-wrap break-words">
+        <div className="w-full border rounded-xl p-4 min-h-16 bg-gray-50 text-gray-800 text-sm leading-relaxed whitespace-pre-wrap break-words">
           {result}
         </div>
       </div>
