@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "FastTools",
@@ -14,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className="min-h-screen flex flex-col">
-        <header>Navbar</header>
+        <Navbar />
         <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-8">
           {children}
         </main>
