@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Herramientas de texto - FastTools",
+  description: "Herramientas online para trabajar con texto: contador de caracteres, palabras, mayúsculas, invertir y más.",
+};
 
 export default function Texto() {
   return (

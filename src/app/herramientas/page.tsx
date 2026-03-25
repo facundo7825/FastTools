@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Herramientas - FastTools",
+  description: "Explora todas las herramientas online gratuitas de FastTools: texto, generadores y calculadoras.",
+};
 
 export default function Herramientas() {
   return (

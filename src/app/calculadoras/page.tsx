@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Calculadoras - FastTools",
+  description: "Calculadoras online gratuitas: porcentaje, edad, regla de tres y más.",
+};
 
 export default function Calculadoras() {
   return (

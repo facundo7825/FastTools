@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Generadores - FastTools",
+  description: "Generadores online gratuitos: contraseñas seguras, códigos QR y más.",
+};
 
 export default function Generadores() {
   return (
