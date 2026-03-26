@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
 import RelatedTools from "@/components/RelatedTools";
+import Breadcrumb from "@/components/Breadcrumb";
 import InvertirTexto from "./InvertirTexto";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function Page() {
       title="Invertir texto"
       description="Invierte los caracteres de tu texto en tiempo real."
       tool={<InvertirTexto />}
+      breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/texto", label: "Texto" }, { href: "/texto/invertir-texto", label: "Invertir texto" }]} />}
       relatedTools={
         <RelatedTools tools={[
           { href: "/texto/mayusculas-minusculas", title: "Mayúsculas / Minúsculas" },

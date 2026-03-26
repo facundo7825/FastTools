@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
 import RelatedTools from "@/components/RelatedTools";
+import Breadcrumb from "@/components/Breadcrumb";
 import ContadorCaracteres from "./ContadorCaracteres";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function Page() {
       title="Contador de caracteres"
       description="Cuenta los caracteres de tu texto en tiempo real."
       tool={<ContadorCaracteres />}
+      breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/texto", label: "Texto" }, { href: "/texto/contador-caracteres", label: "Contador de caracteres" }]} />}
       relatedTools={
         <RelatedTools tools={[
           { href: "/texto/contador-palabras", title: "Contador de palabras" },

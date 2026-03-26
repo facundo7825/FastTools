@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Herramientas de texto - FastTools",
@@ -18,6 +19,10 @@ const tools = [
 export default function Texto() {
   return (
     <div className="flex flex-col gap-10">
+      <Breadcrumb crumbs={[
+        { href: "/", label: "Home" },
+        { href: "/texto", label: "Texto" },
+      ]} />
       <div className="border-b pb-8">
         <h1 className="text-4xl font-bold mb-2">Texto</h1>
         <p className="text-gray-500">Herramientas online gratuitas para trabajar con texto. Rápidas y sin registro.</p>

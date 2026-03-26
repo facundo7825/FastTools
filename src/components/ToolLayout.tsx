@@ -6,14 +6,18 @@ type Props = {
   tool: ReactNode;
   content?: ReactNode;
   relatedTools?: ReactNode;
+  breadcrumb?: ReactNode;
 };
 
-export default function ToolLayout({ title, description, tool, content, relatedTools }: Props) {
+export default function ToolLayout({ title, description, tool, content, relatedTools, breadcrumb }: Props) {
   return (
     <div className="flex flex-col gap-10">
 
       {/* Ad placeholder: top */}
       <div id="ad-tool-top" />
+
+      {/* Breadcrumb */}
+      {breadcrumb && <div>{breadcrumb}</div>}
 
       {/* Title section */}
       <div className="border-b pb-6">

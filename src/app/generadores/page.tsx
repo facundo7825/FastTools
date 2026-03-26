@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Generadores - FastTools",
@@ -14,6 +15,10 @@ const tools = [
 export default function Generadores() {
   return (
     <div className="flex flex-col gap-10">
+      <Breadcrumb crumbs={[
+        { href: "/", label: "Home" },
+        { href: "/generadores", label: "Generadores" },
+      ]} />
       <div className="border-b pb-8">
         <h1 className="text-4xl font-bold mb-2">Generadores</h1>
         <p className="text-gray-500">Genera contraseñas seguras, códigos QR y más. Gratis y sin registro.</p>

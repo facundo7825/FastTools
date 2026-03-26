@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
 import RelatedTools from "@/components/RelatedTools";
+import Breadcrumb from "@/components/Breadcrumb";
 import MayusculasMinusculas from "./MayusculasMinusculas";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function Page() {
       title="Mayúsculas / Minúsculas"
       description="Convierte tu texto a mayúsculas o minúsculas en tiempo real."
       tool={<MayusculasMinusculas />}
+      breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/texto", label: "Texto" }, { href: "/texto/mayusculas-minusculas", label: "Mayúsculas / Minúsculas" }]} />}
       relatedTools={
         <RelatedTools tools={[
           { href: "/texto/capitalizar-texto", title: "Capitalizar texto" },
