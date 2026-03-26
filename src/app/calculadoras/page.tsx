@@ -11,6 +11,8 @@ const tools = [
   { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje", description: "Calcula el porcentaje de cualquier valor." },
   { href: "/calculadoras/edad", title: "Calculadora de edad", description: "Calcula tu edad exacta en años, meses y días." },
   { href: "/calculadoras/regla-de-tres", title: "Regla de tres", description: "Resuelve una regla de tres simple rápidamente." },
+  { href: "/calculadoras/imc", title: "Calculadora de IMC", description: "Calculá tu Índice de Masa Corporal con peso y altura." },
+  { href: "/calculadoras/temperatura", title: "Conversor de temperatura", description: "Convertí entre Celsius, Fahrenheit y Kelvin al instante." },
 ];
 
 export default function Calculadoras() {

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 const tools = [
   { href: "/generadores/password", title: "Generador de contraseñas", description: "Genera contraseñas seguras y aleatorias." },
   { href: "/generadores/qr", title: "Generador de QR", description: "Genera códigos QR a partir de cualquier texto o URL." },
+  { href: "/generadores/lorem-ipsum", title: "Generador de Lorem Ipsum", description: "Genera texto de relleno para diseños y prototipos." },
 ];
 
 export default function Generadores() {

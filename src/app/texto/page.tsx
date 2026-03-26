@@ -14,6 +14,7 @@ const tools = [
   { href: "/texto/mayusculas-minusculas", title: "Mayúsculas / Minúsculas", description: "Convierte tu texto a mayúsculas o minúsculas." },
   { href: "/texto/capitalizar-texto", title: "Capitalizar texto", description: "Pone en mayúscula la primera letra de cada palabra." },
   { href: "/texto/invertir-texto", title: "Invertir texto", description: "Invierte los caracteres de tu texto." },
+  { href: "/texto/contador-lineas", title: "Contador de líneas", description: "Cuenta las líneas totales y no vacías de tu texto." },
 ];
 
 export default function Texto() {
