@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
+import RelatedTools from "@/components/RelatedTools";
+import ContadorCaracteres from "./ContadorCaracteres";
 
 export const metadata: Metadata = {
   title: "Contador de caracteres - FastTools",
   description: "Cuenta los caracteres de tu texto en tiempo real. Herramienta online gratuita.",
 };
-import ContadorCaracteres from "./ContadorCaracteres";
 
 export default function Page() {
   return (
@@ -13,6 +14,13 @@ export default function Page() {
       title="Contador de caracteres"
       description="Cuenta los caracteres de tu texto en tiempo real."
       tool={<ContadorCaracteres />}
+      relatedTools={
+        <RelatedTools tools={[
+          { href: "/texto/contador-palabras", title: "Contador de palabras" },
+          { href: "/texto/quitar-espacios", title: "Quitar espacios" },
+          { href: "/texto/mayusculas-minusculas", title: "Mayúsculas / Minúsculas" },
+        ]} />
+      }
     />
   );
 }

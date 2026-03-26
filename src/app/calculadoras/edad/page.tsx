@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
+import RelatedTools from "@/components/RelatedTools";
+import CalculadoraEdad from "./CalculadoraEdad";
 
 export const metadata: Metadata = {
   title: "Calculadora de edad - FastTools",
   description: "Calcula tu edad exacta en años, meses y días a partir de tu fecha de nacimiento.",
 };
-import CalculadoraEdad from "./CalculadoraEdad";
 
 export default function Page() {
   return (
@@ -13,6 +14,12 @@ export default function Page() {
       title="Calculadora de edad"
       description="Calcula tu edad exacta a partir de tu fecha de nacimiento."
       tool={<CalculadoraEdad />}
+      relatedTools={
+        <RelatedTools tools={[
+          { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje" },
+          { href: "/calculadoras/regla-de-tres", title: "Regla de tres" },
+        ]} />
+      }
     />
   );
 }

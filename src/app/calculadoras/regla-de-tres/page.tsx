@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
+import RelatedTools from "@/components/RelatedTools";
+import ReglaDeTres from "./ReglaDeTres";
 
 export const metadata: Metadata = {
   title: "Regla de tres - FastTools",
   description: "Resuelve una regla de tres simple de forma rápida y online. Herramienta gratuita.",
 };
-import ReglaDeTres from "./ReglaDeTres";
 
 export default function Page() {
   return (
@@ -13,6 +14,12 @@ export default function Page() {
       title="Regla de tres"
       description="Resuelve una regla de tres simple de forma rápida."
       tool={<ReglaDeTres />}
+      relatedTools={
+        <RelatedTools tools={[
+          { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje" },
+          { href: "/calculadoras/edad", title: "Calculadora de edad" },
+        ]} />
+      }
     />
   );
 }
