@@ -6,7 +6,7 @@ import CalculadoraEdad from "./CalculadoraEdad";
 
 export const metadata: Metadata = {
   title: "Calculadora de edad - FastTools",
-  description: "Calcula tu edad exacta en años, meses y días a partir de tu fecha de nacimiento.",
+  description: "Calcula tu edad exacta en años, meses y días a partir de tu fecha de nacimiento. Herramienta online gratuita.",
 };
 
 export default function Page() {
@@ -15,6 +15,8 @@ export default function Page() {
       title="Calculadora de edad"
       description="Calcula tu edad exacta a partir de tu fecha de nacimiento."
       tool={<CalculadoraEdad />}
+      categoryHref="/calculadoras"
+      categoryLabel="Calculadoras"
       breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/calculadoras", label: "Calculadoras" }, { href: "/calculadoras/edad", label: "Calculadora de edad" }]} />}
       relatedTools={
         <RelatedTools tools={[

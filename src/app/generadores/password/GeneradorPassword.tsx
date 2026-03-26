@@ -33,9 +33,9 @@ export default function GeneradorPassword() {
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
-        <label className="text-sm text-gray-700">Longitud: {length}</label>
+        <label className="text-sm text-muted">Longitud: {length}</label>
         <input
           type="range"
           min={6}
@@ -47,35 +47,35 @@ export default function GeneradorPassword() {
       </div>
 
       <div className="flex flex-wrap gap-4">
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" checked={useLower} onChange={(e) => setUseLower(e.target.checked)} />
+        <label className="flex items-center gap-2 text-sm text-text">
+          <input type="checkbox" checked={useLower} onChange={(e) => setUseLower(e.target.checked)} className="accent-primary" />
           Minúsculas
         </label>
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" checked={useUpper} onChange={(e) => setUseUpper(e.target.checked)} />
+        <label className="flex items-center gap-2 text-sm text-text">
+          <input type="checkbox" checked={useUpper} onChange={(e) => setUseUpper(e.target.checked)} className="accent-primary" />
           Mayúsculas
         </label>
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" checked={useNumbers} onChange={(e) => setUseNumbers(e.target.checked)} />
+        <label className="flex items-center gap-2 text-sm text-text">
+          <input type="checkbox" checked={useNumbers} onChange={(e) => setUseNumbers(e.target.checked)} className="accent-primary" />
           Números
         </label>
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" checked={useSymbols} onChange={(e) => setUseSymbols(e.target.checked)} />
+        <label className="flex items-center gap-2 text-sm text-text">
+          <input type="checkbox" checked={useSymbols} onChange={(e) => setUseSymbols(e.target.checked)} className="accent-primary" />
           Símbolos
         </label>
       </div>
 
       <button
         onClick={generate}
-        className="px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-gray-800 w-fit"
+        className="px-4 py-2 bg-primary text-white rounded-xl text-sm font-medium hover:bg-blue-700 active:bg-blue-800 transition-colors w-fit"
       >
         Generar contraseña
       </button>
 
       {password && (
         <div>
-          <p className="text-sm font-medium text-gray-500 mb-2">Resultado:</p>
-          <div className="w-full border rounded-xl p-4 bg-gray-50 font-mono text-gray-800 text-sm leading-relaxed break-all">
+          <p className="text-sm font-medium text-muted mb-2">Resultado:</p>
+          <div className="w-full border border-border rounded-xl p-4 bg-background font-mono text-text text-sm leading-relaxed break-all">
             {password}
           </div>
         </div>

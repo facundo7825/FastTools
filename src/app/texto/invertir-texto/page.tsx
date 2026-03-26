@@ -15,6 +15,8 @@ export default function Page() {
       title="Invertir texto"
       description="Invierte los caracteres de tu texto en tiempo real."
       tool={<InvertirTexto />}
+      categoryHref="/texto"
+      categoryLabel="Texto"
       breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/texto", label: "Texto" }, { href: "/texto/invertir-texto", label: "Invertir texto" }]} />}
       relatedTools={
         <RelatedTools tools={[

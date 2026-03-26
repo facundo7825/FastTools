@@ -43,21 +43,21 @@ const categories = [
 
 export default function Herramientas() {
   return (
-    <div className="flex flex-col gap-12">
-      <div className="border-b pb-8">
-        <h1 className="text-4xl font-bold mb-2">Herramientas</h1>
-        <p className="text-gray-500">Todas las herramientas disponibles, organizadas por categoría.</p>
+    <div className="flex flex-col gap-8 sm:gap-12">
+      <div className="border-b border-border pb-6 sm:pb-8">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-text mb-2">Herramientas</h1>
+        <p className="text-muted">Todas las herramientas disponibles, organizadas por categoría.</p>
       </div>
 
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-9 sm:gap-12">
         {categories.map((cat) => (
           <section key={cat.href}>
-            <div className="flex items-baseline justify-between mb-4">
+            <div className="flex flex-wrap items-start justify-between gap-2 mb-5">
               <div>
-                <h2 className="text-2xl font-bold">{cat.title}</h2>
-                <p className="text-sm text-gray-500 mt-1">{cat.description}</p>
+                <h2 className="text-xl sm:text-2xl font-bold text-text">{cat.title}</h2>
+                <p className="text-sm text-muted mt-1">{cat.description}</p>
               </div>
-              <Link href={cat.href} className="text-sm text-gray-500 hover:text-black transition-colors">
+              <Link href={cat.href} className="text-sm font-medium text-primary hover:text-blue-700 transition-colors shrink-0">
                 Ver categoría →
               </Link>
             </div>
@@ -66,7 +66,7 @@ export default function Herramientas() {
                 <Link
                   key={tool.href}
                   href={tool.href}
-                  className="block border rounded-xl px-4 py-3 text-sm font-medium hover:border-gray-400 hover:shadow-sm transition-all"
+                  className="block bg-surface border border-border rounded-2xl px-4 py-3.5 text-sm font-medium text-text shadow-sm hover:shadow-md hover:border-primary hover:text-primary transition-all"
                 >
                   {tool.title}
                 </Link>

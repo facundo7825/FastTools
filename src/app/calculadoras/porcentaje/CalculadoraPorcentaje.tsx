@@ -12,18 +12,18 @@ export default function CalculadoraPorcentaje() {
       : null;
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-5">
       <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="number"
-          className="border rounded-lg p-3 w-full"
+          className="border border-border rounded-xl p-3 w-full bg-surface text-text placeholder:text-muted focus:outline-none focus:border-primary transition-colors"
           placeholder="Valor"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
         <input
           type="number"
-          className="border rounded-lg p-3 w-full"
+          className="border border-border rounded-xl p-3 w-full bg-surface text-text placeholder:text-muted focus:outline-none focus:border-primary transition-colors"
           placeholder="Porcentaje (%)"
           value={percent}
           onChange={(e) => setPercent(e.target.value)}
@@ -31,11 +31,11 @@ export default function CalculadoraPorcentaje() {
       </div>
       {result !== null && (
         <div>
-          <p className="text-sm font-medium text-gray-500 mb-2">Resultado:</p>
-          <div className="border rounded-xl p-4 bg-gray-50 text-gray-800 text-sm leading-relaxed">
+          <p className="text-sm font-medium text-muted mb-2">Resultado:</p>
+          <div className="border border-border rounded-xl p-4 bg-background text-text text-sm leading-relaxed">
             El <span className="font-bold">{percent}%</span> de{" "}
             <span className="font-bold">{value}</span> es{" "}
-            <span className="font-bold text-lg">{result}</span>
+            <span className="font-bold text-lg text-primary">{result}</span>
           </div>
         </div>
       )}

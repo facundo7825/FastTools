@@ -6,7 +6,7 @@ import ReglaDeTres from "./ReglaDeTres";
 
 export const metadata: Metadata = {
   title: "Regla de tres - FastTools",
-  description: "Resuelve una regla de tres simple de forma rápida y online. Herramienta gratuita.",
+  description: "Resuelve una regla de tres simple de forma rápida y online. Herramienta online gratuita.",
 };
 
 export default function Page() {
@@ -15,6 +15,8 @@ export default function Page() {
       title="Regla de tres"
       description="Resuelve una regla de tres simple de forma rápida."
       tool={<ReglaDeTres />}
+      categoryHref="/calculadoras"
+      categoryLabel="Calculadoras"
       breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/calculadoras", label: "Calculadoras" }, { href: "/calculadoras/regla-de-tres", label: "Regla de tres" }]} />}
       relatedTools={
         <RelatedTools tools={[

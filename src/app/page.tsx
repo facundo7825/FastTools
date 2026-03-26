@@ -40,52 +40,62 @@ const tools = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-12 sm:gap-20">
 
-      <section className="text-center py-16 border-b">
-        <h1 className="text-5xl font-bold tracking-tight mb-4">FastTools</h1>
-        <p className="text-xl text-gray-500 max-w-xl mx-auto">
-          Herramientas online gratuitas para tu día a día. Sin registro, sin complicaciones.
-        </p>
-        <div className="mt-8">
-          <Link
-            href="/herramientas"
-            className="inline-block bg-black text-white text-sm font-medium px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-          >
-            Ver todas las herramientas
-          </Link>
+      {/* Hero */}
+      <section className="text-center pt-10 pb-10 sm:pt-16 sm:pb-14 border-b border-border">
+        <div className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 sm:mb-6 tracking-wide uppercase">
+          Gratis · Sin registro · Sin complicaciones
         </div>
+        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-text mb-4 leading-tight">
+          Herramientas online<br className="hidden sm:block" /> para tu día a día
+        </h1>
+        <p className="text-base sm:text-xl text-muted max-w-lg mx-auto mb-8 sm:mb-10">
+          Texto, generadores y calculadoras. Rápidas, simples y siempre disponibles.
+        </p>
+        <Link
+          href="/herramientas"
+          className="inline-block bg-primary text-white text-sm font-semibold px-7 py-3.5 rounded-xl hover:bg-blue-700 active:bg-blue-800 transition-colors shadow-sm"
+        >
+          Ver todas las herramientas →
+        </Link>
       </section>
 
+      {/* Categories */}
       <section>
-        <h2 className="text-2xl font-bold mb-2">Categorías</h2>
-        <p className="text-gray-500 mb-6 text-sm">Explora por categoría</p>
+        <div className="mb-7">
+          <h2 className="text-2xl font-bold text-text mb-1">Categorías</h2>
+          <p className="text-muted text-sm">Explora por categoría</p>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {categories.map((cat) => (
             <Link
               key={cat.href}
               href={cat.href}
-              className="block border rounded-xl p-6 hover:border-gray-400 hover:shadow-sm transition-all"
+              className="block bg-surface border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary transition-all group"
             >
-              <h3 className="text-lg font-semibold mb-1">{cat.title}</h3>
-              <p className="text-sm text-gray-500">{cat.description}</p>
+              <h3 className="text-lg font-semibold text-text mb-1 group-hover:text-primary transition-colors">{cat.title}</h3>
+              <p className="text-sm text-muted">{cat.description}</p>
             </Link>
           ))}
         </div>
       </section>
 
+      {/* Tools */}
       <section>
-        <h2 className="text-2xl font-bold mb-2">Herramientas</h2>
-        <p className="text-gray-500 mb-6 text-sm">Todas las herramientas disponibles</p>
+        <div className="mb-7">
+          <h2 className="text-2xl font-bold text-text mb-1">Herramientas</h2>
+          <p className="text-muted text-sm">Todas las herramientas disponibles</p>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {tools.map((tool) => (
             <Link
               key={tool.href}
               href={tool.href}
-              className="flex items-center justify-between border rounded-xl px-4 py-3 hover:border-gray-400 hover:shadow-sm transition-all group"
+              className="flex items-center justify-between bg-surface border border-border rounded-2xl px-4 py-3.5 shadow-sm hover:shadow-md hover:border-primary transition-all group"
             >
-              <span className="text-sm font-medium">{tool.title}</span>
-              <span className="text-xs text-gray-400 group-hover:text-gray-600 transition-colors">{tool.category}</span>
+              <span className="text-sm font-medium text-text group-hover:text-primary transition-colors">{tool.title}</span>
+              <span className="text-xs text-muted group-hover:text-primary transition-colors">{tool.category}</span>
             </Link>
           ))}
         </div>

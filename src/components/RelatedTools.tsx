@@ -16,7 +16,7 @@ export default function RelatedTools({ tools }: Props) {
         <Link
           key={tool.href}
           href={tool.href}
-          className="block border rounded-xl px-4 py-3 text-sm font-medium hover:border-gray-400 hover:shadow-sm transition-all"
+          className="block bg-surface border border-border rounded-2xl px-4 py-3 text-sm font-medium text-text shadow-sm hover:shadow-md hover:border-primary hover:text-primary transition-all"
         >
           {tool.title}
         </Link>

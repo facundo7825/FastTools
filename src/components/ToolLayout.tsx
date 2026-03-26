@@ -1,4 +1,6 @@
 import { ReactNode } from "react";
+import Link from "next/link";
+import AdPlaceholder from "@/components/AdPlaceholder";
 
 type Props = {
   title: string;
@@ -7,49 +9,77 @@ type Props = {
   content?: ReactNode;
   relatedTools?: ReactNode;
   breadcrumb?: ReactNode;
+  categoryHref?: string;
+  categoryLabel?: string;
 };
 
-export default function ToolLayout({ title, description, tool, content, relatedTools, breadcrumb }: Props) {
+export default function ToolLayout({ title, description, tool, content, relatedTools, breadcrumb, categoryHref, categoryLabel }: Props) {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-6 sm:gap-8">
 
       {/* Ad placeholder: top */}
-      <div id="ad-tool-top" />
+      <AdPlaceholder id="ad-tool-top" />
 
       {/* Breadcrumb */}
       {breadcrumb && <div>{breadcrumb}</div>}
 
       {/* Title section */}
-      <div className="border-b pb-6">
-        <h1 className="text-4xl font-bold mb-2">{title}</h1>
-        <p className="text-gray-500">{description}</p>
+      <div className="border-b border-border pb-5 sm:pb-6">
+        <h1 className="text-2xl sm:text-4xl font-bold mb-2 text-text">{title}</h1>
+        <p className="text-muted text-sm sm:text-base">{description}</p>
       </div>
 
-      {/* Tool area */}
-      <div className="border rounded-xl p-6 bg-white">
-        {tool}
+      <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
+
+        {/* Main column */}
+        <div className="flex flex-col gap-6 sm:gap-8 flex-1 min-w-0">
+
+          {/* Tool area */}
+          <div className="border border-border rounded-2xl p-4 sm:p-7 bg-surface shadow-sm">
+            {tool}
+          </div>
+
+          {/* Ad placeholder: mid */}
+          <AdPlaceholder id="ad-tool-mid" />
+
+          {/* Content area */}
+          {content && (
+            <div className="prose prose-gray max-w-none text-sm text-muted">
+              {content}
+            </div>
+          )}
+
+          {/* Related tools */}
+          {relatedTools && (
+            <div className="border-t border-border pt-6 sm:pt-8">
+              <h2 className="text-lg font-semibold text-text mb-4">Herramientas relacionadas</h2>
+              {relatedTools}
+            </div>
+          )}
+
+        </div>
+
+        {/* Ad placeholder: side */}
+        <aside className="hidden lg:block w-[160px] shrink-0">
+          <AdPlaceholder id="ad-tool-side" />
+        </aside>
+
       </div>
-
-      {/* Ad placeholder: mid */}
-      <div id="ad-tool-mid" />
-
-      {/* Content area */}
-      {content && (
-        <div className="prose prose-gray max-w-none text-sm text-gray-600">
-          {content}
-        </div>
-      )}
-
-      {/* Related tools */}
-      {relatedTools && (
-        <div className="border-t pt-8">
-          <h2 className="text-xl font-semibold mb-4">Herramientas relacionadas</h2>
-          {relatedTools}
-        </div>
-      )}
 
       {/* Ad placeholder: bottom */}
-      <div id="ad-tool-bottom" />
+      <AdPlaceholder id="ad-tool-bottom" />
+
+      {/* Bottom navigation */}
+      <div className="flex flex-wrap gap-4 border-t border-border pt-6 text-sm">
+        <Link href="/" className="text-muted hover:text-primary transition-colors">
+          ← Home
+        </Link>
+        {categoryHref && categoryLabel && (
+          <Link href={categoryHref} className="text-muted hover:text-primary transition-colors">
+            ← {categoryLabel}
+          </Link>
+        )}
+      </div>
 
     </div>
   );

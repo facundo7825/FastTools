@@ -26,20 +26,20 @@ export default function CalculadoraEdad() {
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-5">
       <input
         type="date"
-        className="border rounded-lg p-3 w-full sm:w-fit"
+        className="border border-border rounded-xl p-3 w-full sm:w-fit bg-surface text-text focus:outline-none focus:border-primary transition-colors"
         value={birthdate}
         onChange={(e) => setBirthdate(e.target.value)}
       />
       {result !== null && (
         <div>
-          <p className="text-sm font-medium text-gray-500 mb-2">Resultado:</p>
-          <div className="border rounded-xl p-4 bg-gray-50 text-gray-800 text-sm leading-relaxed">
-            Tienes <span className="font-bold">{result.years} años</span>,{" "}
-            <span className="font-bold">{result.months} meses</span> y{" "}
-            <span className="font-bold">{result.days} días</span>
+          <p className="text-sm font-medium text-muted mb-2">Resultado:</p>
+          <div className="border border-border rounded-xl p-4 bg-background text-text text-sm leading-relaxed">
+            Tienes <span className="font-bold text-primary">{result.years} años</span>,{" "}
+            <span className="font-bold text-primary">{result.months} meses</span> y{" "}
+            <span className="font-bold text-primary">{result.days} días</span>
           </div>
         </div>
       )}

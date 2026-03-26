@@ -15,6 +15,8 @@ export default function Page() {
       title="Quitar espacios"
       description="Elimina los espacios extra de tu texto en tiempo real."
       tool={<QuitarEspacios />}
+      categoryHref="/texto"
+      categoryLabel="Texto"
       breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/texto", label: "Texto" }, { href: "/texto/quitar-espacios", label: "Quitar espacios" }]} />}
       relatedTools={
         <RelatedTools tools={[

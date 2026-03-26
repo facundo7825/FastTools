@@ -15,6 +15,8 @@ export default function Page() {
       title="Capitalizar texto"
       description="Convierte la primera letra de cada palabra a mayúscula en tiempo real."
       tool={<CapitalizarTexto />}
+      categoryHref="/texto"
+      categoryLabel="Texto"
       breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/texto", label: "Texto" }, { href: "/texto/capitalizar-texto", label: "Capitalizar texto" }]} />}
       relatedTools={
         <RelatedTools tools={[

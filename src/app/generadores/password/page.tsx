@@ -6,7 +6,7 @@ import GeneradorPassword from "./GeneradorPassword";
 
 export const metadata: Metadata = {
   title: "Generador de contraseñas - FastTools",
-  description: "Genera contraseñas seguras y aleatorias online. Herramienta gratuita.",
+  description: "Genera contraseñas seguras y aleatorias online. Herramienta online gratuita.",
 };
 
 export default function Page() {
@@ -15,6 +15,8 @@ export default function Page() {
       title="Generador de contraseñas"
       description="Genera contraseñas seguras y aleatorias."
       tool={<GeneradorPassword />}
+      categoryHref="/generadores"
+      categoryLabel="Generadores"
       breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/generadores", label: "Generadores" }, { href: "/generadores/password", label: "Generador de contraseñas" }]} />}
       relatedTools={
         <RelatedTools tools={[

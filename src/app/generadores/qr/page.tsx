@@ -15,6 +15,8 @@ export default function Page() {
       title="Generador de QR"
       description="Genera un código QR a partir de cualquier texto o URL."
       tool={<GeneradorQR />}
+      categoryHref="/generadores"
+      categoryLabel="Generadores"
       breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/generadores", label: "Generadores" }, { href: "/generadores/qr", label: "Generador de QR" }]} />}
       relatedTools={
         <RelatedTools tools={[

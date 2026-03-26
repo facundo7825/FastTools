@@ -15,6 +15,8 @@ export default function Page() {
       title="Contador de caracteres"
       description="Cuenta los caracteres de tu texto en tiempo real."
       tool={<ContadorCaracteres />}
+      categoryHref="/texto"
+      categoryLabel="Texto"
       breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/texto", label: "Texto" }, { href: "/texto/contador-caracteres", label: "Contador de caracteres" }]} />}
       relatedTools={
         <RelatedTools tools={[

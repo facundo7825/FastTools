@@ -6,7 +6,7 @@ import CalculadoraPorcentaje from "./CalculadoraPorcentaje";
 
 export const metadata: Metadata = {
   title: "Calculadora de porcentaje - FastTools",
-  description: "Calcula el porcentaje de cualquier valor de forma rápida y online. Herramienta gratuita.",
+  description: "Calcula el porcentaje de cualquier valor de forma rápida y online. Herramienta online gratuita.",
 };
 
 export default function Page() {
@@ -15,6 +15,8 @@ export default function Page() {
       title="Calculadora de porcentaje"
       description="Calcula el porcentaje de cualquier valor de forma rápida."
       tool={<CalculadoraPorcentaje />}
+      categoryHref="/calculadoras"
+      categoryLabel="Calculadoras"
       breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/calculadoras", label: "Calculadoras" }, { href: "/calculadoras/porcentaje", label: "Calculadora de porcentaje" }]} />}
       relatedTools={
         <RelatedTools tools={[

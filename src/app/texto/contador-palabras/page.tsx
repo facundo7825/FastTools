@@ -15,6 +15,8 @@ export default function Page() {
       title="Contador de palabras"
       description="Cuenta las palabras de tu texto en tiempo real."
       tool={<ContadorPalabras />}
+      categoryHref="/texto"
+      categoryLabel="Texto"
       breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/texto", label: "Texto" }, { href: "/texto/contador-palabras", label: "Contador de palabras" }]} />}
       relatedTools={
         <RelatedTools tools={[
