@@ -5,8 +5,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import InvertirTexto from "./InvertirTexto";
 
 export const metadata: Metadata = {
-  title: "Invertir texto online gratis - Texto al revés - FastTools",
-  description: "Invertí cualquier texto al revés con un clic. Ideal para efectos creativos, acertijos, redes sociales y diseño. Soporta emojis y caracteres especiales.",
+  title: "Invertir texto online gratis - Texto al reves - FastTools",
+  description:
+    "Invierte cualquier texto al reves con un clic. Ideal para efectos creativos, acertijos y redes sociales. Soporta caracteres especiales.",
 };
 
 const jsonLd = {
@@ -14,30 +15,39 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      "name": "Cómo invertir texto al revés",
-      "step": [
-        { "@type": "HowToStep", "text": "Escribí o pegá el texto que querés invertir." },
-        { "@type": "HowToStep", "text": "El texto al revés aparece automáticamente." },
-        { "@type": "HowToStep", "text": "Copiá el resultado con el botón Copiar." },
+      name: "Como invertir texto al reves",
+      step: [
+        { "@type": "HowToStep", text: "Escribi o pega el texto que queres invertir." },
+        { "@type": "HowToStep", text: "El texto al reves aparece automaticamente." },
+        { "@type": "HowToStep", text: "Copia el resultado con el boton Copiar." },
       ],
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
+      mainEntity: [
         {
           "@type": "Question",
-          "name": "¿Para qué sirve invertir texto?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Invertir texto tiene usos creativos y prácticos: crear textos espejo para diseño gráfico, generar acertijos y juegos de palabras, hacer publicaciones originales en redes sociales, o simplemente divertirse. También se usa para verificar palíndromos, que son palabras o frases que se leen igual al derecho y al revés." },
+          name: "Para que sirve invertir texto?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Se usa para juegos, efectos visuales, publicaciones creativas y pruebas simples con palabras o frases.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿Funciona con emojis y caracteres especiales?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí. La herramienta invierte el texto preservando emojis, tildes, ñ y cualquier carácter Unicode. Los emojis pueden aparecer en posiciones inesperadas al invertir, ya que son caracteres individuales dentro de la cadena de texto." },
+          name: "Funciona con emojis y caracteres especiales?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si. La herramienta invierte el texto manteniendo caracteres especiales dentro de la cadena.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿Cuál es un ejemplo de palíndromo en español?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Algunos palíndromos conocidos en español son 'anilina', 'reconocer', 'sometemos' y la frase 'Yo soy'. Podés verificar si una palabra es palíndromo pegándola aquí y comparando el resultado con el original." },
+          name: "Puedo usarlo para revisar palindromos?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si. Puede servirte como referencia rapida para comparar una palabra o frase con su version invertida.",
+          },
         },
       ],
     },
@@ -47,42 +57,66 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      Invertir texto significa escribir los caracteres en orden inverso, de modo que "Hola mundo" se convierte en "odnum aloH". Esta transformación se usa en diseño creativo, acertijos, juegos de palabras, publicaciones originales en redes sociales y como efecto decorativo en imágenes y tipografías. También es útil para generar texto espejo o para verificar si una palabra o frase es un palíndromo.
+      Invertir texto significa mostrar los caracteres en orden inverso. Es una funcion
+      util para juegos, efectos creativos, pruebas visuales y publicaciones llamativas
+      en redes sociales o piezas de diseno.
     </p>
-    <h2>¿Cómo invertir texto?</h2>
+    <h2>Como invertir texto</h2>
     <ol>
-      <li>Escribí o pegá el texto que querés invertir.</li>
-      <li>El texto al revés aparece automáticamente.</li>
-      <li>Copiá el resultado con el botón <strong>Copiar</strong>.</li>
+      <li>Escribi o pega el texto que queres invertir.</li>
+      <li>El texto al reves aparece automaticamente.</li>
+      <li>Copia el resultado con el boton <strong>Copiar</strong>.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>¿Para qué sirve invertir texto?</h3>
-    <p>Invertir texto tiene usos creativos y prácticos: crear textos espejo para diseño gráfico, generar acertijos y juegos de palabras, hacer publicaciones originales en redes sociales, o simplemente divertirse. También se usa para verificar palíndromos, que son palabras o frases que se leen igual al derecho y al revés.</p>
-    <h3>¿Funciona con emojis y caracteres especiales?</h3>
-    <p>Sí. La herramienta invierte el texto preservando emojis, tildes, ñ y cualquier carácter Unicode. Los emojis pueden aparecer en posiciones inesperadas al invertir, ya que son caracteres individuales dentro de la cadena de texto.</p>
-    <h3>¿Cuál es un ejemplo de palíndromo en español?</h3>
-    <p>Algunos palíndromos conocidos en español son "anilina", "reconocer", "sometemos" y la frase "Yo soy". Podés verificar si una palabra es palíndromo pegándola aquí y comparando el resultado con el original.</p>
+    <h3>Para que sirve invertir texto?</h3>
+    <p>
+      Sirve para juegos, publicaciones creativas, pruebas visuales y distintos efectos
+      decorativos o de estilo.
+    </p>
+    <h3>Funciona con emojis y caracteres especiales?</h3>
+    <p>
+      Si. La herramienta invierte el texto manteniendo caracteres especiales dentro de la
+      cadena.
+    </p>
+    <h3>Puedo usarlo para revisar palindromos?</h3>
+    <p>
+      Si. Puede ayudarte a comparar rapidamente una palabra o frase con su version
+      invertida.
+    </p>
   </>
 );
 
 export default function Page() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ToolLayout
         title="Invertir texto"
-        description="Invertí los caracteres de tu texto al revés en tiempo real."
+        description="Invierte los caracteres de tu texto al reves en tiempo real."
         tool={<InvertirTexto />}
         content={content}
         categoryHref="/texto"
         categoryLabel="Texto"
-        breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/texto", label: "Texto" }, { href: "/texto/invertir-texto", label: "Invertir texto" }]} />}
+        breadcrumb={
+          <Breadcrumb
+            crumbs={[
+              { href: "/", label: "Home" },
+              { href: "/texto", label: "Texto" },
+              { href: "/texto/invertir-texto", label: "Invertir texto" },
+            ]}
+          />
+        }
         relatedTools={
-          <RelatedTools tools={[
-            { href: "/texto/mayusculas-minusculas", title: "Mayúsculas / Minúsculas" },
-            { href: "/texto/capitalizar-texto", title: "Capitalizar texto" },
-            { href: "/texto/quitar-espacios", title: "Quitar espacios" },
-          ]} />
+          <RelatedTools
+            tools={[
+              { href: "/texto/mayusculas-minusculas", title: "Mayusculas / Minusculas" },
+              { href: "/texto/capitalizar-texto", title: "Capitalizar texto" },
+              { href: "/texto/quitar-espacios", title: "Quitar espacios" },
+            ]}
+          />
         }
       />
     </>

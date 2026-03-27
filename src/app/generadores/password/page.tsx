@@ -5,8 +5,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import GeneradorPassword from "./GeneradorPassword";
 
 export const metadata: Metadata = {
-  title: "Generador de contraseñas seguras online gratis - FastTools",
-  description: "Generá contraseñas seguras y aleatorias al instante. Elegí longitud, mayúsculas, números y símbolos. Tus contraseñas no se almacenan. 100% gratis.",
+  title: "Generador de contrasenas seguras online gratis",
+  description:
+    "Genera contrasenas seguras y aleatorias al instante. Elige longitud y tipos de caracteres sin registro.",
 };
 
 const jsonLd = {
@@ -14,31 +15,39 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      "name": "Cómo generar una contraseña segura",
-      "step": [
-        { "@type": "HowToStep", "text": "Elegí la longitud deseada con el control deslizante." },
-        { "@type": "HowToStep", "text": "Seleccioná qué tipos de caracteres incluir: mayúsculas, minúsculas, números y símbolos." },
-        { "@type": "HowToStep", "text": "Copiá la contraseña generada con el botón Copiar." },
-        { "@type": "HowToStep", "text": "Si no te gusta el resultado, generá una nueva con un solo clic." },
+      name: "Como generar una contrasena segura",
+      step: [
+        { "@type": "HowToStep", text: "Ajusta la longitud." },
+        { "@type": "HowToStep", text: "Elige los tipos de caracteres que quieres incluir." },
+        { "@type": "HowToStep", text: "Genera la contrasena y copiala si te sirve." },
       ],
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
+      mainEntity: [
         {
           "@type": "Question",
-          "name": "¿Las contraseñas generadas se guardan en algún servidor?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. La generación ocurre completamente en tu navegador usando JavaScript. Ninguna contraseña se transmite ni almacena en ningún servidor. Una vez que cerrás la página, la contraseña desaparece." },
+          name: "Se guardan las contrasenas generadas?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. La herramienta genera el resultado en tu sesion y no requiere guardar datos.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿Cuántos caracteres debe tener una contraseña segura?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Se recomienda un mínimo de 12 caracteres para cuentas comunes y 16 o más para cuentas bancarias, correo electrónico y redes sociales. A mayor longitud y variedad de caracteres, mayor es el tiempo necesario para descifrarla por fuerza bruta." },
+          name: "Cuantos caracteres conviene usar?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "En general, cuanto mas larga y variada sea la contrasena, mejor. Para muchas cuentas conviene usar 12 caracteres o mas.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿Tengo que memorizar estas contraseñas?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No es necesario. Se recomienda usar un gestor de contraseñas como Bitwarden (gratuito y de código abierto), 1Password o el gestor integrado en tu navegador para guardar contraseñas complejas de forma segura." },
+          name: "Puedo copiarla al instante?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si. Despues de generarla, puedes copiarla directamente desde la herramienta.",
+          },
         },
       ],
     },
@@ -48,41 +57,63 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      Una contraseña segura es la primera línea de defensa contra accesos no autorizados a tus cuentas. Los expertos en ciberseguridad recomiendan contraseñas de al menos 16 caracteres que combinen letras mayúsculas, minúsculas, números y símbolos, y que sean únicas para cada cuenta. Este generador crea contraseñas aleatorias directamente en tu navegador: ningún dato se envía ni almacena en servidores.
+      Una contrasena fuerte ayuda a reducir riesgos en cuentas personales y de trabajo.
+      Este generador te permite crear claves aleatorias con distintos tipos de caracteres
+      sin tener que inventarlas manualmente.
     </p>
-    <h2>¿Cómo generar una contraseña segura?</h2>
+    <h2>Como generar una contrasena segura</h2>
     <ol>
-      <li>Elegí la longitud deseada con el control deslizante.</li>
-      <li>Seleccioná qué tipos de caracteres incluir: mayúsculas, minúsculas, números y símbolos.</li>
-      <li>Copiá la contraseña generada con el botón <strong>Copiar</strong>.</li>
-      <li>Si no te gusta el resultado, generá una nueva con un solo clic.</li>
+      <li>Ajusta la longitud deseada.</li>
+      <li>Elige si quieres incluir mayusculas, minusculas, numeros y simbolos.</li>
+      <li>Genera la contrasena y copiala si te sirve.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>¿Las contraseñas generadas se guardan en algún servidor?</h3>
-    <p>No. La generación ocurre completamente en tu navegador usando JavaScript. Ninguna contraseña se transmite ni almacena en ningún servidor. Una vez que cerrás la página, la contraseña desaparece.</p>
-    <h3>¿Cuántos caracteres debe tener una contraseña segura?</h3>
-    <p>Se recomienda un mínimo de 12 caracteres para cuentas comunes y 16 o más para cuentas bancarias, correo electrónico y redes sociales. A mayor longitud y variedad de caracteres, mayor es el tiempo necesario para descifrarla por fuerza bruta.</p>
-    <h3>¿Tengo que memorizar estas contraseñas?</h3>
-    <p>No es necesario. Se recomienda usar un gestor de contraseñas como Bitwarden (gratuito y de código abierto), 1Password o el gestor integrado en tu navegador para guardar contraseñas complejas de forma segura.</p>
+    <h3>Se guardan las contrasenas generadas?</h3>
+    <p>
+      No. La herramienta genera el resultado en tu sesion y no necesita guardar datos.
+    </p>
+    <h3>Cuantos caracteres conviene usar?</h3>
+    <p>
+      En general, una longitud de 12 caracteres o mas mejora mucho la seguridad de una
+      cuenta.
+    </p>
+    <h3>Puedo copiarla al instante?</h3>
+    <p>
+      Si. Una vez generada, puedes copiarla directamente desde la interfaz.
+    </p>
   </>
 );
 
 export default function Page() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ToolLayout
-        title="Generador de contraseñas"
-        description="Generá contraseñas seguras y aleatorias. Tus datos no se almacenan."
+        title="Generador de contrasenas"
+        description="Genera contrasenas seguras y aleatorias sin salir del navegador."
         tool={<GeneradorPassword />}
         content={content}
         categoryHref="/generadores"
         categoryLabel="Generadores"
-        breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/generadores", label: "Generadores" }, { href: "/generadores/password", label: "Generador de contraseñas" }]} />}
+        breadcrumb={
+          <Breadcrumb
+            crumbs={[
+              { href: "/", label: "Home" },
+              { href: "/generadores", label: "Generadores" },
+              { href: "/generadores/password", label: "Generador de contrasenas" },
+            ]}
+          />
+        }
         relatedTools={
-          <RelatedTools tools={[
-            { href: "/generadores/qr", title: "Generador de QR" },
-          ]} />
+          <RelatedTools
+            tools={[
+              { href: "/generadores/qr", title: "Generador de QR" },
+              { href: "/generadores/lorem-ipsum", title: "Generador de Lorem Ipsum" },
+            ]}
+          />
         }
       />
     </>

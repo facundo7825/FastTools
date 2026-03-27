@@ -7,5 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: "https://fasttools.app/sitemap.xml",
+    host: "https://fasttools.app",
   };
 }

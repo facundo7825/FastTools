@@ -1,40 +1,65 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
+
+const fieldClassName =
+  "w-full border border-border rounded-xl p-3 bg-surface text-text placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors";
+const buttonClassName =
+  "px-3 py-1.5 text-sm border border-border text-text rounded-xl hover:border-primary hover:text-primary active:bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors";
 
 export default function CapitalizarTexto() {
+  const inputId = useId();
   const [text, setText] = useState("");
+  const [feedback, setFeedback] = useState("");
 
   const result = text.replace(/\b\w/g, (char) => char.toUpperCase());
 
+  async function handleCopy() {
+    await navigator.clipboard.writeText(result);
+    setFeedback("Resultado copiado.");
+  }
+
+  function handleClear() {
+    setText("");
+    setFeedback("Texto limpiado.");
+  }
+
   return (
     <div className="flex flex-col gap-5">
-      <textarea
-        className="w-full border border-border rounded-xl p-3 h-48 resize-y bg-surface text-text placeholder:text-muted focus:outline-none focus:border-primary transition-colors"
-        placeholder="Escribe o pega tu texto aquí..."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor={inputId} className="text-sm text-muted">
+          Texto original
+        </label>
+        <textarea
+          id={inputId}
+          className={`${fieldClassName} h-48 resize-y`}
+          placeholder="Escribe o pega tu texto aqui..."
+          value={text}
+          onChange={(e) => {
+            setText(e.target.value);
+            setFeedback("");
+          }}
+        />
+      </div>
       <div>
-        <div className="flex items-center justify-between mb-2">
-          <p className="text-sm text-muted">Resultado:</p>
+        <div className="flex flex-col gap-3 mb-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-1">
+            <p className="text-sm text-muted">Resultado</p>
+            <p className="text-xs text-muted" aria-live="polite">
+              {feedback || "La capitalizacion se aplica automaticamente."}
+            </p>
+          </div>
           <div className="flex gap-2">
-            <button
-              onClick={() => navigator.clipboard.writeText(result)}
-              className="px-3 py-1.5 text-sm border border-border text-text rounded-xl hover:border-primary hover:text-primary active:bg-background transition-colors"
-            >
+            <button onClick={handleCopy} className={buttonClassName}>
               Copiar
             </button>
-            <button
-              onClick={() => setText("")}
-              className="px-3 py-1.5 text-sm border border-border text-text rounded-xl hover:border-primary hover:text-primary active:bg-background transition-colors"
-            >
+            <button onClick={handleClear} className={buttonClassName}>
               Limpiar
             </button>
           </div>
         </div>
         <div className="w-full border border-border rounded-xl p-4 min-h-16 bg-background text-text text-sm leading-relaxed whitespace-pre-wrap break-words">
-          {result}
+          {result || "El texto capitalizado aparecera aqui."}
         </div>
       </div>
     </div>

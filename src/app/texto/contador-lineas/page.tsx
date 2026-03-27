@@ -5,8 +5,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ContadorLineas from "./ContadorLineas";
 
 export const metadata: Metadata = {
-  title: "Contador de líneas online gratis - FastTools",
-  description: "Contá las líneas de cualquier texto al instante. Muestra líneas totales y líneas no vacías. Ideal para código, CSV, listas y datos. Gratis y sin registro.",
+  title: "Contador de lineas online gratis",
+  description:
+    "Cuenta lineas totales y lineas no vacias al instante. Util para listas, bloques de texto, codigo y archivos pegados.",
 };
 
 const jsonLd = {
@@ -14,30 +15,39 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      "name": "Cómo contar líneas de un texto",
-      "step": [
-        { "@type": "HowToStep", "text": "Pegá o escribí tu texto en el campo de entrada." },
-        { "@type": "HowToStep", "text": "El conteo de líneas totales y no vacías se actualiza automáticamente." },
-        { "@type": "HowToStep", "text": "Usá el botón Copiar para copiar el texto o Limpiar para empezar de nuevo." },
+      name: "Como contar lineas de un texto",
+      step: [
+        { "@type": "HowToStep", text: "Pega o escribe tu texto en el campo." },
+        { "@type": "HowToStep", text: "La herramienta muestra lineas totales y no vacias." },
+        { "@type": "HowToStep", text: "Copia o limpia el contenido cuando quieras." },
       ],
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
+      mainEntity: [
         {
           "@type": "Question",
-          "name": "¿Para qué sirve contar líneas de texto?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Contar líneas es útil para verificar archivos CSV (donde cada línea es un registro), revisar código fuente, contar ítems en listas, o verificar el formato de datos antes de importarlos a una base de datos o planilla." },
+          name: "Para que sirve contar lineas?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sirve para revisar listas, archivos pegados, bloques de codigo o textos donde cada linea importa.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿Qué diferencia hay entre líneas totales y líneas no vacías?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Las líneas totales incluyen todas las líneas del texto, incluyendo las líneas en blanco. Las líneas no vacías excluyen aquellas que solo contienen espacios o están completamente vacías, dando un conteo más preciso del contenido real." },
+          name: "Que diferencia hay entre lineas totales y no vacias?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Las lineas totales incluyen todo; las no vacias excluyen lineas en blanco o con espacios.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿Funciona con código fuente de programación?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Podés pegar código de cualquier lenguaje de programación y obtendrás el conteo exacto de líneas totales y no vacías, lo que es útil para estimar la complejidad o el tamaño de un archivo de código." },
+          name: "Funciona con codigo fuente?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si. Puedes pegar codigo y ver rapidamente cuantas lineas tiene.",
+          },
         },
       ],
     },
@@ -47,42 +57,65 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      El contador de líneas es una herramienta esencial para trabajar con datos estructurados. En archivos CSV cada línea representa un registro, en código fuente las líneas miden la extensión de un archivo, y en listas de datos el número de líneas indica la cantidad de ítems. La herramienta muestra tanto las líneas totales (incluyendo vacías) como las líneas con contenido, para que puedas tener el dato preciso según tu necesidad.
+      El contador de lineas es util cuando trabajas con listas, datos pegados, texto
+      estructurado o fragmentos de codigo. Te muestra de forma rapida cuantas lineas hay
+      en total y cuantas contienen contenido real.
     </p>
-    <h2>¿Cómo usar el contador de líneas?</h2>
+    <h2>Como usar el contador de lineas</h2>
     <ol>
-      <li>Pegá o escribí tu texto en el campo de entrada.</li>
-      <li>El conteo de líneas totales y no vacías se actualiza automáticamente.</li>
-      <li>Usá el botón <strong>Copiar</strong> para copiar el texto o <strong>Limpiar</strong> para empezar de nuevo.</li>
+      <li>Pega o escribe tu texto.</li>
+      <li>Revisa el total de lineas y las lineas no vacias.</li>
+      <li>Si lo necesitas, copia o limpia el contenido.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>¿Para qué sirve contar líneas de texto?</h3>
-    <p>Contar líneas es útil para verificar archivos CSV (donde cada línea es un registro), revisar código fuente, contar ítems en listas, o verificar el formato de datos antes de importarlos a una base de datos o planilla.</p>
-    <h3>¿Qué diferencia hay entre líneas totales y líneas no vacías?</h3>
-    <p>Las líneas totales incluyen todas las líneas del texto, incluyendo las líneas en blanco. Las líneas no vacías excluyen aquellas que solo contienen espacios o están completamente vacías, dando un conteo más preciso del contenido real.</p>
-    <h3>¿Funciona con código fuente de programación?</h3>
-    <p>Sí. Podés pegar código de cualquier lenguaje de programación y obtendrás el conteo exacto de líneas totales y no vacías, lo que es útil para estimar la complejidad o el tamaño de un archivo de código.</p>
+    <h3>Para que sirve contar lineas?</h3>
+    <p>
+      Sirve para revisar listas, archivos pegados, bloques de codigo y otros textos donde
+      cada linea tiene valor propio.
+    </p>
+    <h3>Que diferencia hay entre lineas totales y no vacias?</h3>
+    <p>
+      Las lineas totales cuentan todo. Las no vacias excluyen lineas en blanco o con
+      espacios.
+    </p>
+    <h3>Funciona con codigo fuente?</h3>
+    <p>
+      Si. Puedes pegar codigo y obtener una referencia inmediata de su longitud.
+    </p>
   </>
 );
 
 export default function Page() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ToolLayout
-        title="Contador de líneas"
-        description="Contá las líneas de tu texto al instante. Muestra totales y líneas no vacías."
+        title="Contador de lineas"
+        description="Cuenta las lineas de tu texto y distingue las lineas no vacias."
         tool={<ContadorLineas />}
         content={content}
         categoryHref="/texto"
         categoryLabel="Texto"
-        breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/texto", label: "Texto" }, { href: "/texto/contador-lineas", label: "Contador de líneas" }]} />}
+        breadcrumb={
+          <Breadcrumb
+            crumbs={[
+              { href: "/", label: "Home" },
+              { href: "/texto", label: "Texto" },
+              { href: "/texto/contador-lineas", label: "Contador de lineas" },
+            ]}
+          />
+        }
         relatedTools={
-          <RelatedTools tools={[
-            { href: "/texto/contador-caracteres", title: "Contador de caracteres" },
-            { href: "/texto/contador-palabras", title: "Contador de palabras" },
-            { href: "/texto/quitar-espacios", title: "Quitar espacios" },
-          ]} />
+          <RelatedTools
+            tools={[
+              { href: "/texto/contador-caracteres", title: "Contador de caracteres" },
+              { href: "/texto/contador-palabras", title: "Contador de palabras" },
+              { href: "/texto/quitar-espacios", title: "Quitar espacios" },
+            ]}
+          />
         }
       />
     </>

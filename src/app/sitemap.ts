@@ -2,23 +2,35 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://fasttools.app";
-
-  return [
-    { url: `${base}/`, lastModified: new Date() },
-    { url: `${base}/herramientas`, lastModified: new Date() },
-    { url: `${base}/texto`, lastModified: new Date() },
-    { url: `${base}/generadores`, lastModified: new Date() },
-    { url: `${base}/calculadoras`, lastModified: new Date() },
-    { url: `${base}/texto/contador-caracteres`, lastModified: new Date() },
-    { url: `${base}/texto/contador-palabras`, lastModified: new Date() },
-    { url: `${base}/texto/quitar-espacios`, lastModified: new Date() },
-    { url: `${base}/texto/mayusculas-minusculas`, lastModified: new Date() },
-    { url: `${base}/texto/capitalizar-texto`, lastModified: new Date() },
-    { url: `${base}/texto/invertir-texto`, lastModified: new Date() },
-    { url: `${base}/generadores/password`, lastModified: new Date() },
-    { url: `${base}/generadores/qr`, lastModified: new Date() },
-    { url: `${base}/calculadoras/porcentaje`, lastModified: new Date() },
-    { url: `${base}/calculadoras/edad`, lastModified: new Date() },
-    { url: `${base}/calculadoras/regla-de-tres`, lastModified: new Date() },
+  const pages = [
+    "/",
+    "/herramientas",
+    "/sobre",
+    "/privacidad",
+    "/terminos",
+    "/contacto",
+    "/texto",
+    "/generadores",
+    "/calculadoras",
+    "/texto/contador-caracteres",
+    "/texto/contador-palabras",
+    "/texto/contador-lineas",
+    "/texto/quitar-espacios",
+    "/texto/mayusculas-minusculas",
+    "/texto/capitalizar-texto",
+    "/texto/invertir-texto",
+    "/generadores/password",
+    "/generadores/qr",
+    "/generadores/lorem-ipsum",
+    "/calculadoras/porcentaje",
+    "/calculadoras/edad",
+    "/calculadoras/regla-de-tres",
+    "/calculadoras/imc",
+    "/calculadoras/temperatura",
   ];
+
+  return pages.map((path) => ({
+    url: `${base}${path}`,
+    lastModified: new Date(),
+  }));
 }

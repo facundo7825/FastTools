@@ -5,8 +5,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import MayusculasMinusculas from "./MayusculasMinusculas";
 
 export const metadata: Metadata = {
-  title: "Convertir texto a mayúsculas o minúsculas online - FastTools",
-  description: "Convertí cualquier texto a MAYÚSCULAS o minúsculas al instante. Incluye soporte para ñ, tildes y caracteres especiales. Gratis y sin registro.",
+  title: "Convertir texto a mayusculas o minusculas online",
+  description:
+    "Convierte cualquier texto a mayusculas o minusculas al instante. Util para limpiar datos, ajustar titulos y reformatear contenido.",
 };
 
 const jsonLd = {
@@ -14,30 +15,39 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      "name": "Cómo convertir texto a mayúsculas o minúsculas",
-      "step": [
-        { "@type": "HowToStep", "text": "Escribí o pegá tu texto en el campo de entrada." },
-        { "@type": "HowToStep", "text": "Elegí la opción MAYÚSCULAS o minúsculas." },
-        { "@type": "HowToStep", "text": "Copiá el resultado con el botón Copiar." },
+      name: "Como convertir texto a mayusculas o minusculas",
+      step: [
+        { "@type": "HowToStep", text: "Pega o escribe tu texto." },
+        { "@type": "HowToStep", text: "Elige el modo de conversion." },
+        { "@type": "HowToStep", text: "Copia el resultado cuando este listo." },
       ],
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
+      mainEntity: [
         {
           "@type": "Question",
-          "name": "¿Convierte correctamente la ñ y las tildes?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí. La herramienta utiliza las funciones nativas de JavaScript que respetan el estándar Unicode, por lo que la ñ, las vocales con tilde (á, é, í, ó, ú) y la ü se convierten correctamente en ambas direcciones." },
+          name: "Convierte bien caracteres del espanol?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si. La herramienta se apoya en las funciones nativas del navegador para convertir letras.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿Para qué sirve convertir texto a mayúsculas?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Es útil para títulos de documentos formales, siglas, encabezados de tablas, limpiar datos importados de bases de datos o formatear texto para diseños gráficos donde se requieren letras capitales uniformes." },
+          name: "Para que sirve este cambio?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sirve para uniformar texto, corregir datos importados y ajustar encabezados o bloques de contenido.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿Se modifican los números y la puntuación al convertir a mayúsculas?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Solo se convierten las letras. Los números, signos de puntuación, espacios y símbolos permanecen exactamente igual que en el texto original." },
+          name: "Cambia numeros o signos?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Solo se modifican las letras; el resto del contenido se conserva.",
+          },
         },
       ],
     },
@@ -47,42 +57,64 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      Cambiar entre mayúsculas y minúsculas es una tarea frecuente al formatear documentos, preparar encabezados, limpiar datos en planillas o adaptar textos copiados. Esta herramienta convierte el texto instantáneamente y soporta todos los caracteres del español: ñ, tildes (á, é, í, ó, ú) y diéresis (ü), sin alterar signos de puntuación ni números.
+      Cambiar entre mayusculas y minusculas es una tarea comun cuando ordenas textos,
+      titulos, tablas o contenido copiado desde distintas fuentes. Esta herramienta lo
+      hace al instante y deja el resto del texto intacto.
     </p>
-    <h2>¿Cómo convertir texto a mayúsculas o minúsculas?</h2>
+    <h2>Como convertir texto</h2>
     <ol>
-      <li>Escribí o pegá tu texto en el campo de entrada.</li>
-      <li>Elegí la opción <strong>MAYÚSCULAS</strong> o <strong>minúsculas</strong>.</li>
-      <li>Copiá el resultado con el botón <strong>Copiar</strong>.</li>
+      <li>Pega o escribe tu texto.</li>
+      <li>Elige si quieres pasarlo a mayusculas o minusculas.</li>
+      <li>Copia el resultado cuando quede como necesitas.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>¿Convierte correctamente la ñ y las tildes?</h3>
-    <p>Sí. La herramienta utiliza las funciones nativas de JavaScript que respetan el estándar Unicode, por lo que la ñ, las vocales con tilde (á, é, í, ó, ú) y la ü se convierten correctamente en ambas direcciones.</p>
-    <h3>¿Para qué sirve convertir texto a mayúsculas?</h3>
-    <p>Es útil para títulos de documentos formales, siglas, encabezados de tablas, limpiar datos importados de bases de datos o formatear texto para diseños gráficos donde se requieren letras capitales uniformes.</p>
-    <h3>¿Se modifican los números y la puntuación?</h3>
-    <p>No. Solo se convierten las letras. Los números, signos de puntuación, espacios y símbolos permanecen exactamente igual que en el texto original.</p>
+    <h3>Convierte bien caracteres del espanol?</h3>
+    <p>
+      Si. La herramienta usa las funciones nativas del navegador para transformar letras.
+    </p>
+    <h3>Para que sirve este cambio?</h3>
+    <p>
+      Sirve para uniformar contenido, corregir datos importados o ajustar presentaciones
+      y encabezados rapidamente.
+    </p>
+    <h3>Cambia numeros o signos?</h3>
+    <p>
+      No. Solo cambia las letras; los numeros, signos y espacios se mantienen igual.
+    </p>
   </>
 );
 
 export default function Page() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ToolLayout
-        title="Mayúsculas / Minúsculas"
-        description="Convertí tu texto a mayúsculas o minúsculas en tiempo real."
+        title="Mayusculas / Minusculas"
+        description="Convierte tu texto a mayusculas o minusculas en tiempo real."
         tool={<MayusculasMinusculas />}
         content={content}
         categoryHref="/texto"
         categoryLabel="Texto"
-        breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/texto", label: "Texto" }, { href: "/texto/mayusculas-minusculas", label: "Mayúsculas / Minúsculas" }]} />}
+        breadcrumb={
+          <Breadcrumb
+            crumbs={[
+              { href: "/", label: "Home" },
+              { href: "/texto", label: "Texto" },
+              { href: "/texto/mayusculas-minusculas", label: "Mayusculas / Minusculas" },
+            ]}
+          />
+        }
         relatedTools={
-          <RelatedTools tools={[
-            { href: "/texto/capitalizar-texto", title: "Capitalizar texto" },
-            { href: "/texto/invertir-texto", title: "Invertir texto" },
-            { href: "/texto/contador-caracteres", title: "Contador de caracteres" },
-          ]} />
+          <RelatedTools
+            tools={[
+              { href: "/texto/capitalizar-texto", title: "Capitalizar texto" },
+              { href: "/texto/invertir-texto", title: "Invertir texto" },
+              { href: "/texto/contador-caracteres", title: "Contador de caracteres" },
+            ]}
+          />
         }
       />
     </>

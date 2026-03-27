@@ -3,39 +3,89 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Calculadoras - FastTools",
-  description: "Calculadoras online gratuitas: porcentaje, edad, regla de tres y más.",
+  title: "Calculadoras online",
+  description:
+    "Calculadoras online gratuitas para porcentaje, edad, regla de tres, IMC y conversion de temperatura.",
+  alternates: {
+    canonical: "/calculadoras",
+  },
+  openGraph: {
+    title: "Calculadoras online | FastTools",
+    description:
+      "Calculadoras online gratuitas para porcentaje, edad, regla de tres, IMC y conversion de temperatura.",
+    url: "/calculadoras",
+  },
+  twitter: {
+    title: "Calculadoras online | FastTools",
+    description:
+      "Calculadoras online gratuitas para porcentaje, edad, regla de tres, IMC y conversion de temperatura.",
+  },
 };
 
 const tools = [
-  { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje", description: "Calcula el porcentaje de cualquier valor." },
-  { href: "/calculadoras/edad", title: "Calculadora de edad", description: "Calcula tu edad exacta en años, meses y días." },
-  { href: "/calculadoras/regla-de-tres", title: "Regla de tres", description: "Resuelve una regla de tres simple rápidamente." },
-  { href: "/calculadoras/imc", title: "Calculadora de IMC", description: "Calculá tu Índice de Masa Corporal con peso y altura." },
-  { href: "/calculadoras/temperatura", title: "Conversor de temperatura", description: "Convertí entre Celsius, Fahrenheit y Kelvin al instante." },
+  {
+    href: "/calculadoras/porcentaje",
+    title: "Calculadora de porcentaje",
+    description: "Calcula el porcentaje de cualquier valor.",
+  },
+  {
+    href: "/calculadoras/edad",
+    title: "Calculadora de edad",
+    description: "Calcula tu edad exacta en anos, meses y dias.",
+  },
+  {
+    href: "/calculadoras/regla-de-tres",
+    title: "Regla de tres",
+    description: "Resuelve una regla de tres simple rapidamente.",
+  },
+  {
+    href: "/calculadoras/imc",
+    title: "Calculadora de IMC",
+    description: "Calcula tu indice de masa corporal con peso y altura.",
+  },
+  {
+    href: "/calculadoras/temperatura",
+    title: "Conversor de temperatura",
+    description: "Convierte entre Celsius, Fahrenheit y Kelvin al instante.",
+  },
 ];
 
 export default function Calculadoras() {
   return (
-    <div className="flex flex-col gap-7 sm:gap-10">
-      <Breadcrumb crumbs={[
-        { href: "/", label: "Home" },
-        { href: "/calculadoras", label: "Calculadoras" },
-      ]} />
-      <div className="border-b border-border pb-6 sm:pb-8">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-text mb-2">Calculadoras</h1>
-        <p className="text-muted">Calculadoras online gratuitas para el día a día. Rápidas y sin registro.</p>
-      </div>
+    <div className="flex flex-col gap-8 sm:gap-12">
+      <Breadcrumb
+        crumbs={[
+          { href: "/", label: "Home" },
+          { href: "/calculadoras", label: "Calculadoras" },
+        ]}
+      />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <section className="rounded-[2rem] border border-border bg-surface px-6 py-7 shadow-sm sm:px-8 sm:py-9">
+        <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
+          Resolver con menos pasos
+        </p>
+        <h1 className="mt-3 text-3xl sm:text-5xl font-extrabold text-text">Calculadoras online</h1>
+        <p className="mt-4 max-w-3xl text-muted">
+          Un set de calculadoras pensado para cuentas frecuentes: porcentajes, edades,
+          conversiones y resultados rapidos sin abrir planillas ni formulas.
+        </p>
+      </section>
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {tools.map((tool) => (
           <Link
             key={tool.href}
             href={tool.href}
-            className="block bg-surface border border-border rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-primary transition-all group"
+            className="group rounded-[1.6rem] border border-border bg-surface p-5 shadow-sm hover:-translate-y-1 hover:border-primary hover:shadow-[0_16px_26px_rgba(23,32,51,0.06)]"
           >
-            <p className="font-semibold text-text mb-1 group-hover:text-primary transition-colors">{tool.title}</p>
-            <p className="text-sm text-muted">{tool.description}</p>
+            <p className="text-xs uppercase tracking-[0.16em] text-muted">Calculadoras</p>
+            <p className="mt-3 text-lg font-semibold text-text group-hover:text-primary">
+              {tool.title}
+            </p>
+            <p className="mt-2 text-sm text-muted">{tool.description}</p>
+            <span className="mt-5 inline-flex text-sm font-semibold text-text group-hover:text-primary">
+              Abrir herramienta →
+            </span>
           </Link>
         ))}
       </div>

@@ -5,8 +5,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import GeneradorQR from "./GeneradorQR";
 
 export const metadata: Metadata = {
-  title: "Generador de código QR online gratis - FastTools",
-  description: "Creá códigos QR para URLs, texto, WiFi o contactos en segundos. Sin registro, sin marcas de agua. Descargá el QR en alta calidad completamente gratis.",
+  title: "Generador de codigo QR online gratis - FastTools",
+  description:
+    "Crea codigos QR para URLs y texto en segundos. Sin registro, sin marcas de agua. Descarga el QR en PNG o copialo como imagen completamente gratis.",
 };
 
 const jsonLd = {
@@ -14,30 +15,42 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      "name": "Cómo crear un código QR",
-      "step": [
-        { "@type": "HowToStep", "text": "Escribí o pegá el texto o URL que querés codificar." },
-        { "@type": "HowToStep", "text": "El código QR se genera automáticamente al instante." },
-        { "@type": "HowToStep", "text": "Descargá el QR o copialo para usarlo en tus materiales." },
+      name: "Como crear un codigo QR",
+      step: [
+        { "@type": "HowToStep", text: "Escribi o pega el texto o URL que queres codificar." },
+        { "@type": "HowToStep", text: "El codigo QR se genera automaticamente al instante." },
+        {
+          "@type": "HowToStep",
+          text: "Descarga el QR en PNG o copialo como imagen para usarlo en tus materiales.",
+        },
       ],
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
+      mainEntity: [
         {
           "@type": "Question",
-          "name": "¿Qué puedo codificar en un código QR?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Podés codificar cualquier tipo de texto: URLs de sitios web, números de teléfono, direcciones de email, textos libres, coordenadas GPS o datos de WiFi. Para links de redes sociales, simplemente pegá la URL del perfil." },
+          name: "Que puedo codificar en un codigo QR?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Podes codificar texto libre y URLs de sitios web. Solo pega el contenido que quieras convertir y el QR se genera al instante.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿Los códigos QR generados tienen fecha de vencimiento?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Los QR generados con esta herramienta son estáticos y no tienen fecha de vencimiento. Mientras el contenido codificado (por ejemplo, una URL) siga siendo válido, el QR funcionará para siempre." },
+          name: "Los codigos QR generados tienen fecha de vencimiento?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Los QR generados con esta herramienta son estaticos y no tienen fecha de vencimiento. Mientras el contenido codificado siga siendo valido, el QR funcionara.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿Cuántos caracteres puede almacenar un código QR?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Un código QR puede almacenar hasta 4.296 caracteres alfanuméricos. Sin embargo, cuanto más texto contenga, más densa y difícil de escanear será la imagen. Para URLs se recomienda usar un acortador si la dirección es muy larga." },
+          name: "En que formato puedo guardar el QR?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Podes descargarlo en PNG o copiar la imagen al portapapeles para pegarla en otros documentos o disenos compatibles.",
+          },
         },
       ],
     },
@@ -47,40 +60,66 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      Un código QR (Quick Response) es un código de barras bidimensional que puede almacenar texto, URLs, datos de contacto, credenciales de WiFi y más. Son escaneables desde cualquier smartphone moderno sin necesidad de una app específica. Se usan en menús de restaurantes, tarjetas de presentación, carteles publicitarios, empaques de productos y prácticamente cualquier material impreso que quiera conectar al mundo físico con el digital.
+      Un codigo QR (Quick Response) es un codigo de barras bidimensional que permite
+      compartir texto o URLs de forma rapida. Se usa en menus, carteles, etiquetas,
+      tarjetas y piezas impresas que necesitan conectar el mundo fisico con el digital.
     </p>
-    <h2>¿Cómo crear un código QR?</h2>
+    <h2>Como crear un codigo QR</h2>
     <ol>
-      <li>Escribí o pegá el texto o URL que querés codificar.</li>
-      <li>El código QR se genera automáticamente al instante.</li>
-      <li>Descargá el QR o copialo para usarlo en tus materiales.</li>
+      <li>Escribi o pega el texto o URL que queres codificar.</li>
+      <li>El codigo QR se genera automaticamente al instante.</li>
+      <li>Descarga el QR en PNG o copialo como imagen para usarlo donde quieras.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>¿Qué puedo codificar en un código QR?</h3>
-    <p>Podés codificar cualquier tipo de texto: URLs de sitios web, números de teléfono, direcciones de email, textos libres, coordenadas GPS o datos de WiFi. Para links de redes sociales, simplemente pegá la URL del perfil.</p>
-    <h3>¿Los códigos QR generados tienen fecha de vencimiento?</h3>
-    <p>No. Los QR generados con esta herramienta son estáticos y no tienen fecha de vencimiento. Mientras el contenido codificado (por ejemplo, una URL) siga siendo válido, el QR funcionará para siempre.</p>
-    <h3>¿Cuántos caracteres puede almacenar un código QR?</h3>
-    <p>Un código QR puede almacenar hasta 4.296 caracteres alfanuméricos. Sin embargo, cuanto más texto contenga, más densa y difícil de escanear será la imagen. Para URLs se recomienda usar un acortador si la dirección es muy larga.</p>
+    <h3>Que puedo codificar en un codigo QR?</h3>
+    <p>
+      Podes codificar texto libre y URLs de sitios web. Si necesitas compartir un
+      enlace, un mensaje corto o un acceso rapido, esta herramienta te sirve sin pasos
+      extra.
+    </p>
+    <h3>Los codigos QR generados tienen fecha de vencimiento?</h3>
+    <p>
+      No. El QR es estatico, asi que seguira funcionando mientras el contenido que
+      contiene siga siendo valido.
+    </p>
+    <h3>En que formato puedo guardar el QR?</h3>
+    <p>
+      Podes descargarlo en PNG o copiar la imagen al portapapeles para pegarla en
+      presentaciones, documentos o piezas de diseno compatibles.
+    </p>
   </>
 );
 
 export default function Page() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ToolLayout
         title="Generador de QR"
-        description="Creá un código QR a partir de cualquier texto o URL al instante."
+        description="Crea un codigo QR a partir de texto o URLs, descargalo en PNG o copialo como imagen."
         tool={<GeneradorQR />}
         content={content}
         categoryHref="/generadores"
         categoryLabel="Generadores"
-        breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/generadores", label: "Generadores" }, { href: "/generadores/qr", label: "Generador de QR" }]} />}
+        breadcrumb={
+          <Breadcrumb
+            crumbs={[
+              { href: "/", label: "Home" },
+              { href: "/generadores", label: "Generadores" },
+              { href: "/generadores/qr", label: "Generador de QR" },
+            ]}
+          />
+        }
         relatedTools={
-          <RelatedTools tools={[
-            { href: "/generadores/password", title: "Generador de contraseñas" },
-          ]} />
+          <RelatedTools
+            tools={[
+              { href: "/generadores/password", title: "Generador de contraseñas" },
+              { href: "/generadores/lorem-ipsum", title: "Generador de Lorem Ipsum" },
+            ]}
+          />
         }
       />
     </>

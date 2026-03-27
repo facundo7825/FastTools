@@ -3,41 +3,99 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Herramientas de texto - FastTools",
-  description: "Herramientas online para trabajar con texto: contador de caracteres, palabras, mayúsculas, invertir y más.",
+  title: "Herramientas de texto",
+  description:
+    "Herramientas online para trabajar con texto: contador de caracteres, palabras, mayusculas, limpieza e inversion.",
+  alternates: {
+    canonical: "/texto",
+  },
+  openGraph: {
+    title: "Herramientas de texto | FastTools",
+    description:
+      "Herramientas online para trabajar con texto: contador de caracteres, palabras, mayusculas, limpieza e inversion.",
+    url: "/texto",
+  },
+  twitter: {
+    title: "Herramientas de texto | FastTools",
+    description:
+      "Herramientas online para trabajar con texto: contador de caracteres, palabras, mayusculas, limpieza e inversion.",
+  },
 };
 
 const tools = [
-  { href: "/texto/contador-caracteres", title: "Contador de caracteres", description: "Cuenta los caracteres de tu texto en tiempo real." },
-  { href: "/texto/contador-palabras", title: "Contador de palabras", description: "Cuenta las palabras de tu texto en tiempo real." },
-  { href: "/texto/quitar-espacios", title: "Quitar espacios", description: "Elimina los espacios extra de tu texto." },
-  { href: "/texto/mayusculas-minusculas", title: "Mayúsculas / Minúsculas", description: "Convierte tu texto a mayúsculas o minúsculas." },
-  { href: "/texto/capitalizar-texto", title: "Capitalizar texto", description: "Pone en mayúscula la primera letra de cada palabra." },
-  { href: "/texto/invertir-texto", title: "Invertir texto", description: "Invierte los caracteres de tu texto." },
-  { href: "/texto/contador-lineas", title: "Contador de líneas", description: "Cuenta las líneas totales y no vacías de tu texto." },
+  {
+    href: "/texto/contador-caracteres",
+    title: "Contador de caracteres",
+    description: "Cuenta los caracteres de tu texto en tiempo real.",
+  },
+  {
+    href: "/texto/contador-palabras",
+    title: "Contador de palabras",
+    description: "Cuenta las palabras de tu texto en tiempo real.",
+  },
+  {
+    href: "/texto/quitar-espacios",
+    title: "Quitar espacios",
+    description: "Elimina los espacios extra de tu texto.",
+  },
+  {
+    href: "/texto/mayusculas-minusculas",
+    title: "Mayusculas / Minusculas",
+    description: "Convierte tu texto a mayusculas o minusculas.",
+  },
+  {
+    href: "/texto/capitalizar-texto",
+    title: "Capitalizar texto",
+    description: "Pone en mayuscula la primera letra de cada palabra.",
+  },
+  {
+    href: "/texto/invertir-texto",
+    title: "Invertir texto",
+    description: "Invierte los caracteres de tu texto.",
+  },
+  {
+    href: "/texto/contador-lineas",
+    title: "Contador de lineas",
+    description: "Cuenta las lineas totales y no vacias de tu texto.",
+  },
 ];
 
 export default function Texto() {
   return (
-    <div className="flex flex-col gap-7 sm:gap-10">
-      <Breadcrumb crumbs={[
-        { href: "/", label: "Home" },
-        { href: "/texto", label: "Texto" },
-      ]} />
-      <div className="border-b border-border pb-6 sm:pb-8">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-text mb-2">Texto</h1>
-        <p className="text-muted">Herramientas online gratuitas para trabajar con texto. Rápidas y sin registro.</p>
-      </div>
+    <div className="flex flex-col gap-8 sm:gap-12">
+      <Breadcrumb
+        crumbs={[
+          { href: "/", label: "Home" },
+          { href: "/texto", label: "Texto" },
+        ]}
+      />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <section className="rounded-[2rem] border border-border bg-surface px-6 py-7 shadow-sm sm:px-8 sm:py-9">
+        <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
+          Escribir, ordenar y ajustar
+        </p>
+        <h1 className="mt-3 text-3xl sm:text-5xl font-extrabold text-text">Herramientas de texto</h1>
+        <p className="mt-4 max-w-3xl text-muted">
+          Esta categoria agrupa utilidades para limpiar, contar, transformar y acomodar
+          texto sin abrir otra app ni instalar nada.
+        </p>
+      </section>
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {tools.map((tool) => (
           <Link
             key={tool.href}
             href={tool.href}
-            className="block bg-surface border border-border rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-primary transition-all group"
+            className="group rounded-[1.6rem] border border-border bg-surface p-5 shadow-sm hover:-translate-y-1 hover:border-primary hover:shadow-[0_16px_26px_rgba(23,32,51,0.06)]"
           >
-            <p className="font-semibold text-text mb-1 group-hover:text-primary transition-colors">{tool.title}</p>
-            <p className="text-sm text-muted">{tool.description}</p>
+            <p className="text-xs uppercase tracking-[0.16em] text-muted">Texto</p>
+            <p className="mt-3 text-lg font-semibold text-text group-hover:text-primary">
+              {tool.title}
+            </p>
+            <p className="mt-2 text-sm text-muted">{tool.description}</p>
+            <span className="mt-5 inline-flex text-sm font-semibold text-text group-hover:text-primary">
+              Abrir herramienta →
+            </span>
           </Link>
         ))}
       </div>

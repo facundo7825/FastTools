@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 
 const PARAGRAPHS = [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -14,44 +14,51 @@ const PARAGRAPHS = [
 ];
 
 export default function GeneradorLoremIpsum() {
+  const rangeId = useId();
   const [cantidad, setCantidad] = useState(3);
-  const [copied, setCopied] = useState(false);
+  const [feedback, setFeedback] = useState("");
 
   const texto = PARAGRAPHS.slice(0, cantidad).join("\n\n");
 
-  function handleCopy() {
-    navigator.clipboard.writeText(texto);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  async function handleCopy() {
+    await navigator.clipboard.writeText(texto);
+    setFeedback("Texto copiado.");
   }
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex items-center gap-4">
-        <div className="flex flex-col gap-1.5">
-          <label className="text-sm text-muted">Párrafos: {cantidad}</label>
-          <input
-            type="range"
-            min={1}
-            max={8}
-            value={cantidad}
-            onChange={(e) => setCantidad(Number(e.target.value))}
-            className="w-40"
-          />
-        </div>
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor={rangeId} className="text-sm text-muted">
+          Parrafos: {cantidad}
+        </label>
+        <input
+          id={rangeId}
+          type="range"
+          min={1}
+          max={8}
+          value={cantidad}
+          onChange={(e) => {
+            setCantidad(Number(e.target.value));
+            setFeedback("");
+          }}
+          className="w-40 accent-primary focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg"
+        />
       </div>
 
       <div className="border border-border rounded-xl p-4 bg-background text-text text-sm leading-relaxed whitespace-pre-wrap">
         {texto}
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
         <button
           onClick={handleCopy}
-          className="px-3 py-1.5 text-sm border border-border text-text rounded-xl hover:border-primary hover:text-primary active:bg-background transition-colors"
+          className="px-3 py-1.5 text-sm border border-border text-text rounded-xl hover:border-primary hover:text-primary active:bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors w-fit"
         >
-          {copied ? "¡Copiado!" : "Copiar"}
+          Copiar
         </button>
+        <p className="text-xs text-muted" aria-live="polite">
+          {feedback || "Ajusta la cantidad y copia el texto cuando quieras."}
+        </p>
       </div>
     </div>
   );

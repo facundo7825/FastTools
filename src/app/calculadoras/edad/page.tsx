@@ -5,8 +5,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CalculadoraEdad from "./CalculadoraEdad";
 
 export const metadata: Metadata = {
-  title: "Calculadora de edad exacta online gratis - FastTools",
-  description: "Calculá tu edad exacta en años, meses y días a partir de tu fecha de nacimiento. También calculá la diferencia entre dos fechas. Gratis y sin registro.",
+  title: "Calculadora de edad exacta online gratis",
+  description:
+    "Calcula tu edad exacta en anos, meses y dias a partir de tu fecha de nacimiento. Rapida y sin registro.",
 };
 
 const jsonLd = {
@@ -14,30 +15,39 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      "name": "Cómo calcular la edad exacta",
-      "step": [
-        { "@type": "HowToStep", "text": "Ingresá tu fecha de nacimiento en el campo correspondiente." },
-        { "@type": "HowToStep", "text": "La herramienta calcula automáticamente tu edad exacta en años, meses y días." },
-        { "@type": "HowToStep", "text": "El resultado se actualiza con la fecha de hoy como referencia." },
+      name: "Como calcular la edad exacta",
+      step: [
+        { "@type": "HowToStep", text: "Selecciona tu fecha de nacimiento." },
+        { "@type": "HowToStep", text: "La herramienta calcula la edad automaticamente." },
+        { "@type": "HowToStep", text: "Revisa el resultado en anos, meses y dias." },
       ],
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
+      mainEntity: [
         {
           "@type": "Question",
-          "name": "¿Cómo calcula la edad exacta en meses y días?",
-          "acceptedAnswer": { "@type": "Answer", "text": "La herramienta resta la fecha de nacimiento a la fecha actual considerando los meses de diferente duración y los años bisiestos. Por ejemplo, una persona nacida el 31 de enero tiene correctamente calculados los días según si el año en curso es bisiesto o no." },
+          name: "La calculadora considera meses y dias?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si. El resultado muestra anos, meses y dias transcurridos desde la fecha ingresada.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿La calculadora tiene en cuenta los años bisiestos?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí. El cálculo considera correctamente los años bisiestos (años divisibles por 4, excepto los centenarios que no sean divisibles por 400). Esto garantiza que el conteo de días sea exacto en todos los casos." },
+          name: "Sirve para tramites o verificaciones?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Puede servir como referencia rapida para conocer una edad exacta antes de revisar documentacion oficial.",
+          },
         },
         {
           "@type": "Question",
-          "name": "¿Para qué se usa la edad exacta en trámites?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Muchos trámites legales, médicos y administrativos requieren la edad exacta al día: jubilaciones, beneficios sociales por edad, seguros de salud, autorizaciones para menores, y verificaciones de mayoría de edad en distintas jurisdicciones." },
+          name: "Se actualiza con la fecha actual?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si. El calculo toma como referencia la fecha del dia en que usas la herramienta.",
+          },
         },
       ],
     },
@@ -47,41 +57,63 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      La calculadora de edad determina con precisión cuántos años, meses y días han transcurrido desde una fecha de nacimiento hasta hoy. Es útil para verificar la edad exacta en trámites legales, calcular si alguien es mayor de edad, saber cuántos días faltan para el próximo cumpleaños, o simplemente satisfacer la curiosidad de cuántos días de vida llevás acumulados.
+      La calculadora de edad te permite saber con precision cuantos anos, meses y dias
+      pasaron desde una fecha de nacimiento hasta hoy. Es util para tramites, controles o
+      simplemente para tener el dato exacto sin hacer la cuenta manualmente.
     </p>
-    <h2>¿Cómo calcular la edad exacta?</h2>
+    <h2>Como calcular la edad exacta</h2>
     <ol>
-      <li>Ingresá tu fecha de nacimiento en el campo correspondiente.</li>
-      <li>La herramienta calcula automáticamente tu edad exacta en años, meses y días.</li>
-      <li>El resultado se actualiza con la fecha de hoy como referencia.</li>
+      <li>Selecciona tu fecha de nacimiento.</li>
+      <li>La herramienta calcula la edad automaticamente.</li>
+      <li>Consulta el resultado en anos, meses y dias.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>¿Cómo calcula la edad exacta en meses y días?</h3>
-    <p>La herramienta resta la fecha de nacimiento a la fecha actual considerando los meses de diferente duración y los años bisiestos. Por ejemplo, una persona nacida el 31 de enero que cumple años en febrero, tiene correctamente calculados los días según si el año en curso es bisiesto o no.</p>
-    <h3>¿Tiene en cuenta los años bisiestos?</h3>
-    <p>Sí. El cálculo considera correctamente los años bisiestos (años divisibles por 4, excepto los centenarios que no sean divisibles por 400). Esto garantiza que el conteo de días sea exacto en todos los casos.</p>
-    <h3>¿Para qué se usa la edad exacta en trámites?</h3>
-    <p>Muchos trámites legales, médicos y administrativos requieren la edad exacta al día: jubilaciones, beneficios sociales por edad, seguros de salud, autorizaciones para menores, y verificaciones de mayoría de edad en distintas jurisdicciones.</p>
+    <h3>La calculadora considera meses y dias?</h3>
+    <p>
+      Si. El resultado muestra el detalle completo en anos, meses y dias.
+    </p>
+    <h3>Sirve para tramites o verificaciones?</h3>
+    <p>
+      Puede servir como referencia rapida antes de validar documentacion oficial o datos
+      administrativos.
+    </p>
+    <h3>Se actualiza con la fecha actual?</h3>
+    <p>
+      Si. El calculo toma como referencia el dia en que usas la herramienta.
+    </p>
   </>
 );
 
 export default function Page() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ToolLayout
         title="Calculadora de edad"
-        description="Calculá tu edad exacta en años, meses y días desde tu fecha de nacimiento."
+        description="Calcula tu edad exacta en anos, meses y dias desde tu fecha de nacimiento."
         tool={<CalculadoraEdad />}
         content={content}
         categoryHref="/calculadoras"
         categoryLabel="Calculadoras"
-        breadcrumb={<Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/calculadoras", label: "Calculadoras" }, { href: "/calculadoras/edad", label: "Calculadora de edad" }]} />}
+        breadcrumb={
+          <Breadcrumb
+            crumbs={[
+              { href: "/", label: "Home" },
+              { href: "/calculadoras", label: "Calculadoras" },
+              { href: "/calculadoras/edad", label: "Calculadora de edad" },
+            ]}
+          />
+        }
         relatedTools={
-          <RelatedTools tools={[
-            { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje" },
-            { href: "/calculadoras/regla-de-tres", title: "Regla de tres" },
-          ]} />
+          <RelatedTools
+            tools={[
+              { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje" },
+              { href: "/calculadoras/regla-de-tres", title: "Regla de tres" },
+            ]}
+          />
         }
       />
     </>
