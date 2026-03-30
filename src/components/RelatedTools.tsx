@@ -22,7 +22,7 @@ export default function RelatedTools({ tools }: Props) {
             {tool.title}
           </p>
           <p className="mt-2 text-xs uppercase tracking-[0.16em] text-muted">
-            Herramienta relacionada
+            Sigue con esta herramienta
           </p>
         </Link>
       ))}

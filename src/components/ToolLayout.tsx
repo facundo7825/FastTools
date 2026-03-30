@@ -58,6 +58,15 @@ export default function ToolLayout({
                 <p className="mt-2 text-sm font-semibold text-text">{categoryLabel}</p>
               </Link>
             )}
+            <Link
+              href="/herramientas"
+              className="rounded-[1.5rem] border border-border bg-surface px-5 py-4 shadow-sm hover:-translate-y-0.5 hover:border-primary"
+            >
+              <p className="text-[11px] uppercase tracking-[0.18em] text-muted">
+                Seguir explorando
+              </p>
+              <p className="mt-2 text-sm font-semibold text-text">Ver todo el catalogo</p>
+            </Link>
           </div>
         </div>
       </section>
@@ -85,7 +94,12 @@ export default function ToolLayout({
 
           {relatedTools && (
             <section className="rounded-[1.8rem] border border-border bg-surface px-5 py-6 shadow-sm sm:px-7">
-              <h2 className="text-xl font-semibold text-text mb-4">Herramientas relacionadas</h2>
+              <div className="mb-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                  Sigue el flujo
+                </p>
+                <h2 className="mt-2 text-xl font-semibold text-text">Herramientas relacionadas</h2>
+              </div>
               {relatedTools}
             </section>
           )}
@@ -108,6 +122,12 @@ export default function ToolLayout({
       <AdPlaceholder id="ad-tool-bottom" />
 
       <div className="flex flex-wrap gap-3 text-sm">
+        <Link
+          href="/herramientas"
+          className="rounded-full border border-border bg-surface px-4 py-2 text-muted hover:border-primary hover:text-primary"
+        >
+          {"<- Ver todo el catalogo"}
+        </Link>
         <Link
           href="/"
           className="rounded-full border border-border bg-surface px-4 py-2 text-muted hover:border-primary hover:text-primary"
