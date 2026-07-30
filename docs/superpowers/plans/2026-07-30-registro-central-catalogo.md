@@ -241,7 +241,9 @@ export const TOOLS: Tool[] = [
 
 Correcciones obligatorias al volcar (typos detectados en el inventario):
 
-- `texto-a-lista`: `metaDescription` dice `"una lista lista para pegar"` → `"una lista lista"` es un error, dejar `"...en una lista lista para pegar donde quieras."` como `"...en una lista lista para pegar donde quieras."` corregido a `"...en una lista para pegar donde quieras."`
+- `texto-a-lista`: el `metaDescription` actual repite la palabra "lista". Antes:
+  `"...en una lista lista para pegar donde quieras."` Después:
+  `"...en una lista para pegar donde quieras."`
 - `imc`: `metaDescription` dice `"Obtiene una referencia rápida"` → `"Obtén una referencia rápida"`
 
 `shortTitle` solo en las 4 herramientas donde el nombre corto existía de verdad:
@@ -847,7 +849,16 @@ git commit -m "feat: derivar el sitemap del registro"
 
 **Interfaces:**
 - Consumes: `Crumb`, `breadcrumbFor`, `relatedFor`, `getTool`, `getCategory`, `toolHref`.
-- Produces: `ToolLayout` con props `{ slug: string; tool: ReactNode; content?: ReactNode }`. Desaparecen `title`, `description`, `categoryHref`, `categoryLabel`, `breadcrumb`, `relatedTools`.
+- Produces: `ToolLayout` que acepta **el modo nuevo y el viejo a la vez**:
+  `{ slug?: string; tool: ReactNode; content?: ReactNode }` más los legacy
+  `{ title?, description?, categoryHref?, categoryLabel?, breadcrumb?, relatedTools? }`.
+  Si viene `slug`, deriva todo del registro e ignora los legacy. Si no, usa los legacy.
+
+**Por qué la compatibilidad temporal.** Si esta tarea cambiara la firma de golpe,
+dejaría el typecheck roto hasta que la Tarea 7 migre las 32 páginas: un commit que no
+compila en la historia, que rompe `git bisect` y hace imposible revertir la Tarea 7 por
+separado. El modo dual mantiene cada commit verde. La Tarea 7 borra los legacy en su
+último paso, así que el código transitorio no sobrevive al plan.
 
 - [ ] **Step 1: Unificar el nombre del campo**
 
@@ -865,34 +876,58 @@ type Props = { tools: Tool[] };
 
 Dentro del map, `href={toolHref(tool)}` y `{tool.title}`. Mantené las clases exactas que ya tiene.
 
-- [ ] **Step 3: `ToolLayout` arma todo desde el slug**
+- [ ] **Step 3: `ToolLayout` en modo dual**
 
 ```tsx
 import { breadcrumbFor, getCategory, getTool, relatedFor } from "@/lib/tool-registry";
 
 type Props = {
-  slug: string;
+  slug?: string;
   tool: ReactNode;
   content?: ReactNode;
+  // Legacy: los usan las 32 paginas hasta que la Tarea 7 las migre.
+  // Esta tarea los borra al terminar.
+  title?: string;
+  description?: string;
+  categoryHref?: string;
+  categoryLabel?: string;
+  breadcrumb?: ReactNode;
+  relatedTools?: ReactNode;
 };
 
-export default function ToolLayout({ slug, tool, content }: Props) {
-  const meta = getTool(slug);
-  const category = getCategory(meta.category);
-  const crumbs = breadcrumbFor(slug);
-  const related = relatedFor(slug);
-  // el H1 usa meta.title y el subtitulo meta.description
-  // la tarjeta de categoria usa `/${category.slug}` y category.shortTitle
-  // ...
+export default function ToolLayout(props: Props) {
+  const { slug, tool, content } = props;
+
+  const derived = slug
+    ? (() => {
+        const meta = getTool(slug);
+        const category = getCategory(meta.category);
+        return {
+          title: meta.title,
+          description: meta.description,
+          categoryHref: `/${category.slug}`,
+          categoryLabel: category.shortTitle,
+          crumbs: breadcrumbFor(slug),
+          related: relatedFor(slug),
+          faq: meta.faq,
+        };
+      })()
+    : null;
+
+  const title = derived?.title ?? props.title ?? "";
+  const description = derived?.description ?? props.description ?? "";
+  // el resto del JSX usa estas variables; cuando derived es null,
+  // rinde props.breadcrumb y props.relatedTools tal como hoy
 }
 ```
 
-Conservá el JSX y las clases actuales; solo cambia de dónde salen los datos. Las relacionadas dejan de ser opcionales: `relatedFor` siempre devuelve 3.
+Conservá el JSX y las clases actuales; solo cambia de dónde salen los datos.
 
 - [ ] **Step 4: Verificar**
 
-Run: `npx tsc --noEmit`
-Expected: **falla** en las 32 páginas, que todavía pasan los props viejos. Es lo esperado; se arregla en la Tarea 7.
+Run: `npx tsc --noEmit && npx eslint src && npm run build`
+Expected: **todo exit 0**. Las 32 páginas siguen pasando los props viejos y siguen
+funcionando; nada se rompe todavía.
 
 - [ ] **Step 5: Commit**
 
@@ -977,6 +1012,11 @@ Reglas de la migración:
 2. **Borrar del `content` el bloque de FAQ** (el `<h2>Preguntas frecuentes</h2>` y los `<h3>`/`<p>` que le siguen). Esas preguntas ya viven en el registro y las rinde `ToolLayout` desde `tool.faq`. Hoy están escritas dos veces y pueden divergir en silencio.
 3. **Conservar intacto** el resto del `content`: párrafos introductorios, el "Cómo usar", tablas y ejemplos.
 4. No tocar el componente cliente (`ContadorPalabras.tsx` y equivalentes).
+5. **Al final, borrar los props legacy de `ToolLayout`** (`title`, `description`,
+   `categoryHref`, `categoryLabel`, `breadcrumb`, `relatedTools`) y la rama que los
+   usa. Con las 32 migradas ya no los consume nadie, y `slug` pasa a ser obligatorio.
+   Si `tsc` falla acá, es que quedó una página sin migrar: eso es justamente lo que
+   este paso detecta.
 
 - [ ] **Step 2: Renderizar el FAQ en `ToolLayout`**
 
