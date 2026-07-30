@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Convertidor de texto a lista online",
   description:
     "Convierte texto separado por comas, líneas o punto y coma en una lista lista para pegar donde quieras.",
+  alternates: {
+    canonical: "/texto/texto-a-lista",
+  },
 };
 
 const jsonLd = {

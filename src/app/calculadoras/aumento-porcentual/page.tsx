@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Calculadora de aumento porcentual online",
   description:
     "Calcula aumentos porcentuales online al instante. Ve el monto aumentado y el valor final sin fórmulas.",
+  alternates: {
+    canonical: "/calculadoras/aumento-porcentual",
+  },
 };
 
 const jsonLd = {

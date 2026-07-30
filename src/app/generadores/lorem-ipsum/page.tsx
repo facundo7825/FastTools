@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Generador de Lorem Ipsum online gratis",
   description:
     "Genera texto Lorem Ipsum al instante para tus diseños, maquetas y prototipos. Elige la cantidad de párrafos. Sin registro y completamente gratis.",
+  alternates: {
+    canonical: "/generadores/lorem-ipsum",
+  },
 };
 
 const jsonLd = {

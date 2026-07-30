@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Generador de nombres de usuario online",
   description:
     "Genera nombres de usuario originales para redes, perfiles, proyectos y cuentas en segundos.",
+  alternates: {
+    canonical: "/generadores/nombres-usuario",
+  },
 };
 
 const jsonLd = {

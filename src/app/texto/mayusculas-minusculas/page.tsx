@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Convertir texto a mayúsculas o minúsculas online",
   description:
     "Convierte cualquier texto a mayúsculas o minúsculas al instante. Útil para limpiar datos, ajustar títulos y reformatear contenido.",
+  alternates: {
+    canonical: "/texto/mayusculas-minusculas",
+  },
 };
 
 const jsonLd = {

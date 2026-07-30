@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Generador de código QR online gratis",
   description:
     "Crea códigos QR para URLs y texto en segundos. Sin registro, sin marcas de agua. Descarga el QR en PNG o cópialo como imagen completamente gratis.",
+  alternates: {
+    canonical: "/generadores/qr",
+  },
 };
 
 const jsonLd = {

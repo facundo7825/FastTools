@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Ordenar líneas alfabéticamente online",
   description:
     "Ordena líneas alfabéticamente al instante. Ideal para listas, keywords, nombres, tags y contenido copiado.",
+  alternates: {
+    canonical: "/texto/ordenar-lineas",
+  },
 };
 
 const jsonLd = {

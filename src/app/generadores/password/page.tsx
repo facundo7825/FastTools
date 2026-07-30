@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Generador de contraseñas seguras online gratis",
   description:
     "Genera contraseñas seguras y aleatorias al instante. Elige longitud y tipos de caracteres sin registro.",
+  alternates: {
+    canonical: "/generadores/password",
+  },
 };
 
 const jsonLd = {

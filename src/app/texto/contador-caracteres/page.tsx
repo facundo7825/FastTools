@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Contador de caracteres online gratis",
   description:
     "Cuenta caracteres de tu texto en tiempo real. Útil para redes sociales, meta descripciones, mensajes y textos con límite.",
+  alternates: {
+    canonical: "/texto/contador-caracteres",
+  },
 };
 
 const jsonLd = {

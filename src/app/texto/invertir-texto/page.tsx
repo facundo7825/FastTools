@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Invertir texto online gratis - Texto al revés",
   description:
     "Invierte cualquier texto al revés con un clic. Ideal para efectos creativos, acertijos y redes sociales. Soporta caracteres especiales.",
+  alternates: {
+    canonical: "/texto/invertir-texto",
+  },
 };
 
 const jsonLd = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Calculadora de porcentaje online gratis",
   description:
     "Calcula porcentajes al instante para descuentos, subas, IVA y cuentas cotidianas. Simple, clara y sin registro.",
+  alternates: {
+    canonical: "/calculadoras/porcentaje",
+  },
 };
 
 const jsonLd = {

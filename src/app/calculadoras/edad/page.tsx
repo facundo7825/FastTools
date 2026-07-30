@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Calculadora de edad exacta online gratis",
   description:
     "Calcula tu edad exacta en años, meses y días a partir de tu fecha de nacimiento. Rápida y sin registro.",
+  alternates: {
+    canonical: "/calculadoras/edad",
+  },
 };
 
 const jsonLd = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Generador de hashes online",
   description:
     "Genera hashes online con SHA-1, SHA-256 y SHA-512. Ideal para pruebas, verificación y flujos técnicos.",
+  alternates: {
+    canonical: "/generadores/hashes",
+  },
 };
 
 const jsonLd = {

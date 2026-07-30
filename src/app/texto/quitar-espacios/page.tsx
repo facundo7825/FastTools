@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Quitar espacios extra del texto online",
   description:
     "Elimina espacios dobles y espaciado irregular de tu texto al instante. Ideal para limpiar contenido copiado de PDFs, webs o documentos.",
+  alternates: {
+    canonical: "/texto/quitar-espacios",
+  },
 };
 
 const jsonLd = {

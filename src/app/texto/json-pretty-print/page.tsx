@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "JSON pretty print online",
   description:
     "Formatea JSON online al instante con indentación legible. Ideal para desarrollo, pruebas, APIs y revisión de datos.",
+  alternates: {
+    canonical: "/texto/json-pretty-print",
+  },
 };
 
 const jsonLd = {

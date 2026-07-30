@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Capitalizar texto online - Primera letra en mayúscula",
   description:
     "Convierte la primera letra de cada palabra a mayúscula al instante. Ideal para títulos, nombres propios y encabezados. Gratis y sin registro.",
+  alternates: {
+    canonical: "/texto/capitalizar-texto",
+  },
 };
 
 const jsonLd = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Calculadora de promedio online",
   description:
     "Calcula promedios online en segundos. Ideal para notas, gastos, resultados y listas de valores.",
+  alternates: {
+    canonical: "/calculadoras/promedio",
+  },
 };
 
 const jsonLd = {

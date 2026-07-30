@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Regla de tres online gratis",
   description:
     "Resuelve una regla de tres simple al instante. Útil para proporciones, recetas, escalas y cuentas rápidas.",
+  alternates: {
+    canonical: "/calculadoras/regla-de-tres",
+  },
 };
 
 const jsonLd = {

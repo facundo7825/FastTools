@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Contador de palabras online gratis",
   description:
     "Cuenta palabras de cualquier texto en tiempo real. Útil para ensayos, artículos, contenido SEO y trabajos académicos. Gratis y sin registro.",
+  alternates: {
+    canonical: "/texto/contador-palabras",
+  },
 };
 
 const jsonLd = {

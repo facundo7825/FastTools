@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Convertir temperatura online gratis",
   description:
     "Convierte temperaturas entre Celsius, Fahrenheit y Kelvin al instante escribiendo en cualquiera de los campos.",
+  alternates: {
+    canonical: "/calculadoras/temperatura",
+  },
 };
 
 const jsonLd = {

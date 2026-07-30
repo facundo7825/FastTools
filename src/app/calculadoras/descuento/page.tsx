@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Calculadora de descuento online gratis",
   description:
     "Calcula descuentos y precio final al instante. Ideal para ofertas, rebajas, ventas y compras cotidianas.",
+  alternates: {
+    canonical: "/calculadoras/descuento",
+  },
 };
 
 const jsonLd = {

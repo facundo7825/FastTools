@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Calculadora de IMC online gratis",
   description:
     "Calcula tu índice de masa corporal ingresando peso y altura. Obtiene una referencia rápida de tu categoría.",
+  alternates: {
+    canonical: "/calculadoras/imc",
+  },
 };
 
 const jsonLd = {

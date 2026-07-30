@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Contador de líneas online gratis",
   description:
     "Cuenta líneas totales y líneas no vacías al instante. Útil para listas, bloques de texto, código y archivos pegados.",
+  alternates: {
+    canonical: "/texto/contador-lineas",
+  },
 };
 
 const jsonLd = {

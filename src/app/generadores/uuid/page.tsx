@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Generador de UUID online gratis",
   description:
     "Genera UUID v4 al instante desde el navegador. Útil para desarrollo, bases de datos, identificadores y pruebas.",
+  alternates: {
+    canonical: "/generadores/uuid",
+  },
 };
 
 const jsonLd = {

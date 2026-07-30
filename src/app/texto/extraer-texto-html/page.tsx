@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Extractor de texto de HTML online",
   description:
     "Extrae texto plano desde código HTML en segundos. Ideal para limpiar contenido copiado de webs, CMS o emails.",
+  alternates: {
+    canonical: "/texto/extraer-texto-html",
+  },
 };
 
 const jsonLd = {

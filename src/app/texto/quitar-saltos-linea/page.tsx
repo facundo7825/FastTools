@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Quitar saltos de línea online",
   description:
     "Convierte texto con varias líneas en una sola línea. Ideal para formularios, CSV simples y texto copiado.",
+  alternates: {
+    canonical: "/texto/quitar-saltos-linea",
+  },
 };
 
 const jsonLd = {

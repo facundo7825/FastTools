@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Contador de densidad de keyword online",
   description:
     "Calcula la densidad de una keyword o frase clave en cualquier texto. Útil para SEO, redacción y revisión de contenido.",
+  alternates: {
+    canonical: "/texto/densidad-keyword",
+  },
 };
 
 const jsonLd = {

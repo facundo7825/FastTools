@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Minificador de texto online",
   description:
     "Minifica texto online compactando espacios y saltos de línea. Ideal para prompts, mensajes, campos con límite y contenido limpio.",
+  alternates: {
+    canonical: "/texto/minificar-texto",
+  },
 };
 
 const jsonLd = {

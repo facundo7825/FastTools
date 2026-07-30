@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Contador de palabras clave online",
   description:
     "Cuenta cuántas veces aparece una palabra o frase clave dentro de un texto y estima su densidad en segundos.",
+  alternates: {
+    canonical: "/texto/contador-palabras-clave",
+  },
 };
 
 const jsonLd = {

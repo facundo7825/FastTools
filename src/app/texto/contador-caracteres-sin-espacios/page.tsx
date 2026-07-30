@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Contador de caracteres sin espacios online",
   description:
     "Cuenta caracteres sin espacios, tabulaciones ni saltos de línea. Ideal para límites exactos de texto y validaciones.",
+  alternates: {
+    canonical: "/texto/contador-caracteres-sin-espacios",
+  },
 };
 
 const jsonLd = {

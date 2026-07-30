@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Generador de slug URL online",
   description:
     "Genera slugs limpios para URLs, artículos y páginas en segundos. Convierte texto a formato web legible y corto.",
+  alternates: {
+    canonical: "/texto/generador-slug",
+  },
 };
 
 const jsonLd = {

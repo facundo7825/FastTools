@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Eliminar líneas duplicadas online",
   description:
     "Quita líneas repetidas de una lista o bloque de texto manteniendo la primera aparición de cada una.",
+  alternates: {
+    canonical: "/texto/eliminar-lineas-duplicadas",
+  },
 };
 
 const jsonLd = {
