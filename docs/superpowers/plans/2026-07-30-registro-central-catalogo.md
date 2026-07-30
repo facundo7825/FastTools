@@ -75,30 +75,24 @@ En `package.json`, dentro de `"scripts"`, agregar:
 "test": "vitest run"
 ```
 
-- [ ] **Step 4: Test que falla**
+- [ ] **Step 4: Verificar que el runner arranca**
 
-`src/lib/tools.test.ts`:
+Run: `npx vitest run --passWithNoTests`
+Expected: exit 0. Todavía no hay tests: esta tarea entrega el runner, no aserciones.
 
-```ts
-import { describe, expect, it } from "vitest";
-import { TOOLS } from "@/lib/tools";
+Run: `npx tsc --noEmit && npx eslint src`
+Expected: ambos exit 0.
 
-describe("TOOLS", () => {
-  it("tiene las 32 herramientas publicadas", () => {
-    expect(TOOLS).toHaveLength(32);
-  });
-});
-```
+**Esta tarea no crea ningún archivo de test.** Un test que importe `@/lib/tools`
+—que recién existe en la Tarea 2— deja `tsc` en rojo, y ningún commit del plan puede
+dejar el build roto. El ciclo rojo→verde de TDD sigue existiendo: ocurre dentro del
+árbol de trabajo de la Tarea 2 y se commitea una vez en verde, que es la práctica
+habitual.
 
-- [ ] **Step 5: Verificar que falla**
-
-Run: `npm test`
-Expected: FAIL — `Cannot find module '@/lib/tools'`.
-
-- [ ] **Step 6: Commit**
+- [ ] **Step 5: Commit**
 
 ```bash
-git add package.json package-lock.json vitest.config.ts src/lib/tools.test.ts
+git add package.json package-lock.json vitest.config.ts
 git commit -m "test: agregar vitest para la logica del registro"
 ```
 
@@ -279,7 +273,11 @@ export const COLLECTIONS: Collection[] = [
 ];
 ```
 
-- [ ] **Step 4: Extender el test**
+- [ ] **Step 4: Crear el test**
+
+Escribí `src/lib/tools.test.ts` completo (la Tarea 1 no lo creó, justamente para no
+dejar un commit con `tsc` en rojo). Escribilo **antes** de dar por buena la data: si
+alguno de estos falla, es el volcado el que está mal, no el test.
 
 ```ts
 import { describe, expect, it } from "vitest";
