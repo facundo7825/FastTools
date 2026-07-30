@@ -101,7 +101,7 @@ export default function ConvertidorTemperatura() {
           />
         </div>
       </div>
-      <p className="text-xs text-muted">Escribe en cualquier campo y los otros se actualizan automaticamente.</p>
+      <p className="text-xs text-muted">Escribe en cualquier campo y los otros se actualizan automáticamente.</p>
     </div>
   );
 }

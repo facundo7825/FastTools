@@ -5,9 +5,9 @@ import ToolLayout from "@/components/ToolLayout";
 import OrdenarLineas from "./OrdenarLineas";
 
 export const metadata: Metadata = {
-  title: "Ordenar lineas alfabeticamente online",
+  title: "Ordenar líneas alfabéticamente online",
   description:
-    "Ordena lineas alfabeticamente al instante. Ideal para listas, keywords, nombres, tags y contenido copiado.",
+    "Ordena líneas alfabéticamente al instante. Ideal para listas, keywords, nombres, tags y contenido copiado.",
 };
 
 const jsonLd = {
@@ -15,9 +15,9 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como ordenar lineas alfabeticamente",
+      name: "Cómo ordenar líneas alfabéticamente",
       step: [
-        { "@type": "HowToStep", text: "Pega tu lista con una linea por elemento." },
+        { "@type": "HowToStep", text: "Pega tu lista con una línea por elemento." },
         { "@type": "HowToStep", text: "Activa o desactiva las opciones que necesitas." },
         { "@type": "HowToStep", text: "Copia el resultado ordenado cuando quede como quieres." },
       ],
@@ -27,26 +27,26 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Sirve para listas con palabras repetidas?",
+          name: "¿Sirve para listas con palabras repetidas?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. La herramienta ordena las lineas tal como las recibe. Si luego quieres limpiar repeticiones, puedes usar la herramienta para eliminar lineas duplicadas.",
+            text: "Sí. La herramienta ordena las líneas tal como las recibe. Si luego quieres limpiar repeticiones, puedes usar la herramienta para eliminar líneas duplicadas.",
           },
         },
         {
           "@type": "Question",
-          name: "Respeta mayusculas y minusculas?",
+          name: "¿Respeta mayúsculas y minúsculas?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Puedes elegir si ignorar o no las mayusculas y minusculas al ordenar.",
+            text: "Puedes elegir si ignorar o no las mayúsculas y minúsculas al ordenar.",
           },
         },
         {
           "@type": "Question",
-          name: "Puedo quitar lineas vacias?",
+          name: "¿Puedo quitar líneas vacías?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Hay una opcion para excluir lineas vacias antes de generar el resultado.",
+            text: "Sí. Hay una opción para excluir líneas vacías antes de generar el resultado.",
           },
         },
       ],
@@ -57,30 +57,30 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      Ordenar lineas alfabeticamente ayuda a limpiar listados, revisar palabras clave,
-      acomodar nombres y preparar datasets pequenos sin tener que llevar el texto a una
-      hoja de calculo.
+      Ordenar líneas alfabéticamente ayuda a limpiar listados, revisar palabras clave,
+      acomodar nombres y preparar datasets pequeños sin tener que llevar el texto a una
+      hoja de cálculo.
     </p>
-    <h2>Como usar la herramienta</h2>
+    <h2>Cómo usar la herramienta</h2>
     <ol>
-      <li>Pega tu lista con una linea por elemento.</li>
-      <li>Elige si quieres ignorar mayusculas y quitar lineas vacias.</li>
+      <li>Pega tu lista con una línea por elemento.</li>
+      <li>Elige si quieres ignorar mayúsculas y quitar líneas vacías.</li>
       <li>Copia el resultado ordenado cuando quede como necesitas.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Sirve para listas con palabras repetidas?</h3>
+    <h3>¿Sirve para listas con palabras repetidas?</h3>
     <p>
-      Si. La herramienta solo ordena. Si tambien quieres eliminar repeticiones, puedes
-      combinarla con la utilidad para borrar lineas duplicadas.
+      Sí. La herramienta solo ordena. Si también quieres eliminar repeticiones, puedes
+      combinarla con la utilidad para borrar líneas duplicadas.
     </p>
-    <h3>Respeta mayusculas y minusculas?</h3>
+    <h3>¿Respeta mayúsculas y minúsculas?</h3>
     <p>
-      Puedes decidirlo con una opcion simple, segun si buscas un orden mas flexible o
+      Puedes decidirlo con una opción simple, según si buscas un orden más flexible o
       exacto.
     </p>
-    <h3>Puedo quitar lineas vacias?</h3>
+    <h3>¿Puedo quitar líneas vacías?</h3>
     <p>
-      Si. Puedes excluir lineas vacias antes de generar el resultado final.
+      Sí. Puedes excluir líneas vacías antes de generar el resultado final.
     </p>
   </>
 );
@@ -93,8 +93,8 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ToolLayout
-        title="Ordenar lineas alfabeticamente"
-        description="Ordena listas por linea en segundos y copia el resultado limpio."
+        title="Ordenar líneas alfabéticamente"
+        description="Ordena listas por línea en segundos y copia el resultado limpio."
         tool={<OrdenarLineas />}
         content={content}
         categoryHref="/texto"
@@ -104,7 +104,7 @@ export default function Page() {
             crumbs={[
               { href: "/", label: "Home" },
               { href: "/texto", label: "Texto" },
-              { href: "/texto/ordenar-lineas", label: "Ordenar lineas" },
+              { href: "/texto/ordenar-lineas", label: "Ordenar líneas" },
             ]}
           />
         }
@@ -113,10 +113,10 @@ export default function Page() {
             tools={[
               {
                 href: "/texto/eliminar-lineas-duplicadas",
-                title: "Eliminar lineas duplicadas",
+                title: "Eliminar líneas duplicadas",
               },
-              { href: "/texto/quitar-saltos-linea", title: "Quitar saltos de linea" },
-              { href: "/texto/contador-lineas", title: "Contador de lineas" },
+              { href: "/texto/quitar-saltos-linea", title: "Quitar saltos de línea" },
+              { href: "/texto/contador-lineas", title: "Contador de líneas" },
             ]}
           />
         }

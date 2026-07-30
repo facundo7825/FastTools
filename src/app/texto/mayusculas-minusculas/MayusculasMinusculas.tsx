@@ -27,7 +27,7 @@ export default function MayusculasMinusculas() {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex flex-wrap gap-3" role="group" aria-label="Modo de conversion">
+      <div className="flex flex-wrap gap-3" role="group" aria-label="Modo de conversión">
         <button
           className={`px-4 py-2 rounded-xl border text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors ${
             mode === "upper"
@@ -40,7 +40,7 @@ export default function MayusculasMinusculas() {
           }}
           type="button"
         >
-          MAYUSCULAS
+          MAYÚSCULAS
         </button>
         <button
           className={`px-4 py-2 rounded-xl border text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors ${
@@ -54,7 +54,7 @@ export default function MayusculasMinusculas() {
           }}
           type="button"
         >
-          minusculas
+          minúsculas
         </button>
       </div>
       <div className="flex flex-col gap-1.5">
@@ -64,7 +64,7 @@ export default function MayusculasMinusculas() {
         <textarea
           id={inputId}
           className={`${fieldClassName} h-48 resize-y`}
-          placeholder="Escribe o pega tu texto aqui..."
+          placeholder="Escribe o pega tu texto aquí..."
           value={text}
           onChange={(e) => {
             setText(e.target.value);
@@ -77,7 +77,7 @@ export default function MayusculasMinusculas() {
           <div className="flex flex-col gap-1">
             <p className="text-sm text-muted">Resultado</p>
             <p className="text-xs text-muted" aria-live="polite">
-              {feedback || "El resultado cambia segun el modo que elijas."}
+              {feedback || "El resultado cambia según el modo que elijas."}
             </p>
           </div>
           <div className="flex gap-2">
@@ -90,7 +90,7 @@ export default function MayusculasMinusculas() {
           </div>
         </div>
         <div className="w-full border border-border rounded-xl p-4 min-h-16 bg-background text-text text-sm leading-relaxed whitespace-pre-wrap break-words">
-          {result || "El texto convertido aparecera aqui."}
+          {result || "El texto convertido aparecerá aquí."}
         </div>
       </div>
     </div>

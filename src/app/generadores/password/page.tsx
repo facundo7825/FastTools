@@ -5,9 +5,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import GeneradorPassword from "./GeneradorPassword";
 
 export const metadata: Metadata = {
-  title: "Generador de contrasenas seguras online gratis",
+  title: "Generador de contraseñas seguras online gratis",
   description:
-    "Genera contrasenas seguras y aleatorias al instante. Elige longitud y tipos de caracteres sin registro.",
+    "Genera contraseñas seguras y aleatorias al instante. Elige longitud y tipos de caracteres sin registro.",
 };
 
 const jsonLd = {
@@ -15,11 +15,11 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como generar una contrasena segura",
+      name: "Cómo generar una contraseña segura",
       step: [
         { "@type": "HowToStep", text: "Ajusta la longitud." },
         { "@type": "HowToStep", text: "Elige los tipos de caracteres que quieres incluir." },
-        { "@type": "HowToStep", text: "Genera la contrasena y copiala si te sirve." },
+        { "@type": "HowToStep", text: "Genera la contraseña y cópiala si te sirve." },
       ],
     },
     {
@@ -27,26 +27,26 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Se guardan las contrasenas generadas?",
+          name: "¿Se guardan las contraseñas generadas?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "No. La herramienta genera el resultado en tu sesion y no requiere guardar datos.",
+            text: "No. La herramienta genera el resultado en tu sesión y no requiere guardar datos.",
           },
         },
         {
           "@type": "Question",
-          name: "Cuantos caracteres conviene usar?",
+          name: "¿Cuántos caracteres conviene usar?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "En general, cuanto mas larga y variada sea la contrasena, mejor. Para muchas cuentas conviene usar 12 caracteres o mas.",
+            text: "En general, cuanto más larga y variada sea la contraseña, mejor. Para muchas cuentas conviene usar 12 caracteres o más.",
           },
         },
         {
           "@type": "Question",
-          name: "Puedo copiarla al instante?",
+          name: "¿Puedo copiarla al instante?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Despues de generarla, puedes copiarla directamente desde la herramienta.",
+            text: "Sí. Después de generarla, puedes copiarla directamente desde la herramienta.",
           },
         },
       ],
@@ -57,29 +57,29 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      Una contrasena fuerte ayuda a reducir riesgos en cuentas personales y de trabajo.
+      Una contraseña fuerte ayuda a reducir riesgos en cuentas personales y de trabajo.
       Este generador te permite crear claves aleatorias con distintos tipos de caracteres
       sin tener que inventarlas manualmente.
     </p>
-    <h2>Como generar una contrasena segura</h2>
+    <h2>Cómo generar una contraseña segura</h2>
     <ol>
       <li>Ajusta la longitud deseada.</li>
-      <li>Elige si quieres incluir mayusculas, minusculas, numeros y simbolos.</li>
-      <li>Genera la contrasena y copiala si te sirve.</li>
+      <li>Elige si quieres incluir mayúsculas, minúsculas, números y símbolos.</li>
+      <li>Genera la contraseña y cópiala si te sirve.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Se guardan las contrasenas generadas?</h3>
+    <h3>¿Se guardan las contraseñas generadas?</h3>
     <p>
-      No. La herramienta genera el resultado en tu sesion y no necesita guardar datos.
+      No. La herramienta genera el resultado en tu sesión y no necesita guardar datos.
     </p>
-    <h3>Cuantos caracteres conviene usar?</h3>
+    <h3>¿Cuántos caracteres conviene usar?</h3>
     <p>
-      En general, una longitud de 12 caracteres o mas mejora mucho la seguridad de una
+      En general, una longitud de 12 caracteres o más mejora mucho la seguridad de una
       cuenta.
     </p>
-    <h3>Puedo copiarla al instante?</h3>
+    <h3>¿Puedo copiarla al instante?</h3>
     <p>
-      Si. Una vez generada, puedes copiarla directamente desde la interfaz.
+      Sí. Una vez generada, puedes copiarla directamente desde la interfaz.
     </p>
   </>
 );
@@ -92,8 +92,8 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ToolLayout
-        title="Generador de contrasenas"
-        description="Genera contrasenas seguras y aleatorias sin salir del navegador."
+        title="Generador de contraseñas"
+        description="Genera contraseñas seguras y aleatorias sin salir del navegador."
         tool={<GeneradorPassword />}
         content={content}
         categoryHref="/generadores"
@@ -103,7 +103,7 @@ export default function Page() {
             crumbs={[
               { href: "/", label: "Home" },
               { href: "/generadores", label: "Generadores" },
-              { href: "/generadores/password", label: "Generador de contrasenas" },
+              { href: "/generadores/password", label: "Generador de contraseñas" },
             ]}
           />
         }

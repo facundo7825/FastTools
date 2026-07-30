@@ -47,9 +47,9 @@ export default function CalculadoraEdad() {
         <div>
           <p className="text-sm font-medium text-muted mb-2">Resultado</p>
           <div className="border border-border rounded-xl p-4 bg-background text-text text-sm leading-relaxed">
-            Tienes <span className="font-bold text-primary">{result.years} anos</span>,{" "}
+            Tienes <span className="font-bold text-primary">{result.years} años</span>,{" "}
             <span className="font-bold text-primary">{result.months} meses</span> y{" "}
-            <span className="font-bold text-primary">{result.days} dias</span>.
+            <span className="font-bold text-primary">{result.days} días</span>.
           </div>
         </div>
       ) : (

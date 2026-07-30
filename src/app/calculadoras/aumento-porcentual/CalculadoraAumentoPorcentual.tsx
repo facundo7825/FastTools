@@ -72,7 +72,7 @@ export default function CalculadoraAumentoPorcentual() {
         </div>
       ) : (
         <p className="text-sm text-muted">
-          Completa ambos campos para ver cuanto aumenta el valor y cual es el resultado final.
+          Completa ambos campos para ver cuánto aumenta el valor y cuál es el resultado final.
         </p>
       )}
     </div>

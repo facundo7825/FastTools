@@ -60,13 +60,13 @@ export default function TextoALista() {
           className="rounded-lg border border-border bg-surface px-3 py-2 text-sm text-text focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
         >
           <option value="- ">Guiones</option>
-          <option value="• ">Vinetas</option>
+          <option value="• ">Viñetas</option>
           <option value="1. ">Numerada simple</option>
         </select>
       </div>
 
       <div className="rounded-2xl border border-border bg-background p-4">
-        <p className="text-xs uppercase tracking-[0.16em] text-muted">Items detectados</p>
+        <p className="text-xs uppercase tracking-[0.16em] text-muted">Ítems detectados</p>
         <p className="mt-2 text-2xl font-bold text-text">{totalItems}</p>
       </div>
 
@@ -89,7 +89,7 @@ export default function TextoALista() {
       </div>
 
       <p className="text-sm text-muted" aria-live="polite">
-        {feedback || "Convierte texto separado por comas, punto y coma o lineas en una lista limpia."}
+        {feedback || "Convierte texto separado por comas, punto y coma o líneas en una lista limpia."}
       </p>
 
       <div className="flex flex-col gap-2">
@@ -98,7 +98,7 @@ export default function TextoALista() {
           readOnly
           value={result}
           className={`${fieldClassName} min-h-48 resize-y bg-background`}
-          placeholder="Aqui veras el texto convertido en lista."
+          placeholder="Aquí verás el texto convertido en lista."
         />
       </div>
     </div>

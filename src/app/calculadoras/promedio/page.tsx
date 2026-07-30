@@ -15,9 +15,9 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como calcular un promedio",
+      name: "Cómo calcular un promedio",
       step: [
-        { "@type": "HowToStep", text: "Pega los numeros separados por comas, espacios o lineas." },
+        { "@type": "HowToStep", text: "Pega los números separados por comas, espacios o líneas." },
         { "@type": "HowToStep", text: "La herramienta suma los valores y divide por la cantidad." },
         { "@type": "HowToStep", text: "Copia el promedio si quieres reutilizarlo." },
       ],
@@ -27,26 +27,26 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Sirve para notas o examenes?",
+          name: "¿Sirve para notas o exámenes?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Puedes pegar varias calificaciones y obtener el promedio al instante.",
+            text: "Sí. Puedes pegar varias calificaciones y obtener el promedio al instante.",
           },
         },
         {
           "@type": "Question",
-          name: "Acepta numeros con decimales?",
+          name: "¿Acepta números con decimales?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Puedes usar valores enteros o decimales.",
+            text: "Sí. Puedes usar valores enteros o decimales.",
           },
         },
         {
           "@type": "Question",
-          name: "Puedo separar los valores de distintas formas?",
+          name: "¿Puedo separar los valores de distintas formas?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. La calculadora acepta comas, espacios, saltos de linea y punto y coma.",
+            text: "Sí. La calculadora acepta comas, espacios, saltos de línea y punto y coma.",
           },
         },
       ],
@@ -58,27 +58,27 @@ const content = (
   <>
     <p>
       La calculadora de promedio sirve para sacar medias de notas, gastos, resultados o
-      cualquier serie de numeros sin hacerlo manualmente. Solo pegas los valores y el
+      cualquier serie de números sin hacerlo manualmente. Solo pegas los valores y el
       resultado aparece enseguida.
     </p>
-    <h2>Como usar la calculadora</h2>
+    <h2>Cómo usar la calculadora</h2>
     <ol>
-      <li>Pega los numeros separados por comas, espacios o lineas.</li>
+      <li>Pega los números separados por comas, espacios o líneas.</li>
       <li>La herramienta calcula suma total, cantidad y promedio.</li>
       <li>Copia el promedio si quieres usarlo en otro lado.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Sirve para notas o examenes?</h3>
+    <h3>¿Sirve para notas o exámenes?</h3>
     <p>
-      Si. Es una forma rapida de promediar calificaciones o resultados de evaluaciones.
+      Sí. Es una forma rápida de promediar calificaciones o resultados de evaluaciones.
     </p>
-    <h3>Acepta numeros con decimales?</h3>
+    <h3>¿Acepta números con decimales?</h3>
     <p>
-      Si. Puedes usar tanto valores enteros como valores con decimales.
+      Sí. Puedes usar tanto valores enteros como valores con decimales.
     </p>
-    <h3>Puedo separar los valores de distintas formas?</h3>
+    <h3>¿Puedo separar los valores de distintas formas?</h3>
     <p>
-      Si. Puedes usar comas, espacios, lineas nuevas o punto y coma.
+      Sí. Puedes usar comas, espacios, líneas nuevas o punto y coma.
     </p>
   </>
 );
@@ -92,7 +92,7 @@ export default function Page() {
       />
       <ToolLayout
         title="Calculadora de promedio"
-        description="Saca promedios automaticamente a partir de una lista de valores."
+        description="Saca promedios automáticamente a partir de una lista de valores."
         tool={<CalculadoraPromedio />}
         content={content}
         categoryHref="/calculadoras"

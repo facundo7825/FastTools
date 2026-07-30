@@ -5,30 +5,30 @@ import Breadcrumb from "@/components/Breadcrumb";
 export const metadata: Metadata = {
   title: "Generadores online",
   description:
-    "Generadores online gratuitos para contrasenas, codigos QR, UUID, hashes, usernames y texto de relleno. Rapidos y sin registro.",
+    "Generadores online gratuitos para contraseñas, códigos QR, UUID, hashes, usernames y texto de relleno. Rápidos y sin registro.",
   alternates: {
     canonical: "/generadores",
   },
   openGraph: {
     title: "Generadores online | FastTools",
     description:
-      "Generadores online gratuitos para contrasenas, codigos QR, UUID, hashes, usernames y texto de relleno. Rapidos y sin registro.",
+      "Generadores online gratuitos para contraseñas, códigos QR, UUID, hashes, usernames y texto de relleno. Rápidos y sin registro.",
     url: "/generadores",
   },
   twitter: {
     title: "Generadores online | FastTools",
     description:
-      "Generadores online gratuitos para contrasenas, codigos QR, UUID, hashes, usernames y texto de relleno. Rapidos y sin registro.",
+      "Generadores online gratuitos para contraseñas, códigos QR, UUID, hashes, usernames y texto de relleno. Rápidos y sin registro.",
   },
 };
 
 const tools = [
-  { href: "/generadores/password", title: "Generador de contrasenas", description: "Genera contrasenas seguras y aleatorias." },
-  { href: "/generadores/qr", title: "Generador de QR", description: "Genera codigos QR a partir de cualquier texto o URL." },
+  { href: "/generadores/password", title: "Generador de contraseñas", description: "Genera contraseñas seguras y aleatorias." },
+  { href: "/generadores/qr", title: "Generador de QR", description: "Genera códigos QR a partir de cualquier texto o URL." },
   { href: "/generadores/uuid", title: "Generador de UUID", description: "Crea UUID v4 para pruebas, datos y desarrollo." },
   { href: "/generadores/hashes", title: "Generador de hashes", description: "Genera hashes de texto con algoritmos comunes en el navegador." },
   { href: "/generadores/nombres-usuario", title: "Generador de nombres de usuario", description: "Crea ideas para perfiles, redes, aliases y proyectos." },
-  { href: "/generadores/lorem-ipsum", title: "Generador de Lorem Ipsum", description: "Genera texto de relleno para disenos y prototipos." },
+  { href: "/generadores/lorem-ipsum", title: "Generador de Lorem Ipsum", description: "Genera texto de relleno para diseños y prototipos." },
 ];
 
 export default function Generadores() {
@@ -37,10 +37,10 @@ export default function Generadores() {
       <Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/generadores", label: "Generadores" }]} />
 
       <section className="rounded-[2rem] border border-border bg-surface px-6 py-7 shadow-sm sm:px-8 sm:py-9">
-        <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">Crear sin friccion</p>
+        <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">Crear sin fricción</p>
         <h1 className="mt-3 text-3xl sm:text-5xl font-extrabold text-text">Generadores online</h1>
         <p className="mt-4 max-w-3xl text-muted">
-          Para esos casos donde necesitas producir algo ya mismo: una contrasena, un QR, un UUID, hashes, nombres de usuario o texto de relleno para una maqueta.
+          Para esos casos donde necesitas producir algo ya mismo: una contraseña, un QR, un UUID, hashes, nombres de usuario o texto de relleno para una maqueta.
         </p>
       </section>
 

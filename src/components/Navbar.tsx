@@ -16,7 +16,7 @@ export default function Navbar() {
               FastTools
             </span>
             <span className="text-[11px] uppercase tracking-[0.18em] text-muted">
-              Utilidades rapidas
+              Utilidades rápidas
             </span>
           </span>
         </Link>

@@ -44,7 +44,7 @@ export default function ToolLayout({
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
             <div className="rounded-[1.5rem] border border-border bg-[#1c2434] px-5 py-4 text-white">
-              <p className="text-[11px] uppercase tracking-[0.18em] text-white/55">Uso rapido</p>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-white/55">Uso rápido</p>
               <p className="mt-2 text-sm text-white/75">
                 Entra, completa el campo y resuelve la tarea sin pasos extra.
               </p>
@@ -54,7 +54,7 @@ export default function ToolLayout({
                 href={categoryHref}
                 className="rounded-[1.5rem] border border-border bg-surface px-5 py-4 shadow-sm hover:-translate-y-0.5 hover:border-primary"
               >
-                <p className="text-[11px] uppercase tracking-[0.18em] text-muted">Categoria</p>
+                <p className="text-[11px] uppercase tracking-[0.18em] text-muted">Categoría</p>
                 <p className="mt-2 text-sm font-semibold text-text">{categoryLabel}</p>
               </Link>
             )}
@@ -65,7 +65,7 @@ export default function ToolLayout({
               <p className="text-[11px] uppercase tracking-[0.18em] text-muted">
                 Seguir explorando
               </p>
-              <p className="mt-2 text-sm font-semibold text-text">Ver todo el catalogo</p>
+              <p className="mt-2 text-sm font-semibold text-text">Ver todo el catálogo</p>
             </Link>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function ToolLayout({
             <section className="rounded-[1.8rem] border border-border bg-surface px-5 py-6 shadow-sm sm:px-7">
               <div className="mb-4">
                 <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
-                  Guia y contexto
+                  Guía y contexto
                 </p>
               </div>
               <div className="prose prose-gray max-w-none text-sm text-muted">
@@ -110,7 +110,7 @@ export default function ToolLayout({
             <div className="rounded-[1.5rem] border border-border bg-surface px-5 py-5 shadow-sm">
               <p className="text-[11px] uppercase tracking-[0.18em] text-muted">Consejo</p>
               <p className="mt-2 text-sm text-muted">
-                Si esta herramienta te sirve, revisa tambien las otras del mismo grupo para
+                Si esta herramienta te sirve, revisa también las otras del mismo grupo para
                 completar el flujo sin salir del sitio.
               </p>
             </div>
@@ -126,7 +126,7 @@ export default function ToolLayout({
           href="/herramientas"
           className="rounded-full border border-border bg-surface px-4 py-2 text-muted hover:border-primary hover:text-primary"
         >
-          {"<- Ver todo el catalogo"}
+          {"<- Ver todo el catálogo"}
         </Link>
         <Link
           href="/"

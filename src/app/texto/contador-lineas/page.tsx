@@ -5,9 +5,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ContadorLineas from "./ContadorLineas";
 
 export const metadata: Metadata = {
-  title: "Contador de lineas online gratis",
+  title: "Contador de líneas online gratis",
   description:
-    "Cuenta lineas totales y lineas no vacias al instante. Util para listas, bloques de texto, codigo y archivos pegados.",
+    "Cuenta líneas totales y líneas no vacías al instante. Útil para listas, bloques de texto, código y archivos pegados.",
 };
 
 const jsonLd = {
@@ -15,10 +15,10 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como contar lineas de un texto",
+      name: "Cómo contar líneas de un texto",
       step: [
         { "@type": "HowToStep", text: "Pega o escribe tu texto en el campo." },
-        { "@type": "HowToStep", text: "La herramienta muestra lineas totales y no vacias." },
+        { "@type": "HowToStep", text: "La herramienta muestra líneas totales y no vacías." },
         { "@type": "HowToStep", text: "Copia o limpia el contenido cuando quieras." },
       ],
     },
@@ -27,26 +27,26 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Para que sirve contar lineas?",
+          name: "¿Para qué sirve contar líneas?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sirve para revisar listas, archivos pegados, bloques de codigo o textos donde cada linea importa.",
+            text: "Sirve para revisar listas, archivos pegados, bloques de código o textos donde cada línea importa.",
           },
         },
         {
           "@type": "Question",
-          name: "Que diferencia hay entre lineas totales y no vacias?",
+          name: "¿Qué diferencia hay entre líneas totales y no vacías?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Las lineas totales incluyen todo; las no vacias excluyen lineas en blanco o con espacios.",
+            text: "Las líneas totales incluyen todo; las no vacías excluyen líneas en blanco o con espacios.",
           },
         },
         {
           "@type": "Question",
-          name: "Funciona con codigo fuente?",
+          name: "¿Funciona con código fuente?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Puedes pegar codigo y ver rapidamente cuantas lineas tiene.",
+            text: "Sí. Puedes pegar código y ver rápidamente cuántas líneas tiene.",
           },
         },
       ],
@@ -57,30 +57,30 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      El contador de lineas es util cuando trabajas con listas, datos pegados, texto
-      estructurado o fragmentos de codigo. Te muestra de forma rapida cuantas lineas hay
-      en total y cuantas contienen contenido real.
+      El contador de líneas es útil cuando trabajas con listas, datos pegados, texto
+      estructurado o fragmentos de código. Te muestra de forma rápida cuántas líneas hay
+      en total y cuántas contienen contenido real.
     </p>
-    <h2>Como usar el contador de lineas</h2>
+    <h2>Cómo usar el contador de líneas</h2>
     <ol>
       <li>Pega o escribe tu texto.</li>
-      <li>Revisa el total de lineas y las lineas no vacias.</li>
+      <li>Revisa el total de líneas y las líneas no vacías.</li>
       <li>Si lo necesitas, copia o limpia el contenido.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Para que sirve contar lineas?</h3>
+    <h3>¿Para qué sirve contar líneas?</h3>
     <p>
-      Sirve para revisar listas, archivos pegados, bloques de codigo y otros textos donde
-      cada linea tiene valor propio.
+      Sirve para revisar listas, archivos pegados, bloques de código y otros textos donde
+      cada línea tiene valor propio.
     </p>
-    <h3>Que diferencia hay entre lineas totales y no vacias?</h3>
+    <h3>¿Qué diferencia hay entre líneas totales y no vacías?</h3>
     <p>
-      Las lineas totales cuentan todo. Las no vacias excluyen lineas en blanco o con
+      Las líneas totales cuentan todo. Las no vacías excluyen líneas en blanco o con
       espacios.
     </p>
-    <h3>Funciona con codigo fuente?</h3>
+    <h3>¿Funciona con código fuente?</h3>
     <p>
-      Si. Puedes pegar codigo y obtener una referencia inmediata de su longitud.
+      Sí. Puedes pegar código y obtener una referencia inmediata de su longitud.
     </p>
   </>
 );
@@ -93,8 +93,8 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ToolLayout
-        title="Contador de lineas"
-        description="Cuenta las lineas de tu texto y distingue las lineas no vacias."
+        title="Contador de líneas"
+        description="Cuenta las líneas de tu texto y distingue las líneas no vacías."
         tool={<ContadorLineas />}
         content={content}
         categoryHref="/texto"
@@ -104,7 +104,7 @@ export default function Page() {
             crumbs={[
               { href: "/", label: "Home" },
               { href: "/texto", label: "Texto" },
-              { href: "/texto/contador-lineas", label: "Contador de lineas" },
+              { href: "/texto/contador-lineas", label: "Contador de líneas" },
             ]}
           />
         }

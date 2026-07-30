@@ -28,8 +28,28 @@ const nouns = [
   "pulse",
 ];
 
+const UINT32_RANGE = 0x100000000;
+
+/**
+ * Entero aleatorio en [0, maxExclusive) con crypto.getRandomValues().
+ * Muestreo por rechazo: descarta los valores por encima del mayor multiplo de
+ * maxExclusive que cabe en el rango de Uint32 para no introducir sesgo por
+ * modulo. Aqui no hace falta seguridad criptografica, pero unifica el criterio
+ * del sitio: ningun generador usa el PRNG no criptografico del lenguaje.
+ */
+function randomInt(maxExclusive: number) {
+  const limit = Math.floor(UINT32_RANGE / maxExclusive) * maxExclusive;
+  const batch = new Uint32Array(1);
+
+  for (;;) {
+    crypto.getRandomValues(batch);
+    const value = batch[0];
+    if (value < limit) return value % maxExclusive;
+  }
+}
+
 function pickRandom<T>(items: T[]) {
-  return items[Math.floor(Math.random() * items.length)];
+  return items[randomInt(items.length)];
 }
 
 function buildUsername(base: string, includeNumbers: boolean, separator: string) {
@@ -40,7 +60,7 @@ function buildUsername(base: string, includeNumbers: boolean, separator: string)
     return core;
   }
 
-  return `${core}${separator}${Math.floor(100 + Math.random() * 900)}`;
+  return `${core}${separator}${100 + randomInt(900)}`;
 }
 
 export default function GeneradorNombresUsuario() {
@@ -93,7 +113,7 @@ export default function GeneradorNombresUsuario() {
               setFeedback("");
             }}
             className="w-full rounded-xl border border-border bg-surface p-3 text-text placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-            placeholder="Ejemplo: gamer, arte, cafe, dev"
+            placeholder="Ejemplo: gamer, arte, café, dev"
           />
         </div>
 
@@ -123,7 +143,7 @@ export default function GeneradorNombresUsuario() {
             onChange={(event) => setIncludeNumbers(event.target.checked)}
             className="accent-primary"
           />
-          Incluir numeros
+          Incluir números
         </label>
         <label className="flex items-center gap-2 text-sm text-text">
           <span>Separador</span>
@@ -159,7 +179,7 @@ export default function GeneradorNombresUsuario() {
       </div>
 
       <p className="text-sm text-muted" aria-live="polite">
-        {feedback || "Genera opciones rapidas para perfiles, proyectos o redes sociales."}
+        {feedback || "Genera opciones rápidas para perfiles, proyectos o redes sociales."}
       </p>
 
       {results.length > 0 && (

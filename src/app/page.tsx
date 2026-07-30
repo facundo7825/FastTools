@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Herramientas online gratuitas",
+  // El template "%s | FastTools" del layout raiz NO se aplica a este page,
+  // porque vive en el mismo segmento que el layout que lo define. Sin la marca
+  // explicita, la home era la unica pagina del sitio sin "FastTools" en el title.
+  title: { absolute: "FastTools | Herramientas online gratuitas" },
   description:
     "Explora herramientas online para texto, generadores y calculadoras. Todo en un solo lugar, gratis y sin registro.",
   alternates: {
@@ -27,21 +30,21 @@ const categories = [
     title: "Texto",
     eyebrow: "Editar y limpiar",
     description:
-      "Contadores, limpieza, lineas, keywords, slugs, listas, JSON y conversiones utiles.",
+      "Contadores, limpieza, líneas, keywords, slugs, listas, JSON y conversiones útiles.",
     accent: "from-[#f59e0b]/20 via-[#fffdf7] to-transparent",
   },
   {
     href: "/generadores",
     title: "Generadores",
     eyebrow: "Crear al instante",
-    description: "Contrasenas, codigos QR, UUID, hashes, usernames y texto de relleno.",
+    description: "Contraseñas, códigos QR, UUID, hashes, usernames y texto de relleno.",
     accent: "from-[#0f766e]/20 via-[#fffdf7] to-transparent",
   },
   {
     href: "/calculadoras",
     title: "Calculadoras",
-    eyebrow: "Resolver rapido",
-    description: "Porcentaje, descuento, promedio, aumentos, edad, IMC, temperatura y mas.",
+    eyebrow: "Resolver rápido",
+    description: "Porcentaje, descuento, promedio, aumentos, edad, IMC, temperatura y más.",
     accent: "from-[#ef4444]/14 via-[#fffdf7] to-transparent",
   },
 ];
@@ -50,7 +53,7 @@ const featuredTools = [
   {
     href: "/texto/generador-slug",
     title: "Generador de slug URL",
-    detail: "Convierte titulos en URLs limpias y listas para publicar.",
+    detail: "Convierte títulos en URLs limpias y listas para publicar.",
     label: "Nueva",
   },
   {
@@ -62,7 +65,7 @@ const featuredTools = [
   {
     href: "/texto/texto-a-lista",
     title: "Texto a lista",
-    detail: "Transforma texto separado por comas o lineas en una lista prolija.",
+    detail: "Transforma texto separado por comas o líneas en una lista prolija.",
     label: "Nueva",
   },
 ];
@@ -70,7 +73,7 @@ const featuredTools = [
 const collections = [
   {
     title: "SEO y contenido",
-    description: "Para limpiar textos, medir keywords y preparar URLs mas prolijas.",
+    description: "Para limpiar textos, medir keywords y preparar URLs más prolijas.",
     links: [
       { href: "/texto/contador-palabras-clave", label: "Contador de palabras clave" },
       { href: "/texto/densidad-keyword", label: "Densidad de keyword" },
@@ -79,16 +82,16 @@ const collections = [
   },
   {
     title: "Listas y limpieza",
-    description: "Ideal para transformar texto desordenado en algo reutilizable rapido.",
+    description: "Ideal para transformar texto desordenado en algo reutilizable rápido.",
     links: [
-      { href: "/texto/eliminar-lineas-duplicadas", label: "Eliminar lineas duplicadas" },
-      { href: "/texto/ordenar-lineas", label: "Ordenar lineas alfabeticamente" },
+      { href: "/texto/eliminar-lineas-duplicadas", label: "Eliminar líneas duplicadas" },
+      { href: "/texto/ordenar-lineas", label: "Ordenar líneas alfabéticamente" },
       { href: "/texto/texto-a-lista", label: "Texto a lista" },
     ],
   },
   {
-    title: "Dev rapido",
-    description: "Un bloque tecnico para datos, hashes y utilidades de desarrollo.",
+    title: "Dev rápido",
+    description: "Un bloque técnico para datos, hashes y utilidades de desarrollo.",
     links: [
       { href: "/texto/json-pretty-print", label: "JSON pretty print" },
       { href: "/generadores/uuid", label: "Generador de UUID" },
@@ -105,15 +108,15 @@ const tools = [
     category: "Texto",
   },
   { href: "/texto/contador-palabras", title: "Contador de palabras", category: "Texto" },
-  { href: "/texto/contador-lineas", title: "Contador de lineas", category: "Texto" },
+  { href: "/texto/contador-lineas", title: "Contador de líneas", category: "Texto" },
   { href: "/texto/quitar-espacios", title: "Quitar espacios", category: "Texto" },
-  { href: "/texto/quitar-saltos-linea", title: "Quitar saltos de linea", category: "Texto" },
+  { href: "/texto/quitar-saltos-linea", title: "Quitar saltos de línea", category: "Texto" },
   {
     href: "/texto/eliminar-lineas-duplicadas",
-    title: "Eliminar lineas duplicadas",
+    title: "Eliminar líneas duplicadas",
     category: "Texto",
   },
-  { href: "/texto/ordenar-lineas", title: "Ordenar lineas alfabeticamente", category: "Texto" },
+  { href: "/texto/ordenar-lineas", title: "Ordenar líneas alfabéticamente", category: "Texto" },
   {
     href: "/texto/contador-palabras-clave",
     title: "Contador de palabras clave",
@@ -125,10 +128,10 @@ const tools = [
   { href: "/texto/generador-slug", title: "Generador de slug URL", category: "Texto" },
   { href: "/texto/densidad-keyword", title: "Densidad de keyword", category: "Texto" },
   { href: "/texto/texto-a-lista", title: "Convertidor de texto a lista", category: "Texto" },
-  { href: "/texto/mayusculas-minusculas", title: "Mayusculas / Minusculas", category: "Texto" },
+  { href: "/texto/mayusculas-minusculas", title: "Mayúsculas / Minúsculas", category: "Texto" },
   { href: "/texto/capitalizar-texto", title: "Capitalizar texto", category: "Texto" },
   { href: "/texto/invertir-texto", title: "Invertir texto", category: "Texto" },
-  { href: "/generadores/password", title: "Generador de contrasenas", category: "Generadores" },
+  { href: "/generadores/password", title: "Generador de contraseñas", category: "Generadores" },
   { href: "/generadores/qr", title: "Generador de QR", category: "Generadores" },
   { href: "/generadores/uuid", title: "Generador de UUID", category: "Generadores" },
   {
@@ -186,7 +189,7 @@ export default function Home() {
                 Utilidades web con aspecto de caja de herramientas, no de lista aburrida.
               </h1>
               <p className="max-w-2xl text-base text-muted sm:text-xl">
-                FastTools junta calculos rapidos, limpieza de texto y generadores utiles en
+                FastTools junta cálculos rápidos, limpieza de texto y generadores útiles en
                 una sola mesa de trabajo. Entras, resuelves y sigues.
               </p>
             </div>
@@ -252,7 +255,7 @@ export default function Home() {
             Explora por objetivo
           </p>
           <h2 className="text-2xl font-bold text-text sm:text-4xl">
-            Atajos para llegar mas rapido a lo que necesitas
+            Atajos para llegar más rápido a lo que necesitas
           </h2>
         </div>
 
@@ -319,14 +322,14 @@ export default function Home() {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              Catalogo completo
+              Catálogo completo
             </p>
             <h2 className="text-2xl font-bold text-text sm:text-4xl">
-              Herramientas para tareas pequenas que aparecen seguido
+              Herramientas para tareas pequeñas que aparecen seguido
             </h2>
           </div>
           <Link href="/herramientas" className="text-sm font-semibold text-text hover:text-primary">
-            Ver indice completo {"->"}
+            Ver índice completo {"->"}
           </Link>
         </div>
 

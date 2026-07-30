@@ -15,10 +15,10 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como convertir temperatura",
+      name: "Cómo convertir temperatura",
       step: [
         { "@type": "HowToStep", text: "Escribe una temperatura en cualquiera de los campos." },
-        { "@type": "HowToStep", text: "Los otros valores se actualizan automaticamente." },
+        { "@type": "HowToStep", text: "Los otros valores se actualizan automáticamente." },
       ],
     },
     {
@@ -26,7 +26,7 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Que escalas incluye?",
+          name: "¿Qué escalas incluye?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Incluye Celsius, Fahrenheit y Kelvin.",
@@ -34,18 +34,18 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          name: "Puedo escribir en cualquier campo?",
+          name: "¿Puedo escribir en cualquier campo?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Puedes ingresar un valor en cualquiera de las tres escalas.",
+            text: "Sí. Puedes ingresar un valor en cualquiera de las tres escalas.",
           },
         },
         {
           "@type": "Question",
-          name: "Sirve para uso cotidiano y tecnico?",
+          name: "¿Sirve para uso cotidiano y técnico?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Puede servir tanto para cocina y clima como para referencias generales de estudio o trabajo.",
+            text: "Sí. Puede servir tanto para cocina y clima como para referencias generales de estudio o trabajo.",
           },
         },
       ],
@@ -56,27 +56,27 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      Convertir temperatura entre Celsius, Fahrenheit y Kelvin es una tarea comun en
-      cocina, estudio, trabajo tecnico y consultas cotidianas. Esta herramienta te deja
+      Convertir temperatura entre Celsius, Fahrenheit y Kelvin es una tarea común en
+      cocina, estudio, trabajo técnico y consultas cotidianas. Esta herramienta te deja
       escribir en cualquiera de las tres escalas y ver las equivalencias al instante.
     </p>
-    <h2>Como convertir temperatura</h2>
+    <h2>Cómo convertir temperatura</h2>
     <ol>
       <li>Escribe una temperatura en cualquiera de los campos.</li>
-      <li>Los otros dos valores se actualizan automaticamente.</li>
+      <li>Los otros dos valores se actualizan automáticamente.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Que escalas incluye?</h3>
+    <h3>¿Qué escalas incluye?</h3>
     <p>
       Incluye Celsius, Fahrenheit y Kelvin.
     </p>
-    <h3>Puedo escribir en cualquier campo?</h3>
+    <h3>¿Puedo escribir en cualquier campo?</h3>
     <p>
-      Si. Puedes ingresar un valor en cualquiera de las tres escalas.
+      Sí. Puedes ingresar un valor en cualquiera de las tres escalas.
     </p>
-    <h3>Sirve para uso cotidiano y tecnico?</h3>
+    <h3>¿Sirve para uso cotidiano y técnico?</h3>
     <p>
-      Si. Puede servir tanto para cocina y clima como para referencias generales de
+      Sí. Puede servir tanto para cocina y clima como para referencias generales de
       estudio o trabajo.
     </p>
   </>

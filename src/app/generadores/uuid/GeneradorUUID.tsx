@@ -7,18 +7,38 @@ const panelClassName =
 const buttonClassName =
   "px-3 py-1.5 text-sm border border-border text-text rounded-xl hover:border-primary hover:text-primary active:bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors";
 
+/**
+ * Fallback para contextos no seguros, donde crypto.randomUUID() no existe.
+ * Usa crypto.getRandomValues() (nunca un PRNG no criptografico) y fija los
+ * bits de version (4) y de variante (10xx) que exige un UUID v4.
+ */
 function generateFallbackUUID() {
-  const template = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
-  return template.replace(/[xy]/g, (char) => {
-    const random = Math.floor(Math.random() * 16);
-    const value = char === "x" ? random : (random & 0x3) | 0x8;
-    return value.toString(16);
-  });
+  const bytes = new Uint8Array(16);
+  crypto.getRandomValues(bytes);
+  bytes[6] = (bytes[6] & 0x0f) | 0x40;
+  bytes[8] = (bytes[8] & 0x3f) | 0x80;
+
+  const hex = Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join("");
+
+  return [
+    hex.slice(0, 8),
+    hex.slice(8, 12),
+    hex.slice(12, 16),
+    hex.slice(16, 20),
+    hex.slice(20, 32),
+  ].join("-");
 }
 
 function createUUID() {
+  // randomUUID solo existe en contextos seguros, pero algunos navegadores
+  // exponen la propiedad sobre HTTP y lanzan al invocarla: por eso no alcanza
+  // con comprobar que este presente.
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
-    return crypto.randomUUID();
+    try {
+      return crypto.randomUUID();
+    } catch {
+      return generateFallbackUUID();
+    }
   }
 
   return generateFallbackUUID();

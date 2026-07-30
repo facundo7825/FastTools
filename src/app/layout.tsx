@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 const siteUrl = "https://fasttools.app";
 const defaultTitle = "FastTools | Herramientas online gratuitas";
 const defaultDescription =
-  "Herramientas online gratuitas para texto, generadores y calculadoras. Rapidas, simples y sin registro.";
+  "Herramientas online gratuitas para texto, generadores y calculadoras. Rápidas, simples y sin registro.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

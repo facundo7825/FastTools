@@ -7,7 +7,7 @@ import TextoALista from "./TextoALista";
 export const metadata: Metadata = {
   title: "Convertidor de texto a lista online",
   description:
-    "Convierte texto separado por comas, lineas o punto y coma en una lista lista para pegar donde quieras.",
+    "Convierte texto separado por comas, líneas o punto y coma en una lista lista para pegar donde quieras.",
 };
 
 const jsonLd = {
@@ -15,11 +15,11 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como convertir texto a lista",
+      name: "Cómo convertir texto a lista",
       step: [
-        { "@type": "HowToStep", text: "Pega el texto separado por comas, lineas o punto y coma." },
+        { "@type": "HowToStep", text: "Pega el texto separado por comas, líneas o punto y coma." },
         { "@type": "HowToStep", text: "Elige el formato de lista que prefieras." },
-        { "@type": "HowToStep", text: "Copia el resultado y pegalo donde lo necesites." },
+        { "@type": "HowToStep", text: "Copia el resultado y pégalo donde lo necesites." },
       ],
     },
     {
@@ -27,26 +27,26 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Sirve para listas de productos o keywords?",
+          name: "¿Sirve para listas de productos o keywords?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Es util para productos, tags, keywords, nombres o cualquier secuencia separada por delimitadores.",
+            text: "Sí. Es útil para productos, tags, keywords, nombres o cualquier secuencia separada por delimitadores.",
           },
         },
         {
           "@type": "Question",
-          name: "Puedo cambiar el formato de la lista?",
+          name: "¿Puedo cambiar el formato de la lista?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Puedes elegir entre guiones, vinetas o una lista numerada simple.",
+            text: "Sí. Puedes elegir entre guiones, viñetas o una lista numerada simple.",
           },
         },
         {
           "@type": "Question",
-          name: "Acepta comas y saltos de linea?",
+          name: "¿Acepta comas y saltos de línea?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. La herramienta acepta comas, punto y coma y lineas nuevas como separadores.",
+            text: "Sí. La herramienta acepta comas, punto y coma y líneas nuevas como separadores.",
           },
         },
       ],
@@ -58,28 +58,28 @@ const content = (
   <>
     <p>
       El convertidor de texto a lista sirve para transformar secuencias de palabras o
-      frases en un formato mas claro y facil de reutilizar. Es practico para productos,
-      keywords, ideas, tags o apuntes rapidos.
+      frases en un formato más claro y fácil de reutilizar. Es práctico para productos,
+      keywords, ideas, tags o apuntes rápidos.
     </p>
-    <h2>Como usar la herramienta</h2>
+    <h2>Cómo usar la herramienta</h2>
     <ol>
-      <li>Pega el texto separado por comas, punto y coma o lineas.</li>
-      <li>Elige si quieres una lista con guiones, vinetas o numeracion simple.</li>
-      <li>Copia el resultado final y pegalo donde quieras usarlo.</li>
+      <li>Pega el texto separado por comas, punto y coma o líneas.</li>
+      <li>Elige si quieres una lista con guiones, viñetas o numeración simple.</li>
+      <li>Copia el resultado final y pégalo donde quieras usarlo.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Sirve para listas de productos o keywords?</h3>
+    <h3>¿Sirve para listas de productos o keywords?</h3>
     <p>
-      Si. Funciona bien para productos, categorias, ideas, keywords o cualquier conjunto
-      de items separados.
+      Sí. Funciona bien para productos, categorías, ideas, keywords o cualquier conjunto
+      de ítems separados.
     </p>
-    <h3>Puedo cambiar el formato de la lista?</h3>
+    <h3>¿Puedo cambiar el formato de la lista?</h3>
     <p>
-      Si. Puedes elegir el estilo de salida segun como quieras reutilizar la lista.
+      Sí. Puedes elegir el estilo de salida según cómo quieras reutilizar la lista.
     </p>
-    <h3>Acepta comas y saltos de linea?</h3>
+    <h3>¿Acepta comas y saltos de línea?</h3>
     <p>
-      Si. La herramienta acepta comas, punto y coma y lineas nuevas como separadores.
+      Sí. La herramienta acepta comas, punto y coma y líneas nuevas como separadores.
     </p>
   </>
 );
@@ -110,8 +110,8 @@ export default function Page() {
         relatedTools={
           <RelatedTools
             tools={[
-              { href: "/texto/ordenar-lineas", title: "Ordenar lineas alfabeticamente" },
-              { href: "/texto/eliminar-lineas-duplicadas", title: "Eliminar lineas duplicadas" },
+              { href: "/texto/ordenar-lineas", title: "Ordenar líneas alfabéticamente" },
+              { href: "/texto/eliminar-lineas-duplicadas", title: "Eliminar líneas duplicadas" },
               { href: "/texto/minificar-texto", title: "Minificador de texto" },
             ]}
           />

@@ -7,7 +7,7 @@ import ReglaDeTres from "./ReglaDeTres";
 export const metadata: Metadata = {
   title: "Regla de tres online gratis",
   description:
-    "Resuelve una regla de tres simple al instante. Util para proporciones, recetas, escalas y cuentas rapidas.",
+    "Resuelve una regla de tres simple al instante. Útil para proporciones, recetas, escalas y cuentas rápidas.",
 };
 
 const jsonLd = {
@@ -15,11 +15,11 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como resolver una regla de tres",
+      name: "Cómo resolver una regla de tres",
       step: [
         { "@type": "HowToStep", text: "Completa los tres valores conocidos." },
         { "@type": "HowToStep", text: "La herramienta calcula el valor faltante." },
-        { "@type": "HowToStep", text: "Usa el resultado como referencia para tu proporcion." },
+        { "@type": "HowToStep", text: "Usa el resultado como referencia para tu proporción." },
       ],
     },
     {
@@ -27,7 +27,7 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Para que sirve la regla de tres?",
+          name: "¿Para qué sirve la regla de tres?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Sirve para resolver proporciones simples en recetas, precios, cantidades y escalas.",
@@ -35,18 +35,18 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          name: "Esta herramienta calcula relaciones directas?",
+          name: "¿Esta herramienta calcula relaciones directas?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Esta version esta pensada para reglas de tres simples y directas.",
+            text: "Sí. Esta versión está pensada para reglas de tres simples y directas.",
           },
         },
         {
           "@type": "Question",
-          name: "Hace el calculo automaticamente?",
+          name: "¿Hace el cálculo automáticamente?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Apenas completas los datos necesarios, el valor X aparece en pantalla.",
+            text: "Sí. Apenas completas los datos necesarios, el valor X aparece en pantalla.",
           },
         },
       ],
@@ -57,28 +57,28 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      La regla de tres es una forma rapida de resolver proporciones cuando conoces tres
-      valores y necesitas calcular el cuarto. Es util en recetas, escalas, compras,
+      La regla de tres es una forma rápida de resolver proporciones cuando conoces tres
+      valores y necesitas calcular el cuarto. Es útil en recetas, escalas, compras,
       rendimientos y cuentas cotidianas.
     </p>
-    <h2>Como usar la regla de tres</h2>
+    <h2>Cómo usar la regla de tres</h2>
     <ol>
       <li>Completa los tres valores conocidos.</li>
-      <li>La herramienta calcula automaticamente el valor X.</li>
-      <li>Usa ese resultado como referencia para tu proporcion.</li>
+      <li>La herramienta calcula automáticamente el valor X.</li>
+      <li>Usa ese resultado como referencia para tu proporción.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Para que sirve la regla de tres?</h3>
+    <h3>¿Para qué sirve la regla de tres?</h3>
     <p>
       Sirve para resolver proporciones simples en recetas, precios, cantidades y escalas.
     </p>
-    <h3>Esta herramienta calcula relaciones directas?</h3>
+    <h3>¿Esta herramienta calcula relaciones directas?</h3>
     <p>
-      Si. Esta version esta pensada para reglas de tres simples y directas.
+      Sí. Esta versión está pensada para reglas de tres simples y directas.
     </p>
-    <h3>Hace el calculo automaticamente?</h3>
+    <h3>¿Hace el cálculo automáticamente?</h3>
     <p>
-      Si. Apenas completas los datos necesarios, el resultado aparece en pantalla.
+      Sí. Apenas completas los datos necesarios, el resultado aparece en pantalla.
     </p>
   </>
 );
@@ -92,7 +92,7 @@ export default function Page() {
       />
       <ToolLayout
         title="Regla de tres"
-        description="Resuelve una proporcion simple de forma rapida y clara."
+        description="Resuelve una proporción simple de forma rápida y clara."
         tool={<ReglaDeTres />}
         content={content}
         categoryHref="/calculadoras"

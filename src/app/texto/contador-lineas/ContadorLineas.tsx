@@ -34,7 +34,7 @@ export default function ContadorLineas() {
         <textarea
           id={inputId}
           className={`${fieldClassName} h-48 resize-y`}
-          placeholder="Escribe o pega tu texto aqui..."
+          placeholder="Escribe o pega tu texto aquí..."
           value={text}
           onChange={(e) => {
             setText(e.target.value);
@@ -46,14 +46,14 @@ export default function ContadorLineas() {
         <div className="flex flex-col gap-1">
           <div className="flex flex-wrap gap-5 text-sm">
             <p className="text-text">
-              Lineas totales: <span className="font-bold">{lineCount}</span>
+              Líneas totales: <span className="font-bold">{lineCount}</span>
             </p>
             <p className="text-muted">
-              No vacias: <span className="font-bold text-text">{nonEmptyLines}</span>
+              No vacías: <span className="font-bold text-text">{nonEmptyLines}</span>
             </p>
           </div>
           <p className="text-xs text-muted" aria-live="polite">
-            {feedback || "Podes copiar el texto o limpiar el campo."}
+            {feedback || "Puedes copiar el texto o limpiar el campo."}
           </p>
         </div>
         <div className="flex gap-2">

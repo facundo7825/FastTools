@@ -7,7 +7,7 @@ import CalculadoraIMC from "./CalculadoraIMC";
 export const metadata: Metadata = {
   title: "Calculadora de IMC online gratis",
   description:
-    "Calcula tu indice de masa corporal ingresando peso y altura. Obtiene una referencia rapida de tu categoria.",
+    "Calcula tu índice de masa corporal ingresando peso y altura. Obtiene una referencia rápida de tu categoría.",
 };
 
 const jsonLd = {
@@ -15,11 +15,11 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como calcular el IMC",
+      name: "Cómo calcular el IMC",
       step: [
         { "@type": "HowToStep", text: "Ingresa tu peso en kilogramos." },
-        { "@type": "HowToStep", text: "Ingresa tu altura en centimetros." },
-        { "@type": "HowToStep", text: "Consulta el IMC y la categoria resultante." },
+        { "@type": "HowToStep", text: "Ingresa tu altura en centímetros." },
+        { "@type": "HowToStep", text: "Consulta el IMC y la categoría resultante." },
       ],
     },
     {
@@ -27,7 +27,7 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Como se calcula el IMC?",
+          name: "¿Cómo se calcula el IMC?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Se divide el peso en kilogramos por la altura en metros al cuadrado.",
@@ -35,7 +35,7 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          name: "Para que sirve este valor?",
+          name: "¿Para qué sirve este valor?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Sirve como referencia general para relacionar peso y altura de forma simple.",
@@ -43,10 +43,10 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          name: "Es un diagnostico medico?",
+          name: "¿Es un diagnóstico médico?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "No. Es una referencia rapida y no reemplaza la evaluacion profesional.",
+            text: "No. Es una referencia rápida y no reemplaza la evaluación profesional.",
           },
         },
       ],
@@ -57,28 +57,28 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      El indice de masa corporal es una medida simple que relaciona peso y altura para
-      ofrecer una referencia rapida. No reemplaza una evaluacion profesional, pero puede
+      El índice de masa corporal es una medida simple que relaciona peso y altura para
+      ofrecer una referencia rápida. No reemplaza una evaluación profesional, pero puede
       ayudarte a ubicarte dentro de un rango general.
     </p>
-    <h2>Como calcular el IMC</h2>
+    <h2>Cómo calcular el IMC</h2>
     <ol>
       <li>Ingresa tu peso en kilogramos.</li>
-      <li>Ingresa tu altura en centimetros.</li>
-      <li>Consulta el resultado y la categoria estimada.</li>
+      <li>Ingresa tu altura en centímetros.</li>
+      <li>Consulta el resultado y la categoría estimada.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Como se calcula el IMC?</h3>
+    <h3>¿Cómo se calcula el IMC?</h3>
     <p>
       Se divide el peso en kilogramos por la altura en metros al cuadrado.
     </p>
-    <h3>Para que sirve este valor?</h3>
+    <h3>¿Para qué sirve este valor?</h3>
     <p>
       Sirve como una referencia general para relacionar peso y altura de manera simple.
     </p>
-    <h3>Es un diagnostico medico?</h3>
+    <h3>¿Es un diagnóstico médico?</h3>
     <p>
-      No. Es solo una referencia y no reemplaza una evaluacion profesional.
+      No. Es solo una referencia y no reemplaza una evaluación profesional.
     </p>
   </>
 );
@@ -92,7 +92,7 @@ export default function Page() {
       />
       <ToolLayout
         title="Calculadora de IMC"
-        description="Calcula tu indice de masa corporal ingresando peso y altura."
+        description="Calcula tu índice de masa corporal ingresando peso y altura."
         tool={<CalculadoraIMC />}
         content={content}
         categoryHref="/calculadoras"

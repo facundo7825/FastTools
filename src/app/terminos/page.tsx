@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Terminos de uso",
+  title: "Términos de uso",
   description:
-    "Consulta los terminos de uso de FastTools para entender el alcance, responsabilidades y condiciones del sitio.",
+    "Consulta los términos de uso de FastTools para entender el alcance, responsabilidades y condiciones del sitio.",
   alternates: {
     canonical: "/terminos",
   },
   openGraph: {
-    title: "Terminos de uso | FastTools",
+    title: "Términos de uso | FastTools",
     description:
-      "Consulta los terminos de uso de FastTools para entender el alcance, responsabilidades y condiciones del sitio.",
+      "Consulta los términos de uso de FastTools para entender el alcance, responsabilidades y condiciones del sitio.",
     url: "/terminos",
   },
   twitter: {
-    title: "Terminos de uso | FastTools",
+    title: "Términos de uso | FastTools",
     description:
-      "Consulta los terminos de uso de FastTools para entender el alcance, responsabilidades y condiciones del sitio.",
+      "Consulta los términos de uso de FastTools para entender el alcance, responsabilidades y condiciones del sitio.",
   },
 };
 
@@ -27,14 +27,14 @@ export default function TerminosPage() {
       <Breadcrumb
         crumbs={[
           { href: "/", label: "Home" },
-          { href: "/terminos", label: "Terminos" },
+          { href: "/terminos", label: "Términos" },
         ]}
       />
 
       <section className="border-b border-border pb-6">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-text mb-3">Terminos de uso</h1>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-text mb-3">Términos de uso</h1>
         <p className="text-muted max-w-3xl">
-          Estos terminos resumen como puede utilizarse FastTools y que limites o
+          Estos términos resumen cómo puede utilizarse FastTools y qué límites o
           responsabilidades aplican al acceder al sitio.
         </p>
       </section>
@@ -62,16 +62,16 @@ export default function TerminosPage() {
           <h2 className="text-xl font-semibold text-text mb-2">Responsabilidad del usuario</h2>
           <p className="text-sm text-muted">
             Cada usuario es responsable de revisar los resultados antes de utilizarlos en
-            contextos importantes. Las herramientas ayudan a resolver tareas rapidas, pero
-            no sustituyen validacion profesional cuando haga falta.
+            contextos importantes. Las herramientas ayudan a resolver tareas rápidas, pero
+            no sustituyen validación profesional cuando haga falta.
           </p>
         </div>
 
         <div className="border border-border rounded-2xl bg-surface p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-text mb-2">Cambios en estos terminos</h2>
+          <h2 className="text-xl font-semibold text-text mb-2">Cambios en estos términos</h2>
           <p className="text-sm text-muted">
-            Estos terminos pueden actualizarse a medida que el proyecto evolucione. El uso
-            continuado del sitio despues de cambios implica aceptar la version vigente.
+            Estos términos pueden actualizarse a medida que el proyecto evolucione. El uso
+            continuado del sitio después de cambios implica aceptar la versión vigente.
           </p>
         </div>
       </section>

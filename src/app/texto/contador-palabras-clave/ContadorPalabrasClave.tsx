@@ -78,7 +78,7 @@ export default function ContadorPalabrasClave() {
           <textarea
             id={textId}
             className={`${fieldClassName} min-h-56 resize-y`}
-            placeholder="Pega aqui el texto completo que quieres revisar."
+            placeholder="Pega aquí el texto completo que quieres revisar."
             value={text}
             onChange={(event) => {
               setText(event.target.value);

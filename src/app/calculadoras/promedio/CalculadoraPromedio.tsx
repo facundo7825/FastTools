@@ -42,7 +42,7 @@ export default function CalculadoraPromedio() {
         <textarea
           id={valuesId}
           className={`${fieldClassName} min-h-52 resize-y`}
-          placeholder="Ejemplo: 8, 7, 9, 10 o una linea por numero"
+          placeholder="Ejemplo: 8, 7, 9, 10 o una línea por número"
           value={input}
           onChange={(event) => {
             setInput(event.target.value);
@@ -86,7 +86,7 @@ export default function CalculadoraPromedio() {
 
       <p className="text-sm text-muted" aria-live="polite">
         {feedback ||
-          "Pega numeros separados por comas, espacios o lineas para calcular el promedio automaticamente."}
+          "Pega números separados por comas, espacios o líneas para calcular el promedio automáticamente."}
       </p>
     </div>
   );

@@ -15,7 +15,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como calcular un descuento",
+      name: "Cómo calcular un descuento",
       step: [
         { "@type": "HowToStep", text: "Ingresa el precio original." },
         { "@type": "HowToStep", text: "Escribe el porcentaje de descuento." },
@@ -28,11 +28,11 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      Esta calculadora te ayuda a saber rapidamente cuanto descuentan sobre un precio y
-      cuanto terminarias pagando. Es util para ofertas, compras online, rebajas y
+      Esta calculadora te ayuda a saber rápidamente cuánto descuentan sobre un precio y
+      cuánto terminarías pagando. Es útil para ofertas, compras online, rebajas y
       comparaciones simples.
     </p>
-    <h2>Como usar la calculadora</h2>
+    <h2>Cómo usar la calculadora</h2>
     <ol>
       <li>Ingresa el precio original.</li>
       <li>Escribe el porcentaje de descuento.</li>
@@ -50,7 +50,7 @@ export default function Page() {
       />
       <ToolLayout
         title="Calculadora de descuento"
-        description="Calcula cuanto te descuentan y cual es el precio final."
+        description="Calcula cuánto te descuentan y cuál es el precio final."
         tool={<CalculadoraDescuento />}
         content={content}
         categoryHref="/calculadoras"

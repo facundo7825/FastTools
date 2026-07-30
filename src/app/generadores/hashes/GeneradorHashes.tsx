@@ -118,7 +118,7 @@ export default function GeneradorHashes() {
           readOnly
           value={hash}
           className={`${fieldClassName} min-h-40 resize-y bg-background font-mono text-sm break-all`}
-          placeholder="Aqui veras el hash generado."
+          placeholder="Aquí verás el hash generado."
         />
       </div>
     </div>

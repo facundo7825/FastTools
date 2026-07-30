@@ -5,31 +5,31 @@ import Breadcrumb from "@/components/Breadcrumb";
 export const metadata: Metadata = {
   title: "Calculadoras online",
   description:
-    "Calculadoras online gratuitas para porcentaje, descuento, promedio, aumento porcentual, edad, regla de tres, IMC y conversion de temperatura.",
+    "Calculadoras online gratuitas para porcentaje, descuento, promedio, aumento porcentual, edad, regla de tres, IMC y conversión de temperatura.",
   alternates: {
     canonical: "/calculadoras",
   },
   openGraph: {
     title: "Calculadoras online | FastTools",
     description:
-      "Calculadoras online gratuitas para porcentaje, descuento, promedio, aumento porcentual, edad, regla de tres, IMC y conversion de temperatura.",
+      "Calculadoras online gratuitas para porcentaje, descuento, promedio, aumento porcentual, edad, regla de tres, IMC y conversión de temperatura.",
     url: "/calculadoras",
   },
   twitter: {
     title: "Calculadoras online | FastTools",
     description:
-      "Calculadoras online gratuitas para porcentaje, descuento, promedio, aumento porcentual, edad, regla de tres, IMC y conversion de temperatura.",
+      "Calculadoras online gratuitas para porcentaje, descuento, promedio, aumento porcentual, edad, regla de tres, IMC y conversión de temperatura.",
   },
 };
 
 const tools = [
   { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje", description: "Calcula el porcentaje de cualquier valor." },
-  { href: "/calculadoras/descuento", title: "Calculadora de descuento", description: "Muestra cuanto descuentan y cual es el precio final." },
+  { href: "/calculadoras/descuento", title: "Calculadora de descuento", description: "Muestra cuánto descuentan y cuál es el precio final." },
   { href: "/calculadoras/promedio", title: "Calculadora de promedio", description: "Saca medias de listas de notas, gastos o valores." },
-  { href: "/calculadoras/aumento-porcentual", title: "Calculadora de aumento porcentual", description: "Muestra cuanto sube un valor y cual es el total final." },
-  { href: "/calculadoras/edad", title: "Calculadora de edad", description: "Calcula tu edad exacta en anos, meses y dias." },
-  { href: "/calculadoras/regla-de-tres", title: "Regla de tres", description: "Resuelve una regla de tres simple rapidamente." },
-  { href: "/calculadoras/imc", title: "Calculadora de IMC", description: "Calcula tu indice de masa corporal con peso y altura." },
+  { href: "/calculadoras/aumento-porcentual", title: "Calculadora de aumento porcentual", description: "Muestra cuánto sube un valor y cuál es el total final." },
+  { href: "/calculadoras/edad", title: "Calculadora de edad", description: "Calcula tu edad exacta en años, meses y días." },
+  { href: "/calculadoras/regla-de-tres", title: "Regla de tres", description: "Resuelve una regla de tres simple rápidamente." },
+  { href: "/calculadoras/imc", title: "Calculadora de IMC", description: "Calcula tu índice de masa corporal con peso y altura." },
   { href: "/calculadoras/temperatura", title: "Conversor de temperatura", description: "Convierte entre Celsius, Fahrenheit y Kelvin al instante." },
 ];
 
@@ -42,7 +42,7 @@ export default function Calculadoras() {
         <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">Resolver con menos pasos</p>
         <h1 className="mt-3 text-3xl sm:text-5xl font-extrabold text-text">Calculadoras online</h1>
         <p className="mt-4 max-w-3xl text-muted">
-          Un set de calculadoras pensado para cuentas frecuentes: porcentajes, descuentos, aumentos, promedios, edades, conversiones y resultados rapidos sin abrir planillas ni formulas.
+          Un set de calculadoras pensado para cuentas frecuentes: porcentajes, descuentos, aumentos, promedios, edades, conversiones y resultados rápidos sin abrir planillas ni fórmulas.
         </p>
       </section>
 

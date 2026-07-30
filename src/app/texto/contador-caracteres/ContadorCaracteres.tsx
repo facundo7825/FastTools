@@ -31,7 +31,7 @@ export default function ContadorCaracteres() {
         <textarea
           id={inputId}
           className={`${fieldClassName} h-48 resize-y`}
-          placeholder="Escribe o pega tu texto aqui..."
+          placeholder="Escribe o pega tu texto aquí..."
           value={text}
           onChange={(e) => {
             setText(e.target.value);
@@ -45,7 +45,7 @@ export default function ContadorCaracteres() {
             Caracteres: <span className="font-bold">{text.length}</span>
           </p>
           <p className="text-xs text-muted" aria-live="polite">
-            {feedback || "Podes copiar el texto o limpiar el campo."}
+            {feedback || "Puedes copiar el texto o limpiar el campo."}
           </p>
         </div>
         <div className="flex gap-2">

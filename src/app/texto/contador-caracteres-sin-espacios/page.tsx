@@ -7,7 +7,7 @@ import ContadorCaracteresSinEspacios from "./ContadorCaracteresSinEspacios";
 export const metadata: Metadata = {
   title: "Contador de caracteres sin espacios online",
   description:
-    "Cuenta caracteres sin espacios, tabulaciones ni saltos de linea. Ideal para limites exactos de texto y validaciones.",
+    "Cuenta caracteres sin espacios, tabulaciones ni saltos de línea. Ideal para límites exactos de texto y validaciones.",
 };
 
 const jsonLd = {
@@ -15,11 +15,11 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como contar caracteres sin espacios",
+      name: "Cómo contar caracteres sin espacios",
       step: [
         { "@type": "HowToStep", text: "Pega o escribe tu texto en el campo de entrada." },
         { "@type": "HowToStep", text: "La herramienta excluye los espacios del conteo." },
-        { "@type": "HowToStep", text: "Copia el texto o limpia el campo segun lo necesites." },
+        { "@type": "HowToStep", text: "Copia el texto o limpia el campo según lo necesites." },
       ],
     },
     {
@@ -27,15 +27,15 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Que cuenta como espacio?",
+          name: "¿Qué cuenta como espacio?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Se excluyen espacios normales, tabulaciones y saltos de linea.",
+            text: "Se excluyen espacios normales, tabulaciones y saltos de línea.",
           },
         },
         {
           "@type": "Question",
-          name: "Para que sirve este conteo?",
+          name: "¿Para qué sirve este conteo?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Sirve para validar textos donde importan solo los caracteres reales y no el espaciado.",
@@ -50,19 +50,19 @@ const content = (
   <>
     <p>
       Esta herramienta cuenta solo los caracteres reales del texto y deja afuera el
-      espaciado. Es util cuando necesitas medir contenido sin considerar separaciones,
-      saltos de linea o tabulaciones.
+      espaciado. Es útil cuando necesitas medir contenido sin considerar separaciones,
+      saltos de línea o tabulaciones.
     </p>
-    <h2>Como usar el contador</h2>
+    <h2>Cómo usar el contador</h2>
     <ol>
       <li>Pega o escribe tu texto.</li>
       <li>Revisa el total de caracteres sin espacios.</li>
       <li>Si quieres, copia el contenido o limpia el campo para empezar otra vez.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Que cuenta como espacio?</h3>
-    <p>Se excluyen espacios normales, tabulaciones y saltos de linea.</p>
-    <h3>Para que sirve este conteo?</h3>
+    <h3>¿Qué cuenta como espacio?</h3>
+    <p>Se excluyen espacios normales, tabulaciones y saltos de línea.</p>
+    <h3>¿Para qué sirve este conteo?</h3>
     <p>
       Sirve para validar textos donde importa el contenido puro y no el espaciado visual.
     </p>

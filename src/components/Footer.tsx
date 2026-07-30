@@ -9,7 +9,7 @@ export default function Footer() {
             <p className="text-xl font-bold tracking-tight">FastTools</p>
             <p className="text-sm text-white/70 max-w-xl">
               Un taller digital de utilidades simples para escribir, generar y calcular sin
-              vueltas. La idea es ahorrar tiempo en tareas chicas que aparecen todos los dias.
+              vueltas. La idea es ahorrar tiempo en tareas chicas que aparecen todos los días.
             </p>
           </div>
 
@@ -38,7 +38,7 @@ export default function Footer() {
               Privacidad
             </Link>
             <Link href="/terminos" className="text-white/70 hover:text-white transition-colors">
-              Terminos
+              Términos
             </Link>
             <Link href="/contacto" className="text-white/70 hover:text-white transition-colors">
               Contacto
@@ -48,7 +48,7 @@ export default function Footer() {
 
         <div className="flex flex-col gap-2 border-t border-white/10 pt-5 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <span>FastTools © 2026</span>
-          <span>Hecho para resolver tareas pequenas con menos friccion.</span>
+          <span>Hecho para resolver tareas pequeñas con menos fricción.</span>
         </div>
       </div>
     </footer>

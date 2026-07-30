@@ -15,11 +15,11 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como calcular un porcentaje",
+      name: "Cómo calcular un porcentaje",
       step: [
         { "@type": "HowToStep", text: "Ingresa el valor base y el porcentaje." },
         { "@type": "HowToStep", text: "El resultado aparece al instante." },
-        { "@type": "HowToStep", text: "Usalo para descuentos, IVA o calculos simples." },
+        { "@type": "HowToStep", text: "Úsalo para descuentos, IVA o cálculos simples." },
       ],
     },
     {
@@ -27,7 +27,7 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Como se calcula el porcentaje de un numero?",
+          name: "¿Cómo se calcula el porcentaje de un número?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Se multiplica el valor base por el porcentaje y luego se divide por 100.",
@@ -35,18 +35,18 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          name: "Sirve para descuentos o IVA?",
+          name: "¿Sirve para descuentos o IVA?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Puedes usarla como apoyo para descuentos, impuestos o aumentos.",
+            text: "Sí. Puedes usarla como apoyo para descuentos, impuestos o aumentos.",
           },
         },
         {
           "@type": "Question",
-          name: "Hace el resultado automaticamente?",
+          name: "¿Hace el resultado automáticamente?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Apenas completas los campos, la calculadora muestra el resultado.",
+            text: "Sí. Apenas completas los campos, la calculadora muestra el resultado.",
           },
         },
       ],
@@ -57,29 +57,29 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      Calcular porcentajes es una necesidad comun en compras, presupuestos, facturas y
-      ajustes de precios. Esta herramienta resuelve esa cuenta en segundos sin formulas ni
-      pasos de mas.
+      Calcular porcentajes es una necesidad común en compras, presupuestos, facturas y
+      ajustes de precios. Esta herramienta resuelve esa cuenta en segundos sin fórmulas ni
+      pasos de más.
     </p>
-    <h2>Como usar la calculadora de porcentaje</h2>
+    <h2>Cómo usar la calculadora de porcentaje</h2>
     <ol>
       <li>Ingresa el valor base.</li>
       <li>Escribe el porcentaje que quieres calcular.</li>
-      <li>El resultado aparece automaticamente debajo.</li>
+      <li>El resultado aparece automáticamente debajo.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Como se calcula el porcentaje de un numero?</h3>
+    <h3>¿Cómo se calcula el porcentaje de un número?</h3>
     <p>
       Se multiplica el valor base por el porcentaje y luego se divide por 100.
     </p>
-    <h3>Sirve para descuentos o IVA?</h3>
+    <h3>¿Sirve para descuentos o IVA?</h3>
     <p>
-      Si. Puedes usarla para descuentos, impuestos, propinas, subas de precio o cualquier
+      Sí. Puedes usarla para descuentos, impuestos, propinas, subas de precio o cualquier
       cuenta similar.
     </p>
-    <h3>Hace el resultado automaticamente?</h3>
+    <h3>¿Hace el resultado automáticamente?</h3>
     <p>
-      Si. Apenas completas ambos campos, la calculadora te muestra el valor resultante.
+      Sí. Apenas completas ambos campos, la calculadora te muestra el valor resultante.
     </p>
   </>
 );
@@ -93,7 +93,7 @@ export default function Page() {
       />
       <ToolLayout
         title="Calculadora de porcentaje"
-        description="Calcula el porcentaje de cualquier valor de forma rapida y sencilla."
+        description="Calcula el porcentaje de cualquier valor de forma rápida y sencilla."
         tool={<CalculadoraPorcentaje />}
         content={content}
         categoryHref="/calculadoras"

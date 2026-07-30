@@ -27,7 +27,7 @@ export default function JsonPrettyPrint() {
       return {
         valid: false,
         output: "",
-        error: error instanceof Error ? error.message : "JSON invalido.",
+        error: error instanceof Error ? error.message : "JSON inválido.",
       };
     }
   }, [indentation, text]);
@@ -62,7 +62,7 @@ export default function JsonPrettyPrint() {
 
       <div className="flex flex-wrap items-center gap-3">
         <label className="text-sm text-muted" htmlFor="json-indentation">
-          Espacios de indentacion
+          Espacios de indentación
         </label>
         <select
           id="json-indentation"
@@ -97,7 +97,7 @@ export default function JsonPrettyPrint() {
         <p className="text-xs uppercase tracking-[0.16em] text-muted">Estado</p>
         <p className="mt-2 text-sm text-text" aria-live="polite">
           {parsed.valid
-            ? feedback || "JSON valido. El resultado se actualiza automaticamente."
+            ? feedback || "JSON válido. El resultado se actualiza automáticamente."
             : `Error: ${parsed.error}`}
         </p>
       </div>
@@ -108,7 +108,7 @@ export default function JsonPrettyPrint() {
           readOnly
           value={parsed.output}
           className={`${fieldClassName} min-h-56 resize-y bg-background font-mono text-sm`}
-          placeholder="Aqui veras el JSON ordenado y con indentacion."
+          placeholder="Aquí verás el JSON ordenado y con indentación."
         />
       </div>
     </div>

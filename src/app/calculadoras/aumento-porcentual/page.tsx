@@ -7,7 +7,7 @@ import CalculadoraAumentoPorcentual from "./CalculadoraAumentoPorcentual";
 export const metadata: Metadata = {
   title: "Calculadora de aumento porcentual online",
   description:
-    "Calcula aumentos porcentuales online al instante. Ve el monto aumentado y el valor final sin formulas.",
+    "Calcula aumentos porcentuales online al instante. Ve el monto aumentado y el valor final sin fórmulas.",
 };
 
 const jsonLd = {
@@ -15,7 +15,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como calcular un aumento porcentual",
+      name: "Cómo calcular un aumento porcentual",
       step: [
         { "@type": "HowToStep", text: "Ingresa el valor base." },
         { "@type": "HowToStep", text: "Escribe el porcentaje de aumento." },
@@ -27,26 +27,26 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Sirve para aumentos de sueldo o precios?",
+          name: "¿Sirve para aumentos de sueldo o precios?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Puedes usarla para estimar aumentos salariales, precios, cuotas o presupuestos.",
+            text: "Sí. Puedes usarla para estimar aumentos salariales, precios, cuotas o presupuestos.",
           },
         },
         {
           "@type": "Question",
-          name: "Muestra el monto del aumento y el total?",
+          name: "¿Muestra el monto del aumento y el total?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. La calculadora separa cuanto se suma y cual es el valor final.",
+            text: "Sí. La calculadora separa cuánto se suma y cuál es el valor final.",
           },
         },
         {
           "@type": "Question",
-          name: "Hace la cuenta automaticamente?",
+          name: "¿Hace la cuenta automáticamente?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si. Apenas completas los campos, el resultado aparece al instante.",
+            text: "Sí. Apenas completas los campos, el resultado aparece al instante.",
           },
         },
       ],
@@ -57,29 +57,29 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      Esta calculadora sirve para ver rapidamente cuanto aumenta un valor y a cuanto se
-      va despues de aplicar un porcentaje. Es util para salarios, listas de precios,
+      Esta calculadora sirve para ver rápidamente cuánto aumenta un valor y a cuánto se
+      va después de aplicar un porcentaje. Es útil para salarios, listas de precios,
       cuotas y ajustes comerciales.
     </p>
-    <h2>Como usar la calculadora</h2>
+    <h2>Cómo usar la calculadora</h2>
     <ol>
       <li>Ingresa el valor base.</li>
       <li>Escribe el porcentaje de aumento.</li>
       <li>Revisa el monto sumado y el valor final resultante.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Sirve para aumentos de sueldo o precios?</h3>
+    <h3>¿Sirve para aumentos de sueldo o precios?</h3>
     <p>
-      Si. Puedes usarla para aumentos salariales, presupuestos, cuotas o precios de
+      Sí. Puedes usarla para aumentos salariales, presupuestos, cuotas o precios de
       productos.
     </p>
-    <h3>Muestra el monto del aumento y el total?</h3>
+    <h3>¿Muestra el monto del aumento y el total?</h3>
     <p>
-      Si. La herramienta te muestra por separado cuanto se suma y cuanto queda al final.
+      Sí. La herramienta te muestra por separado cuánto se suma y cuánto queda al final.
     </p>
-    <h3>Hace la cuenta automaticamente?</h3>
+    <h3>¿Hace la cuenta automáticamente?</h3>
     <p>
-      Si. El resultado se actualiza apenas completas ambos campos.
+      Sí. El resultado se actualiza apenas completas ambos campos.
     </p>
   </>
 );

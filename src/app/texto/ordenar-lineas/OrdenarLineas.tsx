@@ -36,7 +36,7 @@ export default function OrdenarLineas() {
 
   async function handleCopy() {
     await navigator.clipboard.writeText(sortedText);
-    setFeedback("Lineas ordenadas copiadas.");
+    setFeedback("Líneas ordenadas copiadas.");
   }
 
   function handleClear() {
@@ -48,12 +48,12 @@ export default function OrdenarLineas() {
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
         <label htmlFor={textId} className="text-sm text-muted">
-          Lineas a ordenar
+          Líneas a ordenar
         </label>
         <textarea
           id={textId}
           className={`${fieldClassName} min-h-52 resize-y`}
-          placeholder="Pega aqui una lista con una linea por elemento."
+          placeholder="Pega aquí una lista con una línea por elemento."
           value={text}
           onChange={(event) => {
             setText(event.target.value);
@@ -71,7 +71,7 @@ export default function OrdenarLineas() {
             onChange={(event) => setIgnoreCase(event.target.checked)}
             className="accent-primary"
           />
-          Ignorar mayusculas y minusculas
+          Ignorar mayúsculas y minúsculas
         </label>
         <label className="flex items-center gap-2 text-sm text-text">
           <input
@@ -80,7 +80,7 @@ export default function OrdenarLineas() {
             onChange={(event) => setRemoveEmpty(event.target.checked)}
             className="accent-primary"
           />
-          Quitar lineas vacias
+          Quitar líneas vacías
         </label>
       </fieldset>
 
@@ -104,13 +104,13 @@ export default function OrdenarLineas() {
 
       <div className="grid gap-3 rounded-2xl border border-border bg-background p-4 sm:grid-cols-2">
         <div>
-          <p className="text-xs uppercase tracking-[0.16em] text-muted">Lineas detectadas</p>
+          <p className="text-xs uppercase tracking-[0.16em] text-muted">Líneas detectadas</p>
           <p className="mt-1 text-2xl font-bold text-text">{totalLines}</p>
         </div>
         <div>
           <p className="text-xs uppercase tracking-[0.16em] text-muted">Estado</p>
           <p className="mt-1 text-sm text-text" aria-live="polite">
-            {feedback || "El resultado se actualiza automaticamente al editar el texto."}
+            {feedback || "El resultado se actualiza automáticamente al editar el texto."}
           </p>
         </div>
       </div>
@@ -121,7 +121,7 @@ export default function OrdenarLineas() {
           readOnly
           value={sortedText}
           className={`${fieldClassName} min-h-52 resize-y bg-background`}
-          placeholder="Aqui veras las lineas ordenadas alfabeticamente."
+          placeholder="Aquí verás las líneas ordenadas alfabéticamente."
         />
       </div>
     </div>

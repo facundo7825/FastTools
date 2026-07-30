@@ -5,9 +5,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import QuitarSaltosLinea from "./QuitarSaltosLinea";
 
 export const metadata: Metadata = {
-  title: "Quitar saltos de linea online",
+  title: "Quitar saltos de línea online",
   description:
-    "Convierte texto con varias lineas en una sola linea. Ideal para formularios, CSV simples y texto copiado.",
+    "Convierte texto con varias líneas en una sola línea. Ideal para formularios, CSV simples y texto copiado.",
 };
 
 const jsonLd = {
@@ -15,10 +15,10 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como quitar saltos de linea",
+      name: "Cómo quitar saltos de línea",
       step: [
-        { "@type": "HowToStep", text: "Pega un texto con multiples lineas." },
-        { "@type": "HowToStep", text: "La herramienta lo convierte en una sola linea." },
+        { "@type": "HowToStep", text: "Pega un texto con múltiples líneas." },
+        { "@type": "HowToStep", text: "La herramienta lo convierte en una sola línea." },
         { "@type": "HowToStep", text: "Copia el resultado cuando lo necesites." },
       ],
     },
@@ -28,14 +28,14 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      Quitar saltos de linea sirve para convertir texto multilínea en un bloque continuo.
-      Es util para formularios, importaciones simples, prompts y contenido que debe ir en
-      una sola linea.
+      Quitar saltos de línea sirve para convertir texto multilínea en un bloque continuo.
+      Es útil para formularios, importaciones simples, prompts y contenido que debe ir en
+      una sola línea.
     </p>
-    <h2>Como usar la herramienta</h2>
+    <h2>Cómo usar la herramienta</h2>
     <ol>
-      <li>Pega un texto con varias lineas.</li>
-      <li>La herramienta lo pasa automaticamente a una sola linea.</li>
+      <li>Pega un texto con varias líneas.</li>
+      <li>La herramienta lo pasa automáticamente a una sola línea.</li>
       <li>Copia el resultado final cuando te sirva.</li>
     </ol>
   </>
@@ -49,8 +49,8 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ToolLayout
-        title="Quitar saltos de linea"
-        description="Convierte texto con varias lineas en una sola linea continua."
+        title="Quitar saltos de línea"
+        description="Convierte texto con varias líneas en una sola línea continua."
         tool={<QuitarSaltosLinea />}
         content={content}
         categoryHref="/texto"
@@ -60,7 +60,7 @@ export default function Page() {
             crumbs={[
               { href: "/", label: "Home" },
               { href: "/texto", label: "Texto" },
-              { href: "/texto/quitar-saltos-linea", label: "Quitar saltos de linea" },
+              { href: "/texto/quitar-saltos-linea", label: "Quitar saltos de línea" },
             ]}
           />
         }
@@ -68,8 +68,8 @@ export default function Page() {
           <RelatedTools
             tools={[
               { href: "/texto/quitar-espacios", title: "Quitar espacios" },
-              { href: "/texto/contador-lineas", title: "Contador de lineas" },
-              { href: "/texto/eliminar-lineas-duplicadas", title: "Eliminar lineas duplicadas" },
+              { href: "/texto/contador-lineas", title: "Contador de líneas" },
+              { href: "/texto/eliminar-lineas-duplicadas", title: "Eliminar líneas duplicadas" },
             ]}
           />
         }

@@ -5,9 +5,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ContadorPalabras from "./ContadorPalabras";
 
 export const metadata: Metadata = {
-  title: "Contador de palabras online gratis - FastTools",
+  title: "Contador de palabras online gratis",
   description:
-    "Cuenta palabras de cualquier texto en tiempo real. Util para ensayos, articulos, contenido SEO y trabajos academicos. Gratis y sin registro.",
+    "Cuenta palabras de cualquier texto en tiempo real. Útil para ensayos, artículos, contenido SEO y trabajos académicos. Gratis y sin registro.",
 };
 
 const jsonLd = {
@@ -15,10 +15,10 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "HowTo",
-      name: "Como contar palabras de un texto",
+      name: "Cómo contar palabras de un texto",
       step: [
-        { "@type": "HowToStep", text: "Pega o escribi tu texto en el campo de entrada." },
-        { "@type": "HowToStep", text: "El numero de palabras se actualiza automaticamente." },
+        { "@type": "HowToStep", text: "Pega o escribe tu texto en el campo de entrada." },
+        { "@type": "HowToStep", text: "El número de palabras se actualiza automáticamente." },
         { "@type": "HowToStep", text: "Usa Copiar para copiar el texto o Limpiar para vaciarlo." },
       ],
     },
@@ -27,7 +27,7 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Como se cuentan las palabras con guiones?",
+          name: "¿Cómo se cuentan las palabras con guiones?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Las palabras unidas por guion, como bien-estar, suelen contarse como una sola palabra. Las separadas por espacio se cuentan individualmente.",
@@ -35,18 +35,18 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          name: "Cuantas palabras tiene una pagina de texto?",
+          name: "¿Cuántas palabras tiene una página de texto?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Depende del formato, pero una pagina A4 con configuraciones academicas comunes puede rondar entre 250 y 500 palabras.",
+            text: "Depende del formato, pero una página A4 con configuraciones académicas comunes puede rondar entre 250 y 500 palabras.",
           },
         },
         {
           "@type": "Question",
-          name: "Cuantas palabras puede tener un articulo SEO?",
+          name: "¿Cuántas palabras puede tener un artículo SEO?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Depende de la intencion de busqueda, pero muchos articulos informativos trabajan entre 1200 y 2500 palabras.",
+            text: "Depende de la intención de búsqueda, pero muchos artículos informativos trabajan entre 1200 y 2500 palabras.",
           },
         },
       ],
@@ -57,30 +57,30 @@ const jsonLd = {
 const content = (
   <>
     <p>
-      El contador de palabras es util para estudiantes, redactores, periodistas y
-      creadores de contenido. Te permite medir rapidamente la longitud de un texto y
-      ajustar entregas, publicaciones o articulos sin tener que contar manualmente.
+      El contador de palabras es útil para estudiantes, redactores, periodistas y
+      creadores de contenido. Te permite medir rápidamente la longitud de un texto y
+      ajustar entregas, publicaciones o artículos sin tener que contar manualmente.
     </p>
-    <h2>Como usar el contador de palabras</h2>
+    <h2>Cómo usar el contador de palabras</h2>
     <ol>
-      <li>Pega o escribi tu texto en el campo de entrada.</li>
-      <li>El numero de palabras se actualiza automaticamente.</li>
+      <li>Pega o escribe tu texto en el campo de entrada.</li>
+      <li>El número de palabras se actualiza automáticamente.</li>
       <li>Usa <strong>Copiar</strong> para copiar el texto o <strong>Limpiar</strong> para vaciarlo.</li>
     </ol>
     <h2>Preguntas frecuentes</h2>
-    <h3>Como se cuentan las palabras con guiones?</h3>
+    <h3>¿Cómo se cuentan las palabras con guiones?</h3>
     <p>
       Las palabras unidas por guion, como bien-estar, suelen contarse como una sola
       palabra. Las separadas por espacio se cuentan individualmente.
     </p>
-    <h3>Cuantas palabras tiene una pagina de texto?</h3>
+    <h3>¿Cuántas palabras tiene una página de texto?</h3>
     <p>
-      Depende del formato, pero una pagina A4 con configuraciones academicas comunes
+      Depende del formato, pero una página A4 con configuraciones académicas comunes
       puede rondar entre 250 y 500 palabras.
     </p>
-    <h3>Cuantas palabras puede tener un articulo SEO?</h3>
+    <h3>¿Cuántas palabras puede tener un artículo SEO?</h3>
     <p>
-      Depende de la intencion de busqueda, pero muchos articulos informativos trabajan
+      Depende de la intención de búsqueda, pero muchos artículos informativos trabajan
       entre 1200 y 2500 palabras.
     </p>
   </>
