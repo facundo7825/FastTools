@@ -690,8 +690,27 @@ git commit -m "feat: derivar metadata, breadcrumbs y relacionadas del registro"
 - Test: `src/lib/tool-registry.invariants.test.ts`
 
 **Interfaces:**
-- Consumes: `TOOLS`, `CATEGORIES`, `relatedFor`.
-- Produces: `assertRegistryInvariants(): void` — lanza con un mensaje que lista todos los problemas juntos.
+- Consumes: los tipos `Tool` y `Category` de `tools.ts`, y nada más.
+- Produces:
+  - `checkRegistryInvariants(tools, categories, relatedFor): string[]` — devuelve la lista de problemas, vacía si el registro está sano.
+  - `assertRegistryInvariants(tools, categories, relatedFor): void` — lanza con un mensaje que lista **todos** los problemas juntos.
+
+**Por qué recibe todo por parámetro.** La versión anterior de este plan hacía que
+`tool-registry.ts` terminara con `import "@/lib/tool-registry.invariants"`, con la idea
+de que al estar al final las funciones ya estarían definidas. **Eso es falso: los
+imports de ESM se hoistean**, así que el módulo de invariantes se ejecutaba antes de que
+`tool-registry` inicializara su `const bySlug` y reventaba con
+`ReferenceError: Cannot access 'bySlug' before initialization`, de forma determinista.
+
+Invertir la dependencia resuelve el ciclo y además hace los invariantes **testeables con
+datos sintéticos**, sin tener que romper el registro real. `tool-registry.ts` termina con
+una **llamada**, no con un import de efecto secundario:
+
+```ts
+assertRegistryInvariants(TOOLS, CATEGORIES, relatedFor);
+```
+
+Una sentencia sí se ejecuta en orden, después de que todo el módulo esté inicializado.
 
 - [ ] **Step 1: Test que falla**
 
@@ -777,9 +796,26 @@ import "@/lib/tool-registry.invariants";
 Run: `npm test && npm run build`
 Expected: tests PASS, build exit 0.
 
-- [ ] **Step 6: Probar que de verdad rompe**
+- [ ] **Step 6: Probar que detecta cada tipo de problema**
 
-Agregá temporalmente a `TOOLS` una entrada con `related: ["no-existe"]`, corré `npm run build` y confirmá que **falla** con el mensaje del invariante. Revertí el cambio después. Un invariante que nunca se probó fallando no sirve de nada.
+Un invariante que nunca se vio fallar no prueba nada. Pero el experimento manual —romper
+el registro, mirar el build, revertir— no deja evidencia y nadie lo repite. Además hoy
+no funcionaría: ningún archivo de `src/app` importa todavía el registro, así que el
+invariante no llega a ejecutarse durante el build. Eso se resuelve en la Tarea 5, cuando
+`sitemap.ts` lo importe, y ahí se verifica.
+
+En su lugar, escribí **tests permanentes** que le pasen datos sintéticos rotos a
+`checkRegistryInvariants` y verifiquen que cada caso se detecta:
+
+- un slug duplicado
+- un `related` que apunta a un slug inexistente
+- una herramienta que se enlaza a sí misma
+- una categoría sin herramientas
+- una herramienta huérfana
+- el registro real, que debe pasar limpio
+- **varios problemas a la vez**: el mensaje tiene que listarlos todos, no solo el primero
+
+Cada test debe verificar **qué** problema se reportó, no solo que lanzó algo.
 
 - [ ] **Step 7: Commit**
 
@@ -828,6 +864,21 @@ Run: `npm run build && grep -c "<url>" .next/server/app/sitemap.xml.body`
 Expected: 41.
 
 Si el archivo no está en esa ruta, buscalo con `find .next -name "sitemap*"`.
+
+- [ ] **Step 3: Probar que el invariante rompe el build**
+
+Este es el primer archivo de `src/app` que importa el registro, así que recién ahora
+`assertRegistryInvariants` se ejecuta durante el build. Comprobalo:
+
+1. Agregá temporalmente a una herramienta de `src/lib/tools.ts` un `related: ["no-existe"]`.
+2. Corré `npm run build`.
+3. Confirmá que **falla** y que el mensaje nombra el slug inexistente.
+4. **Revertí el cambio por completo** y confirmá con `git status` que el árbol quedó limpio.
+5. Corré `npm run build` de nuevo y confirmá que vuelve a exit 0.
+
+Pegá en el reporte el mensaje de error exacto. Sin esta comprobación, el invariante es
+una promesa sin evidencia: los tests prueban que la función detecta problemas, pero solo
+esto prueba que está efectivamente conectada al build.
 
 - [ ] **Step 3: Commit**
 
