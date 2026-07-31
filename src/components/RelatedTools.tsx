@@ -1,31 +1,39 @@
 import Link from "next/link";
+import type { Tool } from "@/lib/tools";
+import { toolHref } from "@/lib/tool-registry";
 
-type Tool = {
-  href: string;
-  title: string;
-};
+// Legacy: la forma que pasan las 32 paginas hasta que la Tarea 7 las migre y
+// borre este soporte.
+type LegacyTool = { href: string; title: string };
 
 type Props = {
-  tools: Tool[];
+  tools: (Tool | LegacyTool)[];
 };
+
+function isRegistryTool(tool: Tool | LegacyTool): tool is Tool {
+  return "slug" in tool && "category" in tool;
+}
 
 export default function RelatedTools({ tools }: Props) {
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
-      {tools.map((tool) => (
-        <Link
-          key={tool.href}
-          href={tool.href}
-          className="group rounded-[1.35rem] border border-border bg-surface px-4 py-4 shadow-sm hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_14px_24px_rgba(23,32,51,0.06)]"
-        >
-          <p className="text-sm font-semibold text-text group-hover:text-primary">
-            {tool.title}
-          </p>
-          <p className="mt-2 text-xs uppercase tracking-[0.16em] text-muted">
-            Sigue con esta herramienta
-          </p>
-        </Link>
-      ))}
+      {tools.map((tool) => {
+        const href = isRegistryTool(tool) ? toolHref(tool) : tool.href;
+        return (
+          <Link
+            key={href}
+            href={href}
+            className="group rounded-[1.35rem] border border-border bg-surface px-4 py-4 shadow-sm hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_14px_24px_rgba(23,32,51,0.06)]"
+          >
+            <p className="text-sm font-semibold text-text group-hover:text-primary">
+              {tool.title}
+            </p>
+            <p className="mt-2 text-xs uppercase tracking-[0.16em] text-muted">
+              Sigue con esta herramienta
+            </p>
+          </Link>
+        );
+      })}
     </div>
   );
 }

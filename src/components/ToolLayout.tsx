@@ -1,28 +1,55 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import AdPlaceholder from "@/components/AdPlaceholder";
+import { breadcrumbFor, getCategory, getTool, relatedFor } from "@/lib/tool-registry";
+import Breadcrumb from "@/components/Breadcrumb";
+import RelatedTools from "@/components/RelatedTools";
 
 type Props = {
-  title: string;
-  description: string;
+  // Modo nuevo: si viene `slug`, todo se deriva del registro y los props
+  // legacy de abajo se ignoran.
+  slug?: string;
   tool: ReactNode;
   content?: ReactNode;
-  relatedTools?: ReactNode;
-  breadcrumb?: ReactNode;
+  // Legacy: los usan las 32 paginas hasta que la Tarea 7 las migre.
+  // Esta tarea los borra al terminar.
+  title?: string;
+  description?: string;
   categoryHref?: string;
   categoryLabel?: string;
+  breadcrumb?: ReactNode;
+  relatedTools?: ReactNode;
 };
 
-export default function ToolLayout({
-  title,
-  description,
-  tool,
-  content,
-  relatedTools,
-  breadcrumb,
-  categoryHref,
-  categoryLabel,
-}: Props) {
+export default function ToolLayout(props: Props) {
+  const { slug, tool, content } = props;
+
+  const derived = slug
+    ? (() => {
+        const meta = getTool(slug);
+        const category = getCategory(meta.category);
+        return {
+          title: meta.title,
+          description: meta.description,
+          categoryHref: `/${category.slug}`,
+          categoryLabel: category.shortTitle,
+          crumbs: breadcrumbFor(slug),
+          related: relatedFor(slug),
+        };
+      })()
+    : null;
+
+  const title = derived?.title ?? props.title ?? "";
+  const description = derived?.description ?? props.description ?? "";
+  const categoryHref = derived?.categoryHref ?? props.categoryHref;
+  const categoryLabel = derived?.categoryLabel ?? props.categoryLabel;
+  const breadcrumb = derived ? <Breadcrumb crumbs={derived.crumbs} /> : props.breadcrumb;
+  const relatedTools = derived ? (
+    <RelatedTools tools={derived.related} />
+  ) : (
+    props.relatedTools
+  );
+
   return (
     <div className="flex flex-col gap-8 sm:gap-10">
       <AdPlaceholder id="ad-tool-top" />
