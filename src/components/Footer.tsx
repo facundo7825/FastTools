@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CATEGORIES } from "@/lib/tools";
 
 export default function Footer() {
   return (
@@ -18,15 +19,15 @@ export default function Footer() {
             <Link href="/herramientas" className="text-white/70 hover:text-white transition-colors">
               Herramientas
             </Link>
-            <Link href="/texto" className="text-white/70 hover:text-white transition-colors">
-              Texto
-            </Link>
-            <Link href="/generadores" className="text-white/70 hover:text-white transition-colors">
-              Generadores
-            </Link>
-            <Link href="/calculadoras" className="text-white/70 hover:text-white transition-colors">
-              Calculadoras
-            </Link>
+            {CATEGORIES.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/${cat.slug}`}
+                className="text-white/70 hover:text-white transition-colors"
+              >
+                {cat.shortTitle}
+              </Link>
+            ))}
           </div>
 
           <div className="flex flex-col gap-2 text-sm">

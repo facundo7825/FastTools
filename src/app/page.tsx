@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CATEGORIES, COLLECTIONS, TOOLS } from "@/lib/tools";
+import { featuredTools, getCategory, getTool, toolHref } from "@/lib/tool-registry";
 
 export const metadata: Metadata = {
   // El template "%s | FastTools" del layout raiz NO se aplica a este page,
@@ -24,149 +26,10 @@ export const metadata: Metadata = {
   },
 };
 
-const categories = [
-  {
-    href: "/texto",
-    title: "Texto",
-    eyebrow: "Editar y limpiar",
-    description:
-      "Contadores, limpieza, líneas, keywords, slugs, listas, JSON y conversiones útiles.",
-    accent: "from-[#f59e0b]/20 via-[#fffdf7] to-transparent",
-  },
-  {
-    href: "/generadores",
-    title: "Generadores",
-    eyebrow: "Crear al instante",
-    description: "Contraseñas, códigos QR, UUID, hashes, usernames y texto de relleno.",
-    accent: "from-[#0f766e]/20 via-[#fffdf7] to-transparent",
-  },
-  {
-    href: "/calculadoras",
-    title: "Calculadoras",
-    eyebrow: "Resolver rápido",
-    description: "Porcentaje, descuento, promedio, aumentos, edad, IMC, temperatura y más.",
-    accent: "from-[#ef4444]/14 via-[#fffdf7] to-transparent",
-  },
-];
-
-const featuredTools = [
-  {
-    href: "/texto/generador-slug",
-    title: "Generador de slug URL",
-    detail: "Convierte títulos en URLs limpias y listas para publicar.",
-    label: "Nueva",
-  },
-  {
-    href: "/texto/densidad-keyword",
-    title: "Densidad de keyword",
-    detail: "Mide la presencia porcentual de una keyword dentro de un texto.",
-    label: "SEO",
-  },
-  {
-    href: "/texto/texto-a-lista",
-    title: "Texto a lista",
-    detail: "Transforma texto separado por comas o líneas en una lista prolija.",
-    label: "Nueva",
-  },
-];
-
-const collections = [
-  {
-    title: "SEO y contenido",
-    description: "Para limpiar textos, medir keywords y preparar URLs más prolijas.",
-    links: [
-      { href: "/texto/contador-palabras-clave", label: "Contador de palabras clave" },
-      { href: "/texto/densidad-keyword", label: "Densidad de keyword" },
-      { href: "/texto/generador-slug", label: "Generador de slug URL" },
-    ],
-  },
-  {
-    title: "Listas y limpieza",
-    description: "Ideal para transformar texto desordenado en algo reutilizable rápido.",
-    links: [
-      { href: "/texto/eliminar-lineas-duplicadas", label: "Eliminar líneas duplicadas" },
-      { href: "/texto/ordenar-lineas", label: "Ordenar líneas alfabéticamente" },
-      { href: "/texto/texto-a-lista", label: "Texto a lista" },
-    ],
-  },
-  {
-    title: "Dev rápido",
-    description: "Un bloque técnico para datos, hashes y utilidades de desarrollo.",
-    links: [
-      { href: "/texto/json-pretty-print", label: "JSON pretty print" },
-      { href: "/generadores/uuid", label: "Generador de UUID" },
-      { href: "/generadores/hashes", label: "Generador de hashes" },
-    ],
-  },
-];
-
-const tools = [
-  { href: "/texto/contador-caracteres", title: "Contador de caracteres", category: "Texto" },
-  {
-    href: "/texto/contador-caracteres-sin-espacios",
-    title: "Contador sin espacios",
-    category: "Texto",
-  },
-  { href: "/texto/contador-palabras", title: "Contador de palabras", category: "Texto" },
-  { href: "/texto/contador-lineas", title: "Contador de líneas", category: "Texto" },
-  { href: "/texto/quitar-espacios", title: "Quitar espacios", category: "Texto" },
-  { href: "/texto/quitar-saltos-linea", title: "Quitar saltos de línea", category: "Texto" },
-  {
-    href: "/texto/eliminar-lineas-duplicadas",
-    title: "Eliminar líneas duplicadas",
-    category: "Texto",
-  },
-  { href: "/texto/ordenar-lineas", title: "Ordenar líneas alfabéticamente", category: "Texto" },
-  {
-    href: "/texto/contador-palabras-clave",
-    title: "Contador de palabras clave",
-    category: "Texto",
-  },
-  { href: "/texto/extraer-texto-html", title: "Extractor de texto de HTML", category: "Texto" },
-  { href: "/texto/json-pretty-print", title: "JSON pretty print", category: "Texto" },
-  { href: "/texto/minificar-texto", title: "Minificador de texto", category: "Texto" },
-  { href: "/texto/generador-slug", title: "Generador de slug URL", category: "Texto" },
-  { href: "/texto/densidad-keyword", title: "Densidad de keyword", category: "Texto" },
-  { href: "/texto/texto-a-lista", title: "Convertidor de texto a lista", category: "Texto" },
-  { href: "/texto/mayusculas-minusculas", title: "Mayúsculas / Minúsculas", category: "Texto" },
-  { href: "/texto/capitalizar-texto", title: "Capitalizar texto", category: "Texto" },
-  { href: "/texto/invertir-texto", title: "Invertir texto", category: "Texto" },
-  { href: "/generadores/password", title: "Generador de contraseñas", category: "Generadores" },
-  { href: "/generadores/qr", title: "Generador de QR", category: "Generadores" },
-  { href: "/generadores/uuid", title: "Generador de UUID", category: "Generadores" },
-  {
-    href: "/generadores/nombres-usuario",
-    title: "Generador de nombres de usuario",
-    category: "Generadores",
-  },
-  { href: "/generadores/hashes", title: "Generador de hashes", category: "Generadores" },
-  {
-    href: "/generadores/lorem-ipsum",
-    title: "Generador de Lorem Ipsum",
-    category: "Generadores",
-  },
-  { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje", category: "Calculadoras" },
-  { href: "/calculadoras/descuento", title: "Calculadora de descuento", category: "Calculadoras" },
-  { href: "/calculadoras/promedio", title: "Calculadora de promedio", category: "Calculadoras" },
-  {
-    href: "/calculadoras/aumento-porcentual",
-    title: "Calculadora de aumento porcentual",
-    category: "Calculadoras",
-  },
-  { href: "/calculadoras/edad", title: "Calculadora de edad", category: "Calculadoras" },
-  { href: "/calculadoras/regla-de-tres", title: "Regla de tres", category: "Calculadoras" },
-  { href: "/calculadoras/imc", title: "Calculadora de IMC", category: "Calculadoras" },
-  {
-    href: "/calculadoras/temperatura",
-    title: "Conversor de temperatura",
-    category: "Calculadoras",
-  },
-];
-
 const stats = [
-  { value: "32", label: "herramientas publicadas" },
-  { value: "3", label: "familias de uso" },
-  { value: "3", label: "nuevas en esta tanda" },
+  { value: String(TOOLS.length), label: "herramientas publicadas" },
+  { value: String(CATEGORIES.length), label: "familias de uso" },
+  { value: String(featuredTools(99).length), label: "destacadas ahora" },
 ];
 
 export default function Home() {
@@ -216,19 +79,19 @@ export default function Home() {
                 Favoritas del momento
               </p>
               <div className="mt-4 grid gap-3">
-                {featuredTools.map((tool) => (
+                {featuredTools(3).map((tool) => (
                   <Link
-                    key={tool.href}
-                    href={tool.href}
+                    key={tool.slug}
+                    href={toolHref(tool)}
                     className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 hover:bg-white/8"
                   >
                     <div className="flex items-center justify-between gap-3">
                       <p className="text-sm font-semibold text-white">{tool.title}</p>
                       <span className="rounded-full bg-white/10 px-2.5 py-1 text-[11px] uppercase tracking-[0.16em] text-white/65">
-                        {tool.label}
+                        {tool.badge}
                       </span>
                     </div>
-                    <p className="mt-2 text-sm text-white/65">{tool.detail}</p>
+                    <p className="mt-2 text-sm text-white/65">{tool.description}</p>
                   </Link>
                 ))}
               </div>
@@ -260,7 +123,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-          {collections.map((collection) => (
+          {COLLECTIONS.map((collection) => (
             <section
               key={collection.title}
               className="rounded-[1.8rem] border border-border bg-surface p-6 shadow-sm"
@@ -268,15 +131,18 @@ export default function Home() {
               <h3 className="text-xl font-bold text-text">{collection.title}</h3>
               <p className="mt-2 text-sm text-muted">{collection.description}</p>
               <div className="mt-5 flex flex-col gap-3">
-                {collection.links.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="rounded-2xl border border-border bg-background px-4 py-3 text-sm font-semibold text-text hover:border-primary hover:text-primary"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                {collection.slugs.map((slug) => {
+                  const tool = getTool(slug);
+                  return (
+                    <Link
+                      key={slug}
+                      href={toolHref(tool)}
+                      className="rounded-2xl border border-border bg-background px-4 py-3 text-sm font-semibold text-text hover:border-primary hover:text-primary"
+                    >
+                      {tool.title}
+                    </Link>
+                  );
+                })}
               </div>
             </section>
           ))}
@@ -294,10 +160,10 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-          {categories.map((cat) => (
+          {CATEGORIES.map((cat) => (
             <Link
-              key={cat.href}
-              href={cat.href}
+              key={cat.slug}
+              href={`/${cat.slug}`}
               className="group relative overflow-hidden rounded-[1.8rem] border border-border bg-surface p-6 shadow-sm hover:-translate-y-1 hover:shadow-[0_18px_34px_rgba(23,32,51,0.08)]"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${cat.accent}`} />
@@ -334,10 +200,10 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
-          {tools.map((tool) => (
+          {TOOLS.map((tool) => (
             <Link
-              key={tool.href}
-              href={tool.href}
+              key={tool.slug}
+              href={toolHref(tool)}
               className="group flex items-center justify-between gap-4 rounded-[1.4rem] border border-border bg-surface px-4 py-4 shadow-sm hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_14px_26px_rgba(23,32,51,0.06)]"
             >
               <div>
@@ -345,7 +211,7 @@ export default function Home() {
                   {tool.title}
                 </p>
                 <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted">
-                  {tool.category}
+                  {getCategory(tool.category).shortTitle}
                 </p>
               </div>
               <span className="text-muted group-hover:text-primary">-&gt;</span>

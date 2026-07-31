@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { categoryJsonLd, toolHref, toolsByCategory } from "@/lib/tool-registry";
 
 export const metadata: Metadata = {
   title: "Generadores online",
@@ -22,18 +23,13 @@ export const metadata: Metadata = {
   },
 };
 
-const tools = [
-  { href: "/generadores/password", title: "Generador de contraseñas", description: "Genera contraseñas seguras y aleatorias." },
-  { href: "/generadores/qr", title: "Generador de QR", description: "Genera códigos QR a partir de cualquier texto o URL." },
-  { href: "/generadores/uuid", title: "Generador de UUID", description: "Crea UUID v4 para pruebas, datos y desarrollo." },
-  { href: "/generadores/hashes", title: "Generador de hashes", description: "Genera hashes de texto con algoritmos comunes en el navegador." },
-  { href: "/generadores/nombres-usuario", title: "Generador de nombres de usuario", description: "Crea ideas para perfiles, redes, aliases y proyectos." },
-  { href: "/generadores/lorem-ipsum", title: "Generador de Lorem Ipsum", description: "Genera texto de relleno para diseños y prototipos." },
-];
-
 export default function Generadores() {
   return (
     <div className="flex flex-col gap-8 sm:gap-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(categoryJsonLd("generadores")) }}
+      />
       <Breadcrumb crumbs={[{ href: "/", title: "Inicio" }, { href: "/generadores", title: "Generadores" }]} />
 
       <section className="rounded-[2rem] border border-border bg-surface px-6 py-7 shadow-sm sm:px-8 sm:py-9">
@@ -45,10 +41,10 @@ export default function Generadores() {
       </section>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {tools.map((tool) => (
+        {toolsByCategory("generadores").map((tool) => (
           <Link
-            key={tool.href}
-            href={tool.href}
+            key={tool.slug}
+            href={toolHref(tool)}
             className="group rounded-[1.6rem] border border-border bg-surface p-5 shadow-sm hover:-translate-y-1 hover:border-primary hover:shadow-[0_16px_26px_rgba(23,32,51,0.06)]"
           >
             <p className="text-xs uppercase tracking-[0.16em] text-muted">Generadores</p>

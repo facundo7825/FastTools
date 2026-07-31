@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { CATEGORIES } from "@/lib/tools";
+import { featuredTools, toolHref, toolsByCategory } from "@/lib/tool-registry";
 
 export const metadata: Metadata = {
   title: "Todas las herramientas",
@@ -22,72 +24,6 @@ export const metadata: Metadata = {
   },
 };
 
-const featuredTools = [
-  { href: "/texto/generador-slug", title: "Generador de slug URL", description: "Convierte títulos y frases en URLs limpias listas para publicar.", badge: "Nueva" },
-  { href: "/texto/densidad-keyword", title: "Densidad de keyword", description: "Mide coincidencias y presencia porcentual de una keyword en un texto.", badge: "SEO" },
-  { href: "/texto/texto-a-lista", title: "Texto a lista", description: "Transforma secuencias separadas por comas o líneas en listas reutilizables.", badge: "Nueva" },
-  { href: "/generadores/nombres-usuario", title: "Generador de nombres de usuario", description: "Saca ideas rápidas para redes, perfiles o proyectos.", badge: "Top" },
-];
-
-const categories = [
-  {
-    href: "/texto",
-    title: "Texto",
-    eyebrow: "Escribir mejor",
-    description: "Herramientas para contar, limpiar, convertir, ordenar, analizar, generar slugs, crear listas y formatear contenido escrito.",
-    tools: [
-      { href: "/texto/contador-caracteres", title: "Contador de caracteres" },
-      { href: "/texto/contador-caracteres-sin-espacios", title: "Contador sin espacios" },
-      { href: "/texto/contador-palabras", title: "Contador de palabras" },
-      { href: "/texto/contador-lineas", title: "Contador de líneas" },
-      { href: "/texto/quitar-espacios", title: "Quitar espacios" },
-      { href: "/texto/quitar-saltos-linea", title: "Quitar saltos de línea" },
-      { href: "/texto/eliminar-lineas-duplicadas", title: "Eliminar líneas duplicadas" },
-      { href: "/texto/ordenar-lineas", title: "Ordenar líneas alfabéticamente" },
-      { href: "/texto/contador-palabras-clave", title: "Contador de palabras clave" },
-      { href: "/texto/extraer-texto-html", title: "Extractor de texto de HTML" },
-      { href: "/texto/json-pretty-print", title: "JSON pretty print" },
-      { href: "/texto/minificar-texto", title: "Minificador de texto" },
-      { href: "/texto/generador-slug", title: "Generador de slug URL" },
-      { href: "/texto/densidad-keyword", title: "Densidad de keyword" },
-      { href: "/texto/texto-a-lista", title: "Convertidor de texto a lista" },
-      { href: "/texto/mayusculas-minusculas", title: "Mayúsculas / Minúsculas" },
-      { href: "/texto/capitalizar-texto", title: "Capitalizar texto" },
-      { href: "/texto/invertir-texto", title: "Invertir texto" },
-    ],
-  },
-  {
-    href: "/generadores",
-    title: "Generadores",
-    eyebrow: "Crear desde cero",
-    description: "Para producir contraseñas, códigos QR, UUID, hashes, usernames y contenido de apoyo en segundos.",
-    tools: [
-      { href: "/generadores/password", title: "Generador de contraseñas" },
-      { href: "/generadores/qr", title: "Generador de QR" },
-      { href: "/generadores/uuid", title: "Generador de UUID" },
-      { href: "/generadores/hashes", title: "Generador de hashes" },
-      { href: "/generadores/nombres-usuario", title: "Generador de nombres de usuario" },
-      { href: "/generadores/lorem-ipsum", title: "Generador de Lorem Ipsum" },
-    ],
-  },
-  {
-    href: "/calculadoras",
-    title: "Calculadoras",
-    eyebrow: "Resolver rápido",
-    description: "Para cuentas útiles del día a día como porcentajes, promedios, aumentos y conversiones sin abrir planillas ni apps extra.",
-    tools: [
-      { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje" },
-      { href: "/calculadoras/descuento", title: "Calculadora de descuento" },
-      { href: "/calculadoras/promedio", title: "Calculadora de promedio" },
-      { href: "/calculadoras/aumento-porcentual", title: "Calculadora de aumento porcentual" },
-      { href: "/calculadoras/edad", title: "Calculadora de edad" },
-      { href: "/calculadoras/regla-de-tres", title: "Regla de tres" },
-      { href: "/calculadoras/imc", title: "Calculadora de IMC" },
-      { href: "/calculadoras/temperatura", title: "Conversor de temperatura" },
-    ],
-  },
-];
-
 export default function Herramientas() {
   return (
     <div className="flex flex-col gap-8 sm:gap-12">
@@ -104,13 +40,13 @@ export default function Herramientas() {
       <section className="rounded-[1.8rem] border border-border bg-surface px-5 py-6 shadow-sm sm:px-7">
         <div className="mb-5">
           <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">Puntos de entrada</p>
-          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-text">Herramientas nuevas para arrancar rápido</h2>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-text">Herramientas destacadas para arrancar rápido</h2>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {featuredTools.map((tool) => (
+          {featuredTools(4).map((tool) => (
             <Link
-              key={tool.href}
-              href={tool.href}
+              key={tool.slug}
+              href={toolHref(tool)}
               className="group rounded-[1.45rem] border border-border bg-background px-5 py-5 hover:-translate-y-1 hover:border-primary"
             >
               <div className="flex items-center justify-between gap-3">
@@ -129,9 +65,9 @@ export default function Herramientas() {
       </section>
 
       <div className="flex flex-col gap-8">
-        {categories.map((cat) => (
+        {CATEGORIES.map((cat) => (
           <section
-            key={cat.href}
+            key={cat.slug}
             className="rounded-[1.8rem] border border-border bg-surface px-5 py-6 shadow-sm sm:px-7"
           >
             <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
@@ -141,7 +77,7 @@ export default function Herramientas() {
                 <p className="mt-2 text-sm text-muted">{cat.description}</p>
               </div>
               <Link
-                href={cat.href}
+                href={`/${cat.slug}`}
                 className="rounded-full border border-border bg-surface-strong px-4 py-2 text-sm font-semibold text-text hover:border-primary hover:text-primary"
               >
                 Ver categoría {"->"}
@@ -149,10 +85,10 @@ export default function Herramientas() {
             </div>
 
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
-              {cat.tools.map((tool) => (
+              {toolsByCategory(cat.slug).map((tool) => (
                 <Link
-                  key={tool.href}
-                  href={tool.href}
+                  key={tool.slug}
+                  href={toolHref(tool)}
                   className="group rounded-[1.35rem] border border-border bg-background px-4 py-4 hover:-translate-y-0.5 hover:border-primary"
                 >
                   <p className="text-sm font-semibold text-text group-hover:text-primary">{tool.title}</p>
