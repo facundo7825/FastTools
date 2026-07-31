@@ -79,7 +79,7 @@ const collections = [
 export default function Texto() {
   return (
     <div className="flex flex-col gap-8 sm:gap-12">
-      <Breadcrumb crumbs={[{ href: "/", title: "Home" }, { href: "/texto", title: "Texto" }]} />
+      <Breadcrumb crumbs={[{ href: "/", title: "Inicio" }, { href: "/texto", title: "Texto" }]} />
 
       <section className="rounded-[2rem] border border-border bg-surface px-6 py-7 shadow-sm sm:px-8 sm:py-9">
         <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">

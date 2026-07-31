@@ -103,7 +103,7 @@ export const TOOLS: Tool[] = [
   {
     slug: "contador-caracteres-sin-espacios",
     category: "texto",
-    title: "Contador sin espacios",
+    title: "Contador de caracteres sin espacios",
     shortTitle: "Contador sin espacios",
     description:
       "Cuenta solo los caracteres reales de tu texto, sin espacios ni saltos.",
@@ -460,7 +460,7 @@ export const TOOLS: Tool[] = [
   {
     slug: "densidad-keyword",
     category: "texto",
-    title: "Densidad de keyword",
+    title: "Contador de densidad de keyword",
     shortTitle: "Densidad de keyword",
     badge: "SEO",
     description: "Mide la presencia porcentual de una keyword dentro de un texto.",

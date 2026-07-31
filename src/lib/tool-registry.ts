@@ -11,6 +11,7 @@ import { assertRegistryInvariants } from "@/lib/tool-registry.invariants";
 export type Crumb = { href: string; title: string };
 
 const SITE_NAME = "FastTools";
+const SITE_URL = "https://fasttools.app";
 const RELATED_COUNT = 3;
 
 const bySlug = new Map(TOOLS.map((tool) => [tool.slug, tool]));
@@ -143,7 +144,7 @@ export function toolJsonLd(slug: string) {
         "@type": "ListItem",
         position: index + 1,
         name: crumb.title,
-        item: crumb.href,
+        item: `${SITE_URL}${crumb.href}`,
       })),
     },
   ];
@@ -178,12 +179,12 @@ export function categoryJsonLd(slug: CategorySlug) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Inicio", item: "/" },
+          { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE_URL}/` },
           {
             "@type": "ListItem",
             position: 2,
             name: category.shortTitle,
-            item: `/${category.slug}`,
+            item: `${SITE_URL}/${category.slug}`,
           },
         ],
       },
