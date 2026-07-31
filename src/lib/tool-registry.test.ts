@@ -69,6 +69,12 @@ describe("relatedFor", () => {
       relatedFor("ordenar-lineas").map((t) => t.slug),
     );
   });
+
+  it("nunca devuelve mas de 3", () => {
+    for (const tool of TOOLS) {
+      expect(relatedFor(tool.slug)).toHaveLength(3);
+    }
+  });
 });
 
 describe("breadcrumbFor", () => {

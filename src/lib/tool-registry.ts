@@ -55,101 +55,41 @@ const curatedInDegree = (() => {
   return counts;
 })();
 
-function curatedBase(tool: Tool): { chosen: Tool[]; taken: Set<string> } {
+export function relatedFor(slug: string): Tool[] {
+  const tool = getTool(slug);
   const chosen: Tool[] = [];
-  const taken = new Set<string>([tool.slug]);
+  const taken = new Set<string>([slug]);
+
   for (const candidate of tool.related) {
+    if (chosen.length >= RELATED_COUNT) break;
     if (taken.has(candidate)) continue;
     const related = bySlug.get(candidate);
     if (!related) continue;
     chosen.push(related);
     taken.add(candidate);
   }
-  return { chosen, taken };
-}
 
-/**
- * El registro completo de relacionadas se precalcula una unica vez, en un
- * solo barrido sobre TOOLS (orden fijo por los datos, no por el orden en que
- * el codigo externo llama a relatedFor). Esto es lo que permite usar un
- * in-degree DINAMICO durante el relleno sin perder determinismo: el conteo
- * dinamico solo se actualiza dentro de este barrido interno, nunca segun
- * llamadas externas a relatedFor.
- *
- * Con solo 6 herramientas por debajo de RELATED_COUNT (6 "cupos" de relleno)
- * y 7 huerfanas curadas, no alcanza con completar cada una hasta 3: el
- * in-degree dinamico reparte esos 6 cupos entre huerfanas distintas de la
- * misma categoria (en vez de que todas apunten siempre a la misma, que es lo
- * que pasa con un in-degree estatico), pero igual sobra una huerfana sin
- * cupo porque "texto" no tiene ninguna herramienta con deficit. Por eso hay
- * una segunda pasada que fuerza un enlace extra (mas alla del minimo de 3)
- * hacia cualquier huerfana que siga sin quedar enlazada.
- */
-const relatedCache = new Map<string, Tool[]>();
-
-(function buildRelatedCache() {
-  const dynamicInDegree = new Map(curatedInDegree);
-
-  for (const tool of TOOLS) {
-    const { chosen, taken } = curatedBase(tool);
-
-    if (chosen.length < RELATED_COUNT) {
-      // Prioriza las menos enlazadas: el relleno empuja enlaces hacia las
-      // huerfanas en vez de reforzar los hubs. Misma categoria primero.
-      const fill = TOOLS.filter((c) => !taken.has(c.slug)).sort((a, b) => {
-        const sameA = a.category === tool.category ? 0 : 1;
-        const sameB = b.category === tool.category ? 0 : 1;
-        if (sameA !== sameB) return sameA - sameB;
-        const degA = dynamicInDegree.get(a.slug) ?? 0;
-        const degB = dynamicInDegree.get(b.slug) ?? 0;
-        if (degA !== degB) return degA - degB;
-        return a.slug.localeCompare(b.slug);
-      });
-
-      for (const candidate of fill) {
-        if (chosen.length >= RELATED_COUNT) break;
-        chosen.push(candidate);
-        taken.add(candidate.slug);
-        dynamicInDegree.set(candidate.slug, (dynamicInDegree.get(candidate.slug) ?? 0) + 1);
-      }
-    }
-
-    relatedCache.set(tool.slug, chosen);
-  }
-
-  // Segunda pasada: cualquier herramienta que siga sin ningun enlace
-  // entrante (ni curado ni de relleno) recibe uno extra, mas alla del
-  // minimo de 3, desde un host deterministico (misma categoria primero,
-  // despues orden alfabetico de slug).
-  const inbound = new Set<string>();
-  for (const list of relatedCache.values()) {
-    for (const related of list) inbound.add(related.slug);
-  }
-
-  const orphans = TOOLS.filter((tool) => !inbound.has(tool.slug));
-
-  for (const orphan of orphans) {
-    const hosts = TOOLS.filter((host) => host.slug !== orphan.slug).sort((a, b) => {
-      const sameA = a.category === orphan.category ? 0 : 1;
-      const sameB = b.category === orphan.category ? 0 : 1;
+  if (chosen.length < RELATED_COUNT) {
+    // Prioriza las menos enlazadas: el relleno empuja enlaces hacia las
+    // huerfanas en vez de reforzar los hubs. Misma categoria primero.
+    const fill = TOOLS.filter((c) => !taken.has(c.slug)).sort((a, b) => {
+      const sameA = a.category === tool.category ? 0 : 1;
+      const sameB = b.category === tool.category ? 0 : 1;
       if (sameA !== sameB) return sameA - sameB;
+      const degA = curatedInDegree.get(a.slug) ?? 0;
+      const degB = curatedInDegree.get(b.slug) ?? 0;
+      if (degA !== degB) return degA - degB;
       return a.slug.localeCompare(b.slug);
     });
 
-    const host = hosts.find((candidate) => {
-      const list = relatedCache.get(candidate.slug) ?? [];
-      return !list.some((related) => related.slug === orphan.slug);
-    });
-
-    if (host) {
-      relatedCache.get(host.slug)?.push(orphan);
+    for (const candidate of fill) {
+      if (chosen.length >= RELATED_COUNT) break;
+      chosen.push(candidate);
+      taken.add(candidate.slug);
     }
   }
-})();
 
-export function relatedFor(slug: string): Tool[] {
-  getTool(slug);
-  return relatedCache.get(slug) ?? [];
+  return chosen;
 }
 
 export function breadcrumbFor(slug: string): Crumb[] {

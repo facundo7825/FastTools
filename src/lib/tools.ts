@@ -76,7 +76,7 @@ export const TOOLS: Tool[] = [
     metaTitle: "Contador de caracteres online gratis",
     metaDescription:
       "Cuenta caracteres de tu texto en tiempo real. Útil para redes sociales, meta descripciones, mensajes y textos con límite.",
-    related: ["contador-palabras", "quitar-espacios", "mayusculas-minusculas"],
+    related: ["contador-caracteres-sin-espacios", "contador-palabras", "quitar-espacios"],
     howTo: {
       name: "Cómo contar caracteres de un texto",
       steps: [
@@ -272,7 +272,7 @@ export const TOOLS: Tool[] = [
     metaTitle: "Ordenar líneas alfabéticamente online",
     metaDescription:
       "Ordena líneas alfabéticamente al instante. Ideal para listas, keywords, nombres, tags y contenido copiado.",
-    related: ["eliminar-lineas-duplicadas", "quitar-saltos-linea", "contador-lineas"],
+    related: ["quitar-saltos-linea", "contador-lineas", "texto-a-lista"],
     howTo: {
       name: "Cómo ordenar líneas alfabéticamente",
       steps: [
@@ -304,7 +304,7 @@ export const TOOLS: Tool[] = [
     metaTitle: "Contador de palabras clave online",
     metaDescription:
       "Cuenta cuántas veces aparece una palabra o frase clave dentro de un texto y estima su densidad en segundos.",
-    related: ["contador-palabras", "contador-caracteres", "ordenar-lineas"],
+    related: ["densidad-keyword", "contador-palabras", "ordenar-lineas"],
     howTo: {
       name: "Cómo contar palabras clave en un texto",
       steps: [
@@ -631,7 +631,7 @@ export const TOOLS: Tool[] = [
     metaTitle: "Generador de contraseñas seguras online gratis",
     metaDescription:
       "Genera contraseñas seguras y aleatorias al instante. Elige longitud y tipos de caracteres sin registro.",
-    related: ["qr", "lorem-ipsum"],
+    related: ["qr", "lorem-ipsum", "nombres-usuario"],
     howTo: {
       name: "Cómo generar una contraseña segura",
       steps: [
@@ -696,7 +696,7 @@ export const TOOLS: Tool[] = [
     metaTitle: "Generador de UUID online gratis",
     metaDescription:
       "Genera UUID v4 al instante desde el navegador. Útil para desarrollo, bases de datos, identificadores y pruebas.",
-    related: ["password", "qr", "lorem-ipsum"],
+    related: ["hashes", "password", "qr"],
     howTo: {
       name: "Cómo generar UUIDs",
       steps: [
@@ -813,7 +813,7 @@ export const TOOLS: Tool[] = [
     metaTitle: "Calculadora de porcentaje online gratis",
     metaDescription:
       "Calcula porcentajes al instante para descuentos, subas, IVA y cuentas cotidianas. Simple, clara y sin registro.",
-    related: ["edad", "regla-de-tres"],
+    related: ["edad", "regla-de-tres", "aumento-porcentual"],
     howTo: {
       name: "Cómo calcular un porcentaje",
       steps: [
@@ -992,7 +992,7 @@ export const TOOLS: Tool[] = [
     metaTitle: "Calculadora de IMC online gratis",
     metaDescription:
       "Calcula tu índice de masa corporal ingresando peso y altura. Obtén una referencia rápida de tu categoría.",
-    related: ["edad", "porcentaje", "regla-de-tres"],
+    related: ["temperatura", "edad", "porcentaje"],
     howTo: {
       name: "Cómo calcular el IMC",
       steps: [
