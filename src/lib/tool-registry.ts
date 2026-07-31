@@ -37,8 +37,9 @@ export function toolsByCategory(slug: CategorySlug): Tool[] {
   return TOOLS.filter((tool) => tool.category === slug);
 }
 
-export function featuredTools(limit = 3): Tool[] {
-  return TOOLS.filter((tool) => tool.badge).slice(0, limit);
+export function featuredTools(limit?: number): Tool[] {
+  const featured = TOOLS.filter((tool) => tool.badge);
+  return limit === undefined ? featured : featured.slice(0, limit);
 }
 
 /**
@@ -133,7 +134,7 @@ export function toolJsonLd(slug: string) {
       "@type": "SoftwareApplication",
       name: tool.title,
       description: tool.description,
-      url: toolHref(tool),
+      url: `${SITE_URL}${toolHref(tool)}`,
       applicationCategory: "UtilitiesApplication",
       operatingSystem: "Web",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
@@ -195,7 +196,7 @@ export function categoryJsonLd(slug: CategorySlug) {
           "@type": "ListItem",
           position: index + 1,
           name: tool.title,
-          url: toolHref(tool),
+          url: `${SITE_URL}${toolHref(tool)}`,
         })),
       },
     ],

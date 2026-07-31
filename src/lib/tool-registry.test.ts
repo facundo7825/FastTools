@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { TOOLS } from "@/lib/tools";
 import {
   breadcrumbFor,
+  featuredTools,
   getTool,
   relatedFor,
   toolHref,
@@ -26,6 +27,18 @@ describe("toolsByCategory", () => {
     const tools = toolsByCategory("generadores");
     expect(tools).toHaveLength(6);
     for (const t of tools) expect(t.category).toBe("generadores");
+  });
+});
+
+describe("featuredTools", () => {
+  it("sin limite devuelve todas las que tienen badge", () => {
+    const all = featuredTools();
+    expect(all).toHaveLength(4);
+    for (const t of all) expect(t.badge).toBeTruthy();
+  });
+
+  it("con limite recorta la lista", () => {
+    expect(featuredTools(2)).toHaveLength(2);
   });
 });
 

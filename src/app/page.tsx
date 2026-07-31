@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const stats = [
   { value: String(TOOLS.length), label: "herramientas publicadas" },
   { value: String(CATEGORIES.length), label: "familias de uso" },
-  { value: String(featuredTools(99).length), label: "destacadas ahora" },
+  { value: String(featuredTools().length), label: "destacadas ahora" },
 ];
 
 export default function Home() {
