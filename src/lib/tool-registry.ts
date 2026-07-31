@@ -6,6 +6,7 @@ import {
   type CategorySlug,
   type Tool,
 } from "@/lib/tools";
+import { assertRegistryInvariants } from "@/lib/tool-registry.invariants";
 
 export type Crumb = { href: string; title: string };
 
@@ -199,3 +200,8 @@ export function categoryJsonLd(slug: CategorySlug) {
     ],
   };
 }
+
+// Llamada (no import de efecto secundario) al final del archivo: se ejecuta
+// en orden, despues de que TOOLS, CATEGORIES y relatedFor ya estan definidos.
+// El modulo de invariantes no importa nada de aca, asi que no hay ciclo.
+assertRegistryInvariants(TOOLS, CATEGORIES, relatedFor);
