@@ -1,61 +1,10 @@
-import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
-import RelatedTools from "@/components/RelatedTools";
-import Breadcrumb from "@/components/Breadcrumb";
+import { toolJsonLd, toolMetadata } from "@/lib/tool-registry";
 import CalculadoraPorcentaje from "./CalculadoraPorcentaje";
 
-export const metadata: Metadata = {
-  title: "Calculadora de porcentaje online gratis",
-  description:
-    "Calcula porcentajes al instante para descuentos, subas, IVA y cuentas cotidianas. Simple, clara y sin registro.",
-  alternates: {
-    canonical: "/calculadoras/porcentaje",
-  },
-};
+const SLUG = "porcentaje";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "HowTo",
-      name: "Cómo calcular un porcentaje",
-      step: [
-        { "@type": "HowToStep", text: "Ingresa el valor base y el porcentaje." },
-        { "@type": "HowToStep", text: "El resultado aparece al instante." },
-        { "@type": "HowToStep", text: "Úsalo para descuentos, IVA o cálculos simples." },
-      ],
-    },
-    {
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "¿Cómo se calcula el porcentaje de un número?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Se multiplica el valor base por el porcentaje y luego se divide por 100.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Sirve para descuentos o IVA?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Sí. Puedes usarla como apoyo para descuentos, impuestos o aumentos.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Hace el resultado automáticamente?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Sí. Apenas completas los campos, la calculadora muestra el resultado.",
-          },
-        },
-      ],
-    },
-  ],
-};
+export const metadata = toolMetadata(SLUG);
 
 const content = (
   <>
@@ -70,20 +19,6 @@ const content = (
       <li>Escribe el porcentaje que quieres calcular.</li>
       <li>El resultado aparece automáticamente debajo.</li>
     </ol>
-    <h2>Preguntas frecuentes</h2>
-    <h3>¿Cómo se calcula el porcentaje de un número?</h3>
-    <p>
-      Se multiplica el valor base por el porcentaje y luego se divide por 100.
-    </p>
-    <h3>¿Sirve para descuentos o IVA?</h3>
-    <p>
-      Sí. Puedes usarla para descuentos, impuestos, propinas, subas de precio o cualquier
-      cuenta similar.
-    </p>
-    <h3>¿Hace el resultado automáticamente?</h3>
-    <p>
-      Sí. Apenas completas ambos campos, la calculadora te muestra el valor resultante.
-    </p>
   </>
 );
 
@@ -92,33 +27,9 @@ export default function Page() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd(SLUG)) }}
       />
-      <ToolLayout
-        title="Calculadora de porcentaje"
-        description="Calcula el porcentaje de cualquier valor de forma rápida y sencilla."
-        tool={<CalculadoraPorcentaje />}
-        content={content}
-        categoryHref="/calculadoras"
-        categoryLabel="Calculadoras"
-        breadcrumb={
-          <Breadcrumb
-            crumbs={[
-              { href: "/", label: "Home" },
-              { href: "/calculadoras", label: "Calculadoras" },
-              { href: "/calculadoras/porcentaje", label: "Calculadora de porcentaje" },
-            ]}
-          />
-        }
-        relatedTools={
-          <RelatedTools
-            tools={[
-              { href: "/calculadoras/edad", title: "Calculadora de edad" },
-              { href: "/calculadoras/regla-de-tres", title: "Regla de tres" },
-            ]}
-          />
-        }
-      />
+      <ToolLayout slug={SLUG} tool={<CalculadoraPorcentaje />} content={content} />
     </>
   );
 }

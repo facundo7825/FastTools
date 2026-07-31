@@ -37,8 +37,8 @@ export default function ContactoPage() {
     <div className="flex flex-col gap-8">
       <Breadcrumb
         crumbs={[
-          { href: "/", label: "Home" },
-          { href: "/contacto", label: "Contacto" },
+          { href: "/", title: "Home" },
+          { href: "/contacto", title: "Contacto" },
         ]}
       />
 

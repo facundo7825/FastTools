@@ -44,8 +44,8 @@ export default function SobrePage() {
     <div className="flex flex-col gap-8">
       <Breadcrumb
         crumbs={[
-          { href: "/", label: "Home" },
-          { href: "/sobre", label: "Sobre FastTools" },
+          { href: "/", title: "Home" },
+          { href: "/sobre", title: "Sobre FastTools" },
         ]}
       />
 

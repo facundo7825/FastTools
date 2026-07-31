@@ -26,8 +26,8 @@ export default function TerminosPage() {
     <div className="flex flex-col gap-8">
       <Breadcrumb
         crumbs={[
-          { href: "/", label: "Home" },
-          { href: "/terminos", label: "Términos" },
+          { href: "/", title: "Home" },
+          { href: "/terminos", title: "Términos" },
         ]}
       />
 

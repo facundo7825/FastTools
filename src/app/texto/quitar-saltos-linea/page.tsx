@@ -1,32 +1,10 @@
-import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
-import RelatedTools from "@/components/RelatedTools";
-import Breadcrumb from "@/components/Breadcrumb";
+import { toolJsonLd, toolMetadata } from "@/lib/tool-registry";
 import QuitarSaltosLinea from "./QuitarSaltosLinea";
 
-export const metadata: Metadata = {
-  title: "Quitar saltos de línea online",
-  description:
-    "Convierte texto con varias líneas en una sola línea. Ideal para formularios, CSV simples y texto copiado.",
-  alternates: {
-    canonical: "/texto/quitar-saltos-linea",
-  },
-};
+const SLUG = "quitar-saltos-linea";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "HowTo",
-      name: "Cómo quitar saltos de línea",
-      step: [
-        { "@type": "HowToStep", text: "Pega un texto con múltiples líneas." },
-        { "@type": "HowToStep", text: "La herramienta lo convierte en una sola línea." },
-        { "@type": "HowToStep", text: "Copia el resultado cuando lo necesites." },
-      ],
-    },
-  ],
-};
+export const metadata = toolMetadata(SLUG);
 
 const content = (
   <>
@@ -49,34 +27,9 @@ export default function Page() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd(SLUG)) }}
       />
-      <ToolLayout
-        title="Quitar saltos de línea"
-        description="Convierte texto con varias líneas en una sola línea continua."
-        tool={<QuitarSaltosLinea />}
-        content={content}
-        categoryHref="/texto"
-        categoryLabel="Texto"
-        breadcrumb={
-          <Breadcrumb
-            crumbs={[
-              { href: "/", label: "Home" },
-              { href: "/texto", label: "Texto" },
-              { href: "/texto/quitar-saltos-linea", label: "Quitar saltos de línea" },
-            ]}
-          />
-        }
-        relatedTools={
-          <RelatedTools
-            tools={[
-              { href: "/texto/quitar-espacios", title: "Quitar espacios" },
-              { href: "/texto/contador-lineas", title: "Contador de líneas" },
-              { href: "/texto/eliminar-lineas-duplicadas", title: "Eliminar líneas duplicadas" },
-            ]}
-          />
-        }
-      />
+      <ToolLayout slug={SLUG} tool={<QuitarSaltosLinea />} content={content} />
     </>
   );
 }

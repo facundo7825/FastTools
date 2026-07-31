@@ -2,23 +2,15 @@ import Link from "next/link";
 import type { Tool } from "@/lib/tools";
 import { toolHref } from "@/lib/tool-registry";
 
-// Legacy: la forma que pasan las 32 paginas hasta que la Tarea 7 las migre y
-// borre este soporte.
-type LegacyTool = { href: string; title: string };
-
 type Props = {
-  tools: (Tool | LegacyTool)[];
+  tools: Tool[];
 };
-
-function isRegistryTool(tool: Tool | LegacyTool): tool is Tool {
-  return "slug" in tool && "category" in tool;
-}
 
 export default function RelatedTools({ tools }: Props) {
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
       {tools.map((tool) => {
-        const href = isRegistryTool(tool) ? toolHref(tool) : tool.href;
+        const href = toolHref(tool);
         return (
           <Link
             key={href}

@@ -2,11 +2,7 @@ import Link from "next/link";
 
 type Crumb = {
   href: string;
-  // `title` es el campo del registro (Crumb en tool-registry.ts). `label` es
-  // legacy: lo pasan las 32 paginas hasta que la Tarea 7 las migre y borre
-  // este soporte.
-  title?: string;
-  label?: string;
+  title: string;
 };
 
 type Props = {
@@ -20,7 +16,7 @@ export default function Breadcrumb({ crumbs }: Props) {
       className="flex flex-wrap items-center gap-2 text-sm text-muted"
     >
       {crumbs.map((crumb, index) => {
-        const text = crumb.title ?? crumb.label;
+        const text = crumb.title;
         return (
           <span key={crumb.href} className="flex items-center gap-2">
             {index < crumbs.length - 1 ? (

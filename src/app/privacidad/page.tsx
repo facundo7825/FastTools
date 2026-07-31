@@ -26,8 +26,8 @@ export default function PrivacidadPage() {
     <div className="flex flex-col gap-8">
       <Breadcrumb
         crumbs={[
-          { href: "/", label: "Home" },
-          { href: "/privacidad", label: "Privacidad" },
+          { href: "/", title: "Home" },
+          { href: "/privacidad", title: "Privacidad" },
         ]}
       />
 

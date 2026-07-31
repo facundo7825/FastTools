@@ -1,32 +1,10 @@
-import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
-import RelatedTools from "@/components/RelatedTools";
-import Breadcrumb from "@/components/Breadcrumb";
+import { toolJsonLd, toolMetadata } from "@/lib/tool-registry";
 import CalculadoraDescuento from "./CalculadoraDescuento";
 
-export const metadata: Metadata = {
-  title: "Calculadora de descuento online gratis",
-  description:
-    "Calcula descuentos y precio final al instante. Ideal para ofertas, rebajas, ventas y compras cotidianas.",
-  alternates: {
-    canonical: "/calculadoras/descuento",
-  },
-};
+const SLUG = "descuento";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "HowTo",
-      name: "Cómo calcular un descuento",
-      step: [
-        { "@type": "HowToStep", text: "Ingresa el precio original." },
-        { "@type": "HowToStep", text: "Escribe el porcentaje de descuento." },
-        { "@type": "HowToStep", text: "La herramienta muestra el monto descontado y el precio final." },
-      ],
-    },
-  ],
-};
+export const metadata = toolMetadata(SLUG);
 
 const content = (
   <>
@@ -49,34 +27,9 @@ export default function Page() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd(SLUG)) }}
       />
-      <ToolLayout
-        title="Calculadora de descuento"
-        description="Calcula cuánto te descuentan y cuál es el precio final."
-        tool={<CalculadoraDescuento />}
-        content={content}
-        categoryHref="/calculadoras"
-        categoryLabel="Calculadoras"
-        breadcrumb={
-          <Breadcrumb
-            crumbs={[
-              { href: "/", label: "Home" },
-              { href: "/calculadoras", label: "Calculadoras" },
-              { href: "/calculadoras/descuento", label: "Calculadora de descuento" },
-            ]}
-          />
-        }
-        relatedTools={
-          <RelatedTools
-            tools={[
-              { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje" },
-              { href: "/calculadoras/regla-de-tres", title: "Regla de tres" },
-              { href: "/calculadoras/edad", title: "Calculadora de edad" },
-            ]}
-          />
-        }
-      />
+      <ToolLayout slug={SLUG} tool={<CalculadoraDescuento />} content={content} />
     </>
   );
 }

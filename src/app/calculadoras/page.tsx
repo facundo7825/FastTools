@@ -36,7 +36,7 @@ const tools = [
 export default function Calculadoras() {
   return (
     <div className="flex flex-col gap-8 sm:gap-12">
-      <Breadcrumb crumbs={[{ href: "/", label: "Home" }, { href: "/calculadoras", label: "Calculadoras" }]} />
+      <Breadcrumb crumbs={[{ href: "/", title: "Home" }, { href: "/calculadoras", title: "Calculadoras" }]} />
 
       <section className="rounded-[2rem] border border-border bg-surface px-6 py-7 shadow-sm sm:px-8 sm:py-9">
         <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">Resolver con menos pasos</p>

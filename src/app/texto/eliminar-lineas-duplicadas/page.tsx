@@ -1,32 +1,10 @@
-import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
-import RelatedTools from "@/components/RelatedTools";
-import Breadcrumb from "@/components/Breadcrumb";
+import { toolJsonLd, toolMetadata } from "@/lib/tool-registry";
 import EliminarLineasDuplicadas from "./EliminarLineasDuplicadas";
 
-export const metadata: Metadata = {
-  title: "Eliminar líneas duplicadas online",
-  description:
-    "Quita líneas repetidas de una lista o bloque de texto manteniendo la primera aparición de cada una.",
-  alternates: {
-    canonical: "/texto/eliminar-lineas-duplicadas",
-  },
-};
+const SLUG = "eliminar-lineas-duplicadas";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "HowTo",
-      name: "Cómo eliminar líneas duplicadas",
-      step: [
-        { "@type": "HowToStep", text: "Pega una lista o texto con líneas repetidas." },
-        { "@type": "HowToStep", text: "La herramienta elimina las repeticiones." },
-        { "@type": "HowToStep", text: "Copia el resultado limpio cuando lo necesites." },
-      ],
-    },
-  ],
-};
+export const metadata = toolMetadata(SLUG);
 
 const content = (
   <>
@@ -49,37 +27,9 @@ export default function Page() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd(SLUG)) }}
       />
-      <ToolLayout
-        title="Eliminar líneas duplicadas"
-        description="Limpia listas repetidas conservando solo la primera aparición de cada línea."
-        tool={<EliminarLineasDuplicadas />}
-        content={content}
-        categoryHref="/texto"
-        categoryLabel="Texto"
-        breadcrumb={
-          <Breadcrumb
-            crumbs={[
-              { href: "/", label: "Home" },
-              { href: "/texto", label: "Texto" },
-              {
-                href: "/texto/eliminar-lineas-duplicadas",
-                label: "Eliminar líneas duplicadas",
-              },
-            ]}
-          />
-        }
-        relatedTools={
-          <RelatedTools
-            tools={[
-              { href: "/texto/contador-lineas", title: "Contador de líneas" },
-              { href: "/texto/quitar-saltos-linea", title: "Quitar saltos de línea" },
-              { href: "/texto/quitar-espacios", title: "Quitar espacios" },
-            ]}
-          />
-        }
-      />
+      <ToolLayout slug={SLUG} tool={<EliminarLineasDuplicadas />} content={content} />
     </>
   );
 }

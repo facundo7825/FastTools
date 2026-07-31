@@ -6,49 +6,22 @@ import Breadcrumb from "@/components/Breadcrumb";
 import RelatedTools from "@/components/RelatedTools";
 
 type Props = {
-  // Modo nuevo: si viene `slug`, todo se deriva del registro y los props
-  // legacy de abajo se ignoran.
-  slug?: string;
+  slug: string;
   tool: ReactNode;
   content?: ReactNode;
-  // Legacy: los usan las 32 paginas hasta que la Tarea 7 las migre.
-  // Esta tarea los borra al terminar.
-  title?: string;
-  description?: string;
-  categoryHref?: string;
-  categoryLabel?: string;
-  breadcrumb?: ReactNode;
-  relatedTools?: ReactNode;
 };
 
-export default function ToolLayout(props: Props) {
-  const { slug, tool, content } = props;
+export default function ToolLayout({ slug, tool, content }: Props) {
+  const meta = getTool(slug);
+  const category = getCategory(meta.category);
 
-  const derived = slug
-    ? (() => {
-        const meta = getTool(slug);
-        const category = getCategory(meta.category);
-        return {
-          title: meta.title,
-          description: meta.description,
-          categoryHref: `/${category.slug}`,
-          categoryLabel: category.shortTitle,
-          crumbs: breadcrumbFor(slug),
-          related: relatedFor(slug),
-        };
-      })()
-    : null;
-
-  const title = derived?.title ?? props.title ?? "";
-  const description = derived?.description ?? props.description ?? "";
-  const categoryHref = derived?.categoryHref ?? props.categoryHref;
-  const categoryLabel = derived?.categoryLabel ?? props.categoryLabel;
-  const breadcrumb = derived ? <Breadcrumb crumbs={derived.crumbs} /> : props.breadcrumb;
-  const relatedTools = derived ? (
-    <RelatedTools tools={derived.related} />
-  ) : (
-    props.relatedTools
-  );
+  const title = meta.title;
+  const description = meta.description;
+  const categoryHref = `/${category.slug}`;
+  const categoryLabel = category.shortTitle;
+  const breadcrumb = <Breadcrumb crumbs={breadcrumbFor(slug)} />;
+  const relatedTools = <RelatedTools tools={relatedFor(slug)} />;
+  const faq = meta.faq;
 
   return (
     <div className="flex flex-col gap-8 sm:gap-10">
@@ -118,6 +91,20 @@ export default function ToolLayout(props: Props) {
               </div>
             </section>
           )}
+
+          {faq?.length ? (
+            <section className="rounded-[1.8rem] border border-border bg-surface px-5 py-6 shadow-sm sm:px-7">
+              <h2 className="text-xl font-semibold text-text">Preguntas frecuentes</h2>
+              <div className="mt-4 flex flex-col gap-4">
+                {faq.map((entry) => (
+                  <div key={entry.q}>
+                    <h3 className="text-sm font-semibold text-text">{entry.q}</h3>
+                    <p className="mt-1 text-sm text-muted">{entry.a}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null}
 
           {relatedTools && (
             <section className="rounded-[1.8rem] border border-border bg-surface px-5 py-6 shadow-sm sm:px-7">

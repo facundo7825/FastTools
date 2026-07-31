@@ -1,61 +1,10 @@
-import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
-import RelatedTools from "@/components/RelatedTools";
 import ToolLayout from "@/components/ToolLayout";
+import { toolJsonLd, toolMetadata } from "@/lib/tool-registry";
 import CalculadoraAumentoPorcentual from "./CalculadoraAumentoPorcentual";
 
-export const metadata: Metadata = {
-  title: "Calculadora de aumento porcentual online",
-  description:
-    "Calcula aumentos porcentuales online al instante. Ve el monto aumentado y el valor final sin fórmulas.",
-  alternates: {
-    canonical: "/calculadoras/aumento-porcentual",
-  },
-};
+const SLUG = "aumento-porcentual";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "HowTo",
-      name: "Cómo calcular un aumento porcentual",
-      step: [
-        { "@type": "HowToStep", text: "Ingresa el valor base." },
-        { "@type": "HowToStep", text: "Escribe el porcentaje de aumento." },
-        { "@type": "HowToStep", text: "La herramienta muestra el aumento y el valor final." },
-      ],
-    },
-    {
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "¿Sirve para aumentos de sueldo o precios?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Sí. Puedes usarla para estimar aumentos salariales, precios, cuotas o presupuestos.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Muestra el monto del aumento y el total?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Sí. La calculadora separa cuánto se suma y cuál es el valor final.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Hace la cuenta automáticamente?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Sí. Apenas completas los campos, el resultado aparece al instante.",
-          },
-        },
-      ],
-    },
-  ],
-};
+export const metadata = toolMetadata(SLUG);
 
 const content = (
   <>
@@ -70,20 +19,6 @@ const content = (
       <li>Escribe el porcentaje de aumento.</li>
       <li>Revisa el monto sumado y el valor final resultante.</li>
     </ol>
-    <h2>Preguntas frecuentes</h2>
-    <h3>¿Sirve para aumentos de sueldo o precios?</h3>
-    <p>
-      Sí. Puedes usarla para aumentos salariales, presupuestos, cuotas o precios de
-      productos.
-    </p>
-    <h3>¿Muestra el monto del aumento y el total?</h3>
-    <p>
-      Sí. La herramienta te muestra por separado cuánto se suma y cuánto queda al final.
-    </p>
-    <h3>¿Hace la cuenta automáticamente?</h3>
-    <p>
-      Sí. El resultado se actualiza apenas completas ambos campos.
-    </p>
   </>
 );
 
@@ -92,37 +27,9 @@ export default function Page() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd(SLUG)) }}
       />
-      <ToolLayout
-        title="Calculadora de aumento porcentual"
-        description="Calcula aumentos y valores finales a partir de un porcentaje."
-        tool={<CalculadoraAumentoPorcentual />}
-        content={content}
-        categoryHref="/calculadoras"
-        categoryLabel="Calculadoras"
-        breadcrumb={
-          <Breadcrumb
-            crumbs={[
-              { href: "/", label: "Home" },
-              { href: "/calculadoras", label: "Calculadoras" },
-              {
-                href: "/calculadoras/aumento-porcentual",
-                label: "Calculadora de aumento porcentual",
-              },
-            ]}
-          />
-        }
-        relatedTools={
-          <RelatedTools
-            tools={[
-              { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje" },
-              { href: "/calculadoras/descuento", title: "Calculadora de descuento" },
-              { href: "/calculadoras/promedio", title: "Calculadora de promedio" },
-            ]}
-          />
-        }
-      />
+      <ToolLayout slug={SLUG} tool={<CalculadoraAumentoPorcentual />} content={content} />
     </>
   );
 }
