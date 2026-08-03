@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { categoryJsonLd, toolHref, toolsByCategory } from "@/lib/tool-registry";
+import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
 
 export const metadata: Metadata = {
   title: "Generadores online",
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
     description:
       "Generadores online gratuitos para contraseñas, códigos QR, UUID, hashes, usernames y texto de relleno. Rápidos y sin registro.",
     url: "/generadores",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     title: "Generadores online | FastTools",

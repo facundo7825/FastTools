@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
 
 export const metadata: Metadata = {
   title: "Política de privacidad",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
     description:
       "Consulta la política de privacidad de FastTools y cómo se manejan los datos al usar el sitio.",
     url: "/privacidad",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     title: "Política de privacidad | FastTools",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
     description:
       "Encuentra la información de contacto y soporte general de FastTools para consultas, sugerencias o reportes.",
     url: "/contacto",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     title: "Contacto | FastTools",

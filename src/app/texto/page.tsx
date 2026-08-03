@@ -3,6 +3,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { COLLECTIONS } from "@/lib/tools";
 import { categoryJsonLd, getTool, toolHref, toolsByCategory } from "@/lib/tool-registry";
+import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
 
 export const metadata: Metadata = {
   title: "Herramientas de texto",
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
     description:
       "Herramientas online para trabajar con texto: contadores, limpieza, líneas, saltos y conversiones.",
     url: "/texto",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     title: "Herramientas de texto | FastTools",

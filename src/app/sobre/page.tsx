@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
 
 export const metadata: Metadata = {
   // absolute evita que el template "%s | FastTools" del layout raiz produzca
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
     description:
       "Conoce qué es FastTools, qué tipo de herramientas ofrece y cuál es el objetivo del proyecto.",
     url: "/sobre",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     title: "Sobre FastTools",

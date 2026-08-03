@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
 
 export const metadata: Metadata = {
   title: "Términos de uso",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
     description:
       "Consulta los términos de uso de FastTools para entender el alcance, responsabilidades y condiciones del sitio.",
     url: "/terminos",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     title: "Términos de uso | FastTools",

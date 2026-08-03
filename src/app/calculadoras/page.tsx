@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { categoryJsonLd, toolHref, toolsByCategory } from "@/lib/tool-registry";
+import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
 
 export const metadata: Metadata = {
   title: "Calculadoras online",
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
     description:
       "Calculadoras online gratuitas para porcentaje, descuento, promedio, aumento porcentual, edad, regla de tres, IMC y conversión de temperatura.",
     url: "/calculadoras",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     title: "Calculadoras online | FastTools",

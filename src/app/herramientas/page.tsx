@@ -3,6 +3,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { CATEGORIES } from "@/lib/tools";
 import { featuredTools, toolHref, toolsByCategory } from "@/lib/tool-registry";
+import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
 
 export const metadata: Metadata = {
   title: "Todas las herramientas",
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
     description:
       "Explora todas las herramientas online gratuitas de FastTools: texto, generadores y calculadoras en un solo índice.",
     url: "/herramientas",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     title: "Todas las herramientas | FastTools",
