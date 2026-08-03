@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 
@@ -15,7 +15,17 @@ type Props = {
   gaId: string;
 };
 
-export default function Analytics({ gaId }: Props) {
+/**
+ * useSearchParams() obliga a renderizar del lado del cliente todo el arbol de
+ * componentes cliente hasta el <Suspense> mas cercano. Sin ese limite, el build
+ * estatico falla con "useSearchParams() should be wrapped in a suspense
+ * boundary". Como este componente vive en el layout raiz, afectaba a todas las
+ * paginas del sitio.
+ *
+ * Por eso el seguimiento de pageview vive aislado aca: los <Script> de abajo
+ * quedan fuera del limite y se siguen prerenderizando en el HTML.
+ */
+function PageViewTracker({ gaId }: Props) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -32,6 +42,10 @@ export default function Analytics({ gaId }: Props) {
     });
   }, [gaId, pathname, searchParams]);
 
+  return null;
+}
+
+export default function Analytics({ gaId }: Props) {
   return (
     <>
       <Script
@@ -47,6 +61,9 @@ export default function Analytics({ gaId }: Props) {
           gtag('config', '${gaId}', { send_page_view: false });
         `}
       </Script>
+      <Suspense fallback={null}>
+        <PageViewTracker gaId={gaId} />
+      </Suspense>
     </>
   );
 }
