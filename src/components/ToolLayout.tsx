@@ -15,19 +15,17 @@ export default function ToolLayout({ slug, tool, content }: Props) {
   const meta = getTool(slug);
   const category = getCategory(meta.category);
 
-  const title = meta.title;
-  const description = meta.description;
   const categoryHref = `/${category.slug}`;
   const categoryLabel = category.shortTitle;
-  const breadcrumb = <Breadcrumb crumbs={breadcrumbFor(slug)} />;
-  const relatedTools = <RelatedTools tools={relatedFor(slug)} />;
   const faq = meta.faq;
 
   return (
     <div className="flex flex-col gap-8 sm:gap-10">
       <AdPlaceholder id="ad-tool-top" />
 
-      {breadcrumb && <div>{breadcrumb}</div>}
+      <div>
+        <Breadcrumb crumbs={breadcrumbFor(slug)} />
+      </div>
 
       <section className="relative overflow-hidden rounded-[2rem] border border-border bg-surface shadow-[0_18px_40px_rgba(23,32,51,0.06)]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.12),transparent_22rem),radial-gradient(circle_at_bottom_right,rgba(15,118,110,0.12),transparent_22rem)]" />
@@ -37,8 +35,8 @@ export default function ToolLayout({ slug, tool, content }: Props) {
               Herramienta puntual
             </div>
             <div>
-              <h1 className="text-3xl sm:text-5xl font-extrabold text-text">{title}</h1>
-              <p className="mt-3 max-w-2xl text-sm sm:text-base text-muted">{description}</p>
+              <h1 className="text-3xl sm:text-5xl font-extrabold text-text">{meta.title}</h1>
+              <p className="mt-3 max-w-2xl text-sm sm:text-base text-muted">{meta.description}</p>
             </div>
           </div>
 
@@ -49,15 +47,13 @@ export default function ToolLayout({ slug, tool, content }: Props) {
                 Entra, completa el campo y resuelve la tarea sin pasos extra.
               </p>
             </div>
-            {categoryHref && categoryLabel && (
-              <Link
-                href={categoryHref}
-                className="rounded-[1.5rem] border border-border bg-surface px-5 py-4 shadow-sm hover:-translate-y-0.5 hover:border-primary"
-              >
-                <p className="text-[11px] uppercase tracking-[0.18em] text-muted">Categoría</p>
-                <p className="mt-2 text-sm font-semibold text-text">{categoryLabel}</p>
-              </Link>
-            )}
+            <Link
+              href={categoryHref}
+              className="rounded-[1.5rem] border border-border bg-surface px-5 py-4 shadow-sm hover:-translate-y-0.5 hover:border-primary"
+            >
+              <p className="text-[11px] uppercase tracking-[0.18em] text-muted">Categoría</p>
+              <p className="mt-2 text-sm font-semibold text-text">{categoryLabel}</p>
+            </Link>
             <Link
               href="/herramientas"
               className="rounded-[1.5rem] border border-border bg-surface px-5 py-4 shadow-sm hover:-translate-y-0.5 hover:border-primary"
@@ -106,17 +102,15 @@ export default function ToolLayout({ slug, tool, content }: Props) {
             </section>
           ) : null}
 
-          {relatedTools && (
-            <section className="rounded-[1.8rem] border border-border bg-surface px-5 py-6 shadow-sm sm:px-7">
-              <div className="mb-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                  Sigue el flujo
-                </p>
-                <h2 className="mt-2 text-xl font-semibold text-text">Herramientas relacionadas</h2>
-              </div>
-              {relatedTools}
-            </section>
-          )}
+          <section className="rounded-[1.8rem] border border-border bg-surface px-5 py-6 shadow-sm sm:px-7">
+            <div className="mb-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                Sigue el flujo
+              </p>
+              <h2 className="mt-2 text-xl font-semibold text-text">Herramientas relacionadas</h2>
+            </div>
+            <RelatedTools tools={relatedFor(slug)} />
+          </section>
         </div>
 
         <aside className="hidden lg:block w-[220px] shrink-0">
@@ -148,14 +142,12 @@ export default function ToolLayout({ slug, tool, content }: Props) {
         >
           {"<- Volver al inicio"}
         </Link>
-        {categoryHref && categoryLabel && (
-          <Link
-            href={categoryHref}
-            className="rounded-full border border-border bg-surface px-4 py-2 text-muted hover:border-primary hover:text-primary"
-          >
-            {`<- Volver a ${categoryLabel}`}
-          </Link>
-        )}
+        <Link
+          href={categoryHref}
+          className="rounded-full border border-border bg-surface px-4 py-2 text-muted hover:border-primary hover:text-primary"
+        >
+          {`<- Volver a ${categoryLabel}`}
+        </Link>
       </div>
     </div>
   );

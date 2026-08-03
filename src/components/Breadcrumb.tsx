@@ -1,9 +1,5 @@
 import Link from "next/link";
-
-type Crumb = {
-  href: string;
-  title: string;
-};
+import type { Crumb } from "@/lib/tool-registry";
 
 type Props = {
   crumbs: Crumb[];

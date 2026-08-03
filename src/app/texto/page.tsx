@@ -2,45 +2,36 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { COLLECTIONS } from "@/lib/tools";
-import { categoryJsonLd, getTool, toolHref, toolsByCategory } from "@/lib/tool-registry";
-import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
+import {
+  categoryJsonLd,
+  categoryMetadata,
+  getCategory,
+  getTool,
+  toolHref,
+  toolsByCategory,
+} from "@/lib/tool-registry";
 
-export const metadata: Metadata = {
-  title: "Herramientas de texto",
-  description:
-    "Herramientas online para trabajar con texto: contadores, limpieza, líneas, saltos y conversiones.",
-  alternates: {
-    canonical: "/texto",
-  },
-  openGraph: {
-    title: "Herramientas de texto | FastTools",
-    description:
-      "Herramientas online para trabajar con texto: contadores, limpieza, líneas, saltos y conversiones.",
-    url: "/texto",
-    images: [DEFAULT_OG_IMAGE],
-  },
-  twitter: {
-    title: "Herramientas de texto | FastTools",
-    description:
-      "Herramientas online para trabajar con texto: contadores, limpieza, líneas, saltos y conversiones.",
-  },
-};
+export const metadata: Metadata = categoryMetadata("texto");
 
 export default function Texto() {
+  const category = getCategory("texto");
+
   return (
     <div className="flex flex-col gap-8 sm:gap-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(categoryJsonLd("texto")) }}
       />
-      <Breadcrumb crumbs={[{ href: "/", title: "Inicio" }, { href: "/texto", title: "Texto" }]} />
+      <Breadcrumb
+        crumbs={[{ href: "/", title: "Inicio" }, { href: "/texto", title: category.shortTitle }]}
+      />
 
       <section className="rounded-[2rem] border border-border bg-surface px-6 py-7 shadow-sm sm:px-8 sm:py-9">
         <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
-          Escribir, ordenar y ajustar
+          {category.eyebrow}
         </p>
         <h1 className="mt-3 text-3xl font-extrabold text-text sm:text-5xl">
-          Herramientas de texto
+          {category.title}
         </h1>
         <p className="mt-4 max-w-3xl text-muted">
           Esta categoría agrupa utilidades para limpiar, contar, transformar, ordenar,

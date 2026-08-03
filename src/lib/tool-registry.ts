@@ -7,6 +7,7 @@ import {
   type Tool,
 } from "@/lib/tools";
 import { assertRegistryInvariants } from "@/lib/tool-registry.invariants";
+import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
 
 export type Crumb = { href: string; title: string };
 
@@ -123,6 +124,31 @@ export function toolMetadata(slug: string): Metadata {
     twitter: {
       title: branded,
       description: tool.metaDescription,
+    },
+  };
+}
+
+export function categoryMetadata(slug: CategorySlug): Metadata {
+  const category = getCategory(slug);
+  const href = `/${category.slug}`;
+  const branded = `${category.title} | ${SITE_NAME}`;
+
+  return {
+    title: category.title,
+    description: category.metaDescription,
+    alternates: { canonical: href },
+    // Next reemplaza (no mergea) el objeto openGraph por segmento, asi que
+    // esta pagina no hereda el opengraph-image de la raiz: hay que declarar
+    // DEFAULT_OG_IMAGE a mano o la categoria se queda sin og:image.
+    openGraph: {
+      title: branded,
+      description: category.metaDescription,
+      url: href,
+      images: [DEFAULT_OG_IMAGE],
+    },
+    twitter: {
+      title: branded,
+      description: category.metaDescription,
     },
   };
 }

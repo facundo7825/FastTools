@@ -1,42 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
-import { categoryJsonLd, toolHref, toolsByCategory } from "@/lib/tool-registry";
-import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
+import {
+  categoryJsonLd,
+  categoryMetadata,
+  getCategory,
+  toolHref,
+  toolsByCategory,
+} from "@/lib/tool-registry";
 
-export const metadata: Metadata = {
-  title: "Generadores online",
-  description:
-    "Generadores online gratuitos para contraseñas, códigos QR, UUID, hashes, usernames y texto de relleno. Rápidos y sin registro.",
-  alternates: {
-    canonical: "/generadores",
-  },
-  openGraph: {
-    title: "Generadores online | FastTools",
-    description:
-      "Generadores online gratuitos para contraseñas, códigos QR, UUID, hashes, usernames y texto de relleno. Rápidos y sin registro.",
-    url: "/generadores",
-    images: [DEFAULT_OG_IMAGE],
-  },
-  twitter: {
-    title: "Generadores online | FastTools",
-    description:
-      "Generadores online gratuitos para contraseñas, códigos QR, UUID, hashes, usernames y texto de relleno. Rápidos y sin registro.",
-  },
-};
+export const metadata: Metadata = categoryMetadata("generadores");
 
 export default function Generadores() {
+  const category = getCategory("generadores");
+
   return (
     <div className="flex flex-col gap-8 sm:gap-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(categoryJsonLd("generadores")) }}
       />
-      <Breadcrumb crumbs={[{ href: "/", title: "Inicio" }, { href: "/generadores", title: "Generadores" }]} />
+      <Breadcrumb
+        crumbs={[
+          { href: "/", title: "Inicio" },
+          { href: "/generadores", title: category.shortTitle },
+        ]}
+      />
 
       <section className="rounded-[2rem] border border-border bg-surface px-6 py-7 shadow-sm sm:px-8 sm:py-9">
-        <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">Crear sin fricción</p>
-        <h1 className="mt-3 text-3xl sm:text-5xl font-extrabold text-text">Generadores online</h1>
+        <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">{category.eyebrow}</p>
+        <h1 className="mt-3 text-3xl sm:text-5xl font-extrabold text-text">{category.title}</h1>
         <p className="mt-4 max-w-3xl text-muted">
           Para esos casos donde necesitas producir algo ya mismo: una contraseña, un QR, un UUID, hashes, nombres de usuario o texto de relleno para una maqueta.
         </p>

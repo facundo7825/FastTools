@@ -1,3 +1,19 @@
+// Como agregar una herramienta nueva (checklist verificado con la
+// herramienta 32; nada de esto se infiere solo, hay que hacerlo a mano):
+//   1. Agrega su entrada al arreglo TOOLS de este archivo (slug, category,
+//      title, description, metaTitle, metaDescription, related, etc.).
+//   2. Sumala al array `related` de alguna otra herramienta afin para que no
+//      quede huerfana. relatedFor (src/lib/tool-registry.ts) rellena
+//      automaticamente hasta 3 relacionadas, pero prioriza la misma
+//      categoria y solo entra si hay ranura libre: no des por hecho que el
+//      relleno la va a rescatar. Si el build falla con "huerfana: <slug>",
+//      es esto lo que falta.
+//   3. Crea el directorio con su page.tsx en src/app/{category}/{slug}/.
+//   4. Crea el componente cliente con la interfaz de la herramienta.
+//   5. Genera su opengraph-image.tsx con `npm run og:generate`
+//      (scripts/generate-og-images.mjs) en vez de escribirlo a mano.
+// `npm run build` valida el registro (invariantes) y la paridad con disco
+// (registro <-> src/app); `npm run verify` valida despues el HTML generado.
 export type CategorySlug = "texto" | "generadores" | "calculadoras";
 
 export type Category = {

@@ -96,7 +96,11 @@ describe("checkRegistryInvariants", () => {
 
     const problems = checkRegistryInvariants(tools, categories, onlyA);
 
-    expect(problems).toContain("huerfana: b");
+    expect(problems).toContain(
+      'huerfana: b — ninguna herramienta la enlaza. Agregala al array "related" de ' +
+        "alguna herramienta afin en src/lib/tools.ts (o quitale una entrada a otra " +
+        "para hacerle lugar, porque relatedFor devuelve como maximo 3).",
+    );
   });
 
   it("junta todos los problemas a la vez, no solo el primero", () => {

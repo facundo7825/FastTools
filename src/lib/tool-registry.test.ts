@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { TOOLS } from "@/lib/tools";
+import { CATEGORIES, TOOLS } from "@/lib/tools";
 import {
   breadcrumbFor,
+  categoryMetadata,
   featuredTools,
+  getCategory,
   getTool,
   relatedFor,
   toolHref,
@@ -119,5 +121,44 @@ describe("toolMetadata", () => {
   it("pone la marca en openGraph, que no recibe el template", () => {
     const og = toolMetadata("contador-palabras").openGraph;
     expect(og?.title).toContain("FastTools");
+  });
+});
+
+describe("categoryMetadata", () => {
+  it("declara el canonical propio", () => {
+    expect(categoryMetadata("texto").alternates?.canonical).toBe("/texto");
+  });
+
+  it("no duplica la marca en el title", () => {
+    expect(categoryMetadata("texto").title).not.toContain("FastTools");
+  });
+
+  it("usa la description del registro (metaDescription de la categoria)", () => {
+    const category = getCategory("texto");
+    expect(categoryMetadata("texto").description).toBe(category.metaDescription);
+  });
+
+  it("pone la marca en openGraph, que no recibe el template", () => {
+    const og = categoryMetadata("texto").openGraph;
+    expect(og?.title).toContain("FastTools");
+  });
+
+  it("pone la marca en twitter, que no recibe el template", () => {
+    const twitter = categoryMetadata("texto").twitter;
+    expect(twitter?.title).toContain("FastTools");
+  });
+
+  it("incluye la imagen generica de open graph (Next reemplaza el objeto por segmento)", () => {
+    const og = categoryMetadata("texto").openGraph;
+    expect(og?.images).toBeDefined();
+  });
+
+  it("funciona para las 3 categorias", () => {
+    for (const category of CATEGORIES) {
+      const meta = categoryMetadata(category.slug);
+      expect(meta.title).toBe(category.title);
+      expect(meta.description).toBe(category.metaDescription);
+      expect(meta.alternates?.canonical).toBe(`/${category.slug}`);
+    }
   });
 });

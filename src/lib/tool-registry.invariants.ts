@@ -35,7 +35,13 @@ export function checkRegistryInvariants(
     for (const rel of relatedFor(tool.slug)) inbound.add(rel.slug);
   }
   for (const tool of tools) {
-    if (!inbound.has(tool.slug)) problems.push(`huerfana: ${tool.slug}`);
+    if (!inbound.has(tool.slug)) {
+      problems.push(
+        `huerfana: ${tool.slug} — ninguna herramienta la enlaza. Agregala al array ` +
+          `"related" de alguna herramienta afin en src/lib/tools.ts (o quitale una ` +
+          `entrada a otra para hacerle lugar, porque relatedFor devuelve como maximo 3).`,
+      );
+    }
   }
 
   for (const category of categories) {

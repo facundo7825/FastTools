@@ -1,6 +1,9 @@
-// Script de un solo uso: genera src/app/{categoria}/{slug}/opengraph-image.tsx
+// Codegen idempotente: genera src/app/{categoria}/{slug}/opengraph-image.tsx
 // para cada herramienta del registro (src/lib/tools.ts), asi el slug de cada
-// archivo sale del registro y no de tipear a mano.
+// archivo sale del registro y no de tipear a mano. No es de un solo uso:
+// correlo de nuevo despues de agregar una herramienta (o cualquier cambio de
+// slug/categoria) y produce 0 diferencias en los archivos que ya estaban al
+// dia.
 //
 // tools.ts es TypeScript y este proyecto no tiene ts-node/tsx instalado, asi
 // que en vez de importar el modulo, parseamos con una regex el bloque
@@ -8,7 +11,7 @@
 // El formato es estable (se verifico a mano contra las 32 entradas antes de
 // correr el script).
 //
-// Uso: node scripts/generate-og-images.mjs
+// Uso: npm run og:generate  (o "node scripts/generate-og-images.mjs")
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
