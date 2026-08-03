@@ -42,7 +42,7 @@ export default function EliminarLineasDuplicadas() {
         <textarea
           id={inputId}
           className={`${fieldClassName} h-48 resize-y`}
-          placeholder="Pega lineas repetidas para dejarlas una sola vez..."
+          placeholder="Pega líneas repetidas para dejarlas una sola vez..."
           value={text}
           onChange={(event) => {
             setText(event.target.value);
@@ -56,7 +56,7 @@ export default function EliminarLineasDuplicadas() {
           <div className="flex flex-col gap-1">
             <p className="text-sm text-muted">Resultado sin duplicados</p>
             <p className="text-xs text-muted" aria-live="polite">
-              {feedback || "Se conserva la primera aparicion de cada linea."}
+              {feedback || "Se conserva la primera aparición de cada línea."}
             </p>
           </div>
           <div className="flex gap-2">
@@ -70,7 +70,7 @@ export default function EliminarLineasDuplicadas() {
         </div>
 
         <div className="w-full border border-border rounded-xl p-4 min-h-16 bg-background text-text text-sm leading-relaxed whitespace-pre-wrap break-words">
-          {result || "Las lineas unicas apareceran aqui."}
+          {result || "Las líneas únicas aparecerán aquí."}
         </div>
       </div>
     </div>

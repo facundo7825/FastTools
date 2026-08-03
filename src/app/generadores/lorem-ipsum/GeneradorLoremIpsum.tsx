@@ -29,7 +29,7 @@ export default function GeneradorLoremIpsum() {
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-1.5">
         <label htmlFor={rangeId} className="text-sm text-muted">
-          Parrafos: {cantidad}
+          Párrafos: {cantidad}
         </label>
         <input
           id={rangeId}

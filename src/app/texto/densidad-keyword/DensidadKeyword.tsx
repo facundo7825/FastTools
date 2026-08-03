@@ -57,7 +57,7 @@ export default function DensidadKeyword() {
             id={keywordId}
             type="text"
             className={fieldClassName}
-            placeholder="Ejemplo: diseno web"
+            placeholder="Ejemplo: diseño web"
             value={keyword}
             onChange={(event) => {
               setKeyword(event.target.value);
@@ -73,7 +73,7 @@ export default function DensidadKeyword() {
           <textarea
             id={textId}
             className={`${fieldClassName} min-h-56 resize-y`}
-            placeholder="Pega aqui el contenido completo para medir la densidad."
+            placeholder="Pega aquí el contenido completo para medir la densidad."
             value={text}
             onChange={(event) => {
               setText(event.target.value);

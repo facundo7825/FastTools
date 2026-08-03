@@ -33,7 +33,7 @@ export default function QuitarEspacios() {
         <textarea
           id={inputId}
           className={`${fieldClassName} h-48 resize-y`}
-          placeholder="Escribe o pega tu texto aqui..."
+          placeholder="Escribe o pega tu texto aquí..."
           value={text}
           onChange={(e) => {
             setText(e.target.value);
@@ -46,7 +46,7 @@ export default function QuitarEspacios() {
           <div className="flex flex-col gap-1">
             <p className="text-sm text-muted">Resultado</p>
             <p className="text-xs text-muted" aria-live="polite">
-              {feedback || "El texto se actualiza automaticamente."}
+              {feedback || "El texto se actualiza automáticamente."}
             </p>
           </div>
           <div className="flex gap-2">
@@ -59,7 +59,7 @@ export default function QuitarEspacios() {
           </div>
         </div>
         <div className="w-full border border-border rounded-xl p-4 min-h-16 bg-background text-text text-sm leading-relaxed whitespace-pre-wrap break-words">
-          {result || "El resultado limpio aparecera aqui."}
+          {result || "El resultado limpio aparecerá aquí."}
         </div>
       </div>
     </div>

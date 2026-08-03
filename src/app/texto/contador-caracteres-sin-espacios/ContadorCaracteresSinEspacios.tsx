@@ -33,7 +33,7 @@ export default function ContadorCaracteresSinEspacios() {
         <textarea
           id={inputId}
           className={`${fieldClassName} h-48 resize-y`}
-          placeholder="Escribe o pega tu texto aqui..."
+          placeholder="Escribe o pega tu texto aquí..."
           value={text}
           onChange={(event) => {
             setText(event.target.value);
@@ -48,7 +48,7 @@ export default function ContadorCaracteresSinEspacios() {
             Caracteres sin espacios: <span className="font-bold">{count}</span>
           </p>
           <p className="text-xs text-muted" aria-live="polite">
-            {feedback || "Se excluyen espacios, tabulaciones y saltos de linea."}
+            {feedback || "Se excluyen espacios, tabulaciones y saltos de línea."}
           </p>
         </div>
 

@@ -33,7 +33,7 @@ export default function ExtraerTextoHTML() {
 
   async function handleCopy() {
     await navigator.clipboard.writeText(result);
-    setFeedback("Texto extraido copiado.");
+    setFeedback("Texto extraído copiado.");
   }
 
   function handleClear() {
@@ -50,7 +50,7 @@ export default function ExtraerTextoHTML() {
         <textarea
           id={inputId}
           className={`${fieldClassName} min-h-56 resize-y font-mono text-sm`}
-          placeholder="<h1>Titulo</h1><p>Este es un ejemplo.</p>"
+          placeholder="<h1>Título</h1><p>Este es un ejemplo.</p>"
           value={html}
           onChange={(event) => {
             setHtml(event.target.value);
@@ -79,24 +79,24 @@ export default function ExtraerTextoHTML() {
 
       <div className="grid gap-3 rounded-2xl border border-border bg-background p-4 sm:grid-cols-2">
         <div>
-          <p className="text-xs uppercase tracking-[0.16em] text-muted">Caracteres extraidos</p>
+          <p className="text-xs uppercase tracking-[0.16em] text-muted">Caracteres extraídos</p>
           <p className="mt-1 text-2xl font-bold text-text">{result.length}</p>
         </div>
         <div>
           <p className="text-xs uppercase tracking-[0.16em] text-muted">Estado</p>
           <p className="mt-1 text-sm text-text" aria-live="polite">
-            {feedback || "El texto plano se genera automaticamente al pegar el HTML."}
+            {feedback || "El texto plano se genera automáticamente al pegar el HTML."}
           </p>
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <p className="text-sm font-medium text-muted">Texto extraido</p>
+        <p className="text-sm font-medium text-muted">Texto extraído</p>
         <textarea
           readOnly
           value={result}
           className={`${fieldClassName} min-h-56 resize-y bg-background`}
-          placeholder="Aqui veras el contenido de texto sin etiquetas HTML."
+          placeholder="Aquí verás el contenido de texto sin etiquetas HTML."
         />
       </div>
     </div>

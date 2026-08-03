@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CATEGORIES } from "@/lib/tools";
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
             <p className="text-xl font-bold tracking-tight">FastTools</p>
             <p className="text-sm text-white/70 max-w-xl">
               Un taller digital de utilidades simples para escribir, generar y calcular sin
-              vueltas. La idea es ahorrar tiempo en tareas chicas que aparecen todos los dias.
+              vueltas. La idea es ahorrar tiempo en tareas chicas que aparecen todos los días.
             </p>
           </div>
 
@@ -18,15 +19,15 @@ export default function Footer() {
             <Link href="/herramientas" className="text-white/70 hover:text-white transition-colors">
               Herramientas
             </Link>
-            <Link href="/texto" className="text-white/70 hover:text-white transition-colors">
-              Texto
-            </Link>
-            <Link href="/generadores" className="text-white/70 hover:text-white transition-colors">
-              Generadores
-            </Link>
-            <Link href="/calculadoras" className="text-white/70 hover:text-white transition-colors">
-              Calculadoras
-            </Link>
+            {CATEGORIES.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/${cat.slug}`}
+                className="text-white/70 hover:text-white transition-colors"
+              >
+                {cat.shortTitle}
+              </Link>
+            ))}
           </div>
 
           <div className="flex flex-col gap-2 text-sm">
@@ -38,7 +39,7 @@ export default function Footer() {
               Privacidad
             </Link>
             <Link href="/terminos" className="text-white/70 hover:text-white transition-colors">
-              Terminos
+              Términos
             </Link>
             <Link href="/contacto" className="text-white/70 hover:text-white transition-colors">
               Contacto
@@ -48,7 +49,7 @@ export default function Footer() {
 
         <div className="flex flex-col gap-2 border-t border-white/10 pt-5 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <span>FastTools © 2026</span>
-          <span>Hecho para resolver tareas pequenas con menos friccion.</span>
+          <span>Hecho para resolver tareas pequeñas con menos fricción.</span>
         </div>
       </div>
     </footer>

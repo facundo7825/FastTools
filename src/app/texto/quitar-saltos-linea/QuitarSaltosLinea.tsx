@@ -33,7 +33,7 @@ export default function QuitarSaltosLinea() {
         <textarea
           id={inputId}
           className={`${fieldClassName} h-48 resize-y`}
-          placeholder="Pega aqui un texto con varias lineas..."
+          placeholder="Pega aquí un texto con varias líneas..."
           value={text}
           onChange={(event) => {
             setText(event.target.value);
@@ -45,9 +45,9 @@ export default function QuitarSaltosLinea() {
       <div>
         <div className="flex flex-col gap-3 mb-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-1">
-            <p className="text-sm text-muted">Resultado en una sola linea</p>
+            <p className="text-sm text-muted">Resultado en una sola línea</p>
             <p className="text-xs text-muted" aria-live="polite">
-              {feedback || "Los saltos de linea se reemplazan por espacios."}
+              {feedback || "Los saltos de línea se reemplazan por espacios."}
             </p>
           </div>
           <div className="flex gap-2">
@@ -61,7 +61,7 @@ export default function QuitarSaltosLinea() {
         </div>
 
         <div className="w-full border border-border rounded-xl p-4 min-h-16 bg-background text-text text-sm leading-relaxed whitespace-pre-wrap break-words">
-          {result || "El texto sin saltos de linea aparecera aqui."}
+          {result || "El texto sin saltos de línea aparecerá aquí."}
         </div>
       </div>
     </div>

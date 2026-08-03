@@ -12,6 +12,37 @@ const CHARS = {
 const fieldClassName =
   "w-full border border-border rounded-xl p-3 bg-surface text-text placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors";
 
+const UINT32_RANGE = 0x100000000;
+
+/**
+ * Selecciona `count` caracteres de `charset` con crypto.getRandomValues().
+ * Usa muestreo por rechazo para evitar el sesgo por modulo: solo se aceptan
+ * los valores por debajo del mayor multiplo de charset.length que cabe en el
+ * rango de Uint32, asi cada caracter tiene exactamente la misma probabilidad.
+ */
+function randomChars(charset: string, count: number) {
+  const setSize = charset.length;
+  const limit = Math.floor(UINT32_RANGE / setSize) * setSize;
+  const batch = new Uint32Array(count);
+  let cursor = batch.length;
+  let result = "";
+
+  while (result.length < count) {
+    if (cursor >= batch.length) {
+      crypto.getRandomValues(batch);
+      cursor = 0;
+    }
+
+    const value = batch[cursor];
+    cursor += 1;
+
+    if (value >= limit) continue;
+    result += charset.charAt(value % setSize);
+  }
+
+  return result;
+}
+
 export default function GeneradorPassword() {
   const lengthId = useId();
   const [length, setLength] = useState(16);
@@ -30,22 +61,17 @@ export default function GeneradorPassword() {
     if (useSymbols) charset += CHARS.symbols;
 
     if (!charset) {
-      setFeedback("Selecciona al menos un tipo de caracter.");
+      setFeedback("Selecciona al menos un tipo de carácter.");
       return;
     }
 
-    let result = "";
-    for (let index = 0; index < length; index++) {
-      result += charset.charAt(Math.floor(Math.random() * charset.length));
-    }
-
-    setPassword(result);
-    setFeedback("Contrasena generada.");
+    setPassword(randomChars(charset, length));
+    setFeedback("Contraseña generada.");
   }
 
   async function handleCopy() {
     await navigator.clipboard.writeText(password);
-    setFeedback("Contrasena copiada.");
+    setFeedback("Contraseña copiada.");
   }
 
   return (
@@ -72,28 +98,28 @@ export default function GeneradorPassword() {
         <legend className="text-sm text-muted mb-1">Tipos de caracteres</legend>
         <label className="flex items-center gap-2 text-sm text-text">
           <input type="checkbox" checked={useLower} onChange={(e) => setUseLower(e.target.checked)} className="accent-primary" />
-          Minusculas
+          Minúsculas
         </label>
         <label className="flex items-center gap-2 text-sm text-text">
           <input type="checkbox" checked={useUpper} onChange={(e) => setUseUpper(e.target.checked)} className="accent-primary" />
-          Mayusculas
+          Mayúsculas
         </label>
         <label className="flex items-center gap-2 text-sm text-text">
           <input type="checkbox" checked={useNumbers} onChange={(e) => setUseNumbers(e.target.checked)} className="accent-primary" />
-          Numeros
+          Números
         </label>
         <label className="flex items-center gap-2 text-sm text-text">
           <input type="checkbox" checked={useSymbols} onChange={(e) => setUseSymbols(e.target.checked)} className="accent-primary" />
-          Simbolos
+          Símbolos
         </label>
       </fieldset>
 
       <div className="flex flex-wrap gap-2">
         <button
           onClick={generate}
-          className="px-4 py-2 bg-primary text-white rounded-xl text-sm font-medium hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors w-fit"
+          className="px-4 py-2 bg-primary text-white rounded-xl text-sm font-medium hover:bg-primary-strong active:bg-primary-strong focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors w-fit"
         >
-          Generar contrasena
+          Generar contraseña
         </button>
         {password && (
           <button
@@ -106,7 +132,7 @@ export default function GeneradorPassword() {
       </div>
 
       <p className="text-xs text-muted" aria-live="polite">
-        {feedback || "Configura la longitud y genera una contrasena segura."}
+        {feedback || "Configura la longitud y genera una contraseña segura."}
       </p>
 
       {password && (

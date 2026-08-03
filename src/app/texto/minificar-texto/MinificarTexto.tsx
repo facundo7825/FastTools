@@ -35,7 +35,7 @@ export default function MinificarTexto() {
         <textarea
           id={inputId}
           className={`${fieldClassName} min-h-56 resize-y`}
-          placeholder="Pega aqui texto con espacios, saltos y separaciones que quieras compactar."
+          placeholder="Pega aquí texto con espacios, saltos y separaciones que quieras compactar."
           value={text}
           onChange={(event) => {
             setText(event.target.value);
@@ -80,7 +80,7 @@ export default function MinificarTexto() {
       </div>
 
       <p className="text-sm text-muted" aria-live="polite">
-        {feedback || "La herramienta compacta espacios y saltos para dejar una sola version limpia."}
+        {feedback || "La herramienta compacta espacios y saltos para dejar una sola versión limpia."}
       </p>
 
       <div className="flex flex-col gap-2">
@@ -89,7 +89,7 @@ export default function MinificarTexto() {
           readOnly
           value={minified}
           className={`${fieldClassName} min-h-56 resize-y bg-background`}
-          placeholder="Aqui veras el texto compactado."
+          placeholder="Aquí verás el texto compactado."
         />
       </div>
     </div>

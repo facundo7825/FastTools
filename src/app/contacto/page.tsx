@@ -1,34 +1,36 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import { DEFAULT_OG_IMAGE } from "@/lib/og-image";
 
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Encuentra la informacion de contacto y soporte general de FastTools para consultas, sugerencias o reportes.",
+    "Encuentra la información de contacto y soporte general de FastTools para consultas, sugerencias o reportes.",
   alternates: {
     canonical: "/contacto",
   },
   openGraph: {
     title: "Contacto | FastTools",
     description:
-      "Encuentra la informacion de contacto y soporte general de FastTools para consultas, sugerencias o reportes.",
+      "Encuentra la información de contacto y soporte general de FastTools para consultas, sugerencias o reportes.",
     url: "/contacto",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     title: "Contacto | FastTools",
     description:
-      "Encuentra la informacion de contacto y soporte general de FastTools para consultas, sugerencias o reportes.",
+      "Encuentra la información de contacto y soporte general de FastTools para consultas, sugerencias o reportes.",
   },
 };
 
 const cards = [
   {
     title: "Consultas y sugerencias",
-    text: "Si mas adelante se habilita un canal directo de contacto, esta sera la pagina oficial para publicarlo.",
+    text: "Si más adelante se habilita un canal directo de contacto, esta será la página oficial para publicarlo.",
   },
   {
     title: "Reportes de errores",
-    text: "Si detectas un fallo, toma nota del caso, de la pagina y del dato usado. Ese contexto acelera mucho la correccion.",
+    text: "Si detectas un fallo, toma nota del caso, de la página y del dato usado. Ese contexto acelera mucho la corrección.",
   },
 ];
 
@@ -37,8 +39,8 @@ export default function ContactoPage() {
     <div className="flex flex-col gap-8">
       <Breadcrumb
         crumbs={[
-          { href: "/", label: "Home" },
-          { href: "/contacto", label: "Contacto" },
+          { href: "/", title: "Inicio" },
+          { href: "/contacto", title: "Contacto" },
         ]}
       />
 
@@ -48,7 +50,7 @@ export default function ContactoPage() {
         </p>
         <h1 className="mt-3 text-3xl sm:text-5xl font-extrabold text-text">Contacto</h1>
         <p className="mt-4 max-w-3xl text-muted">
-          Esta pagina concentra la referencia de soporte general para consultas, sugerencias
+          Esta página concentra la referencia de soporte general para consultas, sugerencias
           y reportes relacionados con FastTools.
         </p>
       </section>
@@ -65,7 +67,7 @@ export default function ContactoPage() {
       <section className="rounded-[1.8rem] border border-border bg-background p-6">
         <h2 className="text-lg font-semibold text-text mb-2">Siguiente paso recomendado</h2>
         <p className="text-sm text-muted">
-          Antes de publicar el sitio de forma definitiva, conviene reemplazar esta pagina
+          Antes de publicar el sitio de forma definitiva, conviene reemplazar esta página
           con un canal real de contacto: email, formulario o perfil oficial del proyecto.
         </p>
       </section>

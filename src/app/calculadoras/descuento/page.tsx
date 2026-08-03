@@ -1,38 +1,19 @@
-import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
-import RelatedTools from "@/components/RelatedTools";
-import Breadcrumb from "@/components/Breadcrumb";
+import { toolJsonLd, toolMetadata } from "@/lib/tool-registry";
 import CalculadoraDescuento from "./CalculadoraDescuento";
 
-export const metadata: Metadata = {
-  title: "Calculadora de descuento online gratis",
-  description:
-    "Calcula descuentos y precio final al instante. Ideal para ofertas, rebajas, ventas y compras cotidianas.",
-};
+const SLUG = "descuento";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "HowTo",
-      name: "Como calcular un descuento",
-      step: [
-        { "@type": "HowToStep", text: "Ingresa el precio original." },
-        { "@type": "HowToStep", text: "Escribe el porcentaje de descuento." },
-        { "@type": "HowToStep", text: "La herramienta muestra el monto descontado y el precio final." },
-      ],
-    },
-  ],
-};
+export const metadata = toolMetadata(SLUG);
 
 const content = (
   <>
     <p>
-      Esta calculadora te ayuda a saber rapidamente cuanto descuentan sobre un precio y
-      cuanto terminarias pagando. Es util para ofertas, compras online, rebajas y
+      Esta calculadora te ayuda a saber rápidamente cuánto descuentan sobre un precio y
+      cuánto terminarías pagando. Es útil para ofertas, compras online, rebajas y
       comparaciones simples.
     </p>
-    <h2>Como usar la calculadora</h2>
+    <h2>Cómo usar la calculadora</h2>
     <ol>
       <li>Ingresa el precio original.</li>
       <li>Escribe el porcentaje de descuento.</li>
@@ -46,34 +27,9 @@ export default function Page() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd(SLUG)) }}
       />
-      <ToolLayout
-        title="Calculadora de descuento"
-        description="Calcula cuanto te descuentan y cual es el precio final."
-        tool={<CalculadoraDescuento />}
-        content={content}
-        categoryHref="/calculadoras"
-        categoryLabel="Calculadoras"
-        breadcrumb={
-          <Breadcrumb
-            crumbs={[
-              { href: "/", label: "Home" },
-              { href: "/calculadoras", label: "Calculadoras" },
-              { href: "/calculadoras/descuento", label: "Calculadora de descuento" },
-            ]}
-          />
-        }
-        relatedTools={
-          <RelatedTools
-            tools={[
-              { href: "/calculadoras/porcentaje", title: "Calculadora de porcentaje" },
-              { href: "/calculadoras/regla-de-tres", title: "Regla de tres" },
-              { href: "/calculadoras/edad", title: "Calculadora de edad" },
-            ]}
-          />
-        }
-      />
+      <ToolLayout slug={SLUG} tool={<CalculadoraDescuento />} content={content} />
     </>
   );
 }

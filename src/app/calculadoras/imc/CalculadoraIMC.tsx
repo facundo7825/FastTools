@@ -68,7 +68,7 @@ export default function CalculadoraIMC() {
             <p className="text-4xl font-extrabold text-text">{imc.toFixed(1)}</p>
           </div>
           <div className="flex-1">
-            <p className="text-sm font-medium text-muted mb-1">Categoria</p>
+            <p className="text-sm font-medium text-muted mb-1">Categoría</p>
             <p className={`text-xl font-bold ${categoria.color}`}>{categoria.label}</p>
           </div>
         </div>

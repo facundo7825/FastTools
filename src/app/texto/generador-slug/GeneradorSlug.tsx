@@ -42,7 +42,7 @@ export default function GeneradorSlug() {
         <textarea
           id={inputId}
           className={`${fieldClassName} min-h-40 resize-y`}
-          placeholder="Ejemplo: Como crear una URL limpia para mi articulo"
+          placeholder="Ejemplo: Cómo crear una URL limpia para mi artículo"
           value={text}
           onChange={(event) => {
             setText(event.target.value);
@@ -85,7 +85,7 @@ export default function GeneradorSlug() {
       </div>
 
       <p className="text-sm text-muted" aria-live="polite">
-        {feedback || "Convierte texto en una version corta, limpia y lista para usar en URLs."}
+        {feedback || "Convierte texto en una versión corta, limpia y lista para usar en URLs."}
       </p>
 
       <div className="flex flex-col gap-2">
@@ -94,7 +94,7 @@ export default function GeneradorSlug() {
           readOnly
           value={slug}
           className={`${fieldClassName} min-h-32 resize-y bg-background`}
-          placeholder="Aqui veras el slug listo para usar."
+          placeholder="Aquí verás el slug listo para usar."
         />
       </div>
     </div>

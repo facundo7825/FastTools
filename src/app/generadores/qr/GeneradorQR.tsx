@@ -136,13 +136,13 @@ export default function GeneradorQR() {
           </div>
 
           <p className="text-xs text-muted" aria-live="polite">
-            {feedback || "Podés descargar el QR en PNG o copiar la imagen al portapapeles."}
+            {feedback || "Puedes descargar el QR en PNG o copiar la imagen al portapapeles."}
           </p>
         </div>
       )}
       {!text && (
         <p className="text-xs text-muted">
-          Escribí un texto o una URL para generar el código QR.
+          Escribe un texto o una URL para generar el código QR.
         </p>
       )}
     </div>
